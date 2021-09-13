@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://References/MyButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="MyButton" type="Button"]
+margin_right = 346.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+text = "jnasdjnasd"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 331.126
+margin_top = 176.227
+margin_right = 465.126
+margin_bottom = 273.227
+custom_fonts/font = SubResource( 2 )
+text = "asjdjnasjdnjajsdj"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_MyButton_pressed"]

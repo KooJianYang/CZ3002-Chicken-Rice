@@ -1,0 +1,22 @@
+Naming conventions for the game project
+
+Node names, Class names and File names-> PascalCase
+
+signals -> use past tense to name e.g. door_opened, score_changed
+
+constants -> CONSTANT_CASE
+
+
+Use PascalCase for enum names and CONSTANT_CASE for their members, as they are constants:
+enum Element {
+    EARTH,
+    WATER,
+    AIR,
+    FIRE,
+}
+
+functions and variables -> snake_case
+
+Comment like this
+# This is a comment.
+#print("This is disabled code")
