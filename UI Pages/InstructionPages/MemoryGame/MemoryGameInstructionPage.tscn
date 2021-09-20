@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="MemoryGameInstructionPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -349.0
+margin_top = 27.0
+margin_right = 349.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Memory Game"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Instructions" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -337.0
+margin_top = 186.0
+margin_right = 338.0
+margin_bottom = 481.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Instructions: for Memory Game"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -212.5
+margin_top = -126.0
+margin_right = 212.5
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 3 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
