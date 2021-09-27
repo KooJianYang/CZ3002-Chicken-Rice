@@ -61,17 +61,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -212.5
+margin_left = -340.289
 margin_top = -126.0
-margin_right = 212.5
+margin_right = -54.2892
 margin_bottom = -28.0
 custom_fonts/font = SubResource( 3 )
 text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 44.5783
+margin_top = -126.0
+margin_right = 330.578
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 3 )
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }

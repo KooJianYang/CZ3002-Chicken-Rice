@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Games/ObservationGame/CirclesManager.gd" type="Script" id=1]
+[ext_resource path="res://Games/ObservationGame/ObservationGame.gd" type="Script" id=2]
+[ext_resource path="res://Games/ObservationGame/Circle/Circle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Games/ObservationGame/CountdownLabel.gd" type="Script" id=5]
+[ext_resource path="res://Games/ObservationGame/LineToConnectCircles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Games/ObservationGame/TimeTakenLabel.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 192
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 4 )
+
+[node name="ObservationGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CirclesManager" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+circle = ExtResource( 3 )
+line_to_connect_circles = ExtResource( 6 )
+
+[node name="Lines" type="Node2D" parent="CirclesManager"]
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -213.0
+margin_top = -123.0
+margin_right = 213.0
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+seconds_left_to_start = 4
+
+[node name="IntervalTimer" type="Timer" parent="CountdownLabel"]
+one_shot = true
+autostart = true
+
+[node name="GameEnd" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CongratsLabel" type="Label" parent="GameEnd"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -259.0
+margin_top = -316.46
+margin_right = 259.0
+margin_bottom = -234.46
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Congratulations!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouTookLabel" type="Label" parent="GameEnd"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -263.0
+margin_top = -221.005
+margin_right = 263.0
+margin_bottom = -158.005
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You took"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTakenLabel" type="Label" parent="GameEnd"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -263.0
+margin_top = -122.01
+margin_right = 263.0
+margin_bottom = -59.0096
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CountdownLabel/IntervalTimer" to="CountdownLabel" method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
