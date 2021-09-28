@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Art/Button - PS Blank 2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Games/ObservationGame/Circle/Circle.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 60.0
+
+[node name="Circle" type="TextureButton"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 60, 60 )
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelNumber" type="Label" parent="."]
+margin_top = -3.0
+margin_right = 120.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 1 )
+text = "25"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProximityArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea"]
+position = Vector2( 60, 60 )
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="." to="." method="_on_Circle_pressed"]
