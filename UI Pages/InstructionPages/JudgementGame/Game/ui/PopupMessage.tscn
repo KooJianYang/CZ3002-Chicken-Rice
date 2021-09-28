@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI Pages/InstructionPages/JudgementGame/Game/ui/PopupMessage.gd" type="Script" id=1]
+
+[node name="PopupMessage" type="WindowDialog"]
+visible = true
+margin_left = 28.0
+margin_top = 160.0
+margin_right = 308.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 280, 100 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+window_title = "Title here"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="."]
+margin_right = 280.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="V"]
+margin_left = 10.0
+margin_right = 270.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 260, 50 )
+size_flags_horizontal = 4
+text = "Message here"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ClosePopupButton" type="Button" parent="V"]
+margin_left = 116.0
+margin_top = 54.0
+margin_right = 163.0
+margin_bottom = 74.0
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="pressed" from="V/ClosePopupButton" to="." method="_on_ClosePopupButton_pressed"]
