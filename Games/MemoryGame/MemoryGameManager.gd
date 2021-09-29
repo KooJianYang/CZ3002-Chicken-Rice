@@ -4,20 +4,35 @@ onready var Game = get_node("/root/MemoryGame/")
 var availableDeck = ["T", "S", "C", "CS", "ST", "TC", "CST", "CTS", "STC", "TCS"] #additional: "SCT", "TSC"
 var deck = Array()
 var difficulty_levels = [3, 6, 10]
-#3 -> 3, 6 -> 4, 10 -> 5
-var cardBack = preload("res://Assets/MemoryGame/Back.png")
-
 var card1
 var card2
 var score = 0
-
-var difficulty = 1 #placeholder
-
 var flipDelay = Timer.new()
+var Clock = Timer.new()
+var seconds = 0
+var moves = 0
+
+var movesLabel
+var timerLabel
+
+#placeholder
+var difficulty = 2 
 
 func _ready():
 	fillDeck(difficulty_levels[difficulty])
 	dealDeck(difficulty)
+	setUpHUD()
+
+func _process(_delta):
+	var current_epoch = OS.get_ticks_msec()
+	timerLabel.text = str(floor(current_epoch/1000))
+
+func setUpHUD():
+	timerLabel = Game.get_node("Panel/Sections/TimerSection/Timer")
+	movesLabel = Game.get_node("Panel/Sections/MovesSection/Moves")
+	
+	timerLabel.text = str(seconds)
+	movesLabel.text = str(moves)
 
 func fillDeck(var difficulty):
 	for i in range(difficulty):
@@ -26,15 +41,15 @@ func fillDeck(var difficulty):
 
 func dealDeck(var difficulty):
 	if difficulty == 0:
-		Game.get_node("grid").set_columns(3)
+		Game.get_node("Deck").set_columns(3)
 	elif difficulty == 1:
-		Game.get_node("grid").set_columns(4)
+		Game.get_node("Deck").set_columns(4) 
 	elif difficulty == 2:
-		Game.get_node("grid").set_columns(5)
-	
+		Game.get_node("Deck").set_columns(5)
+
 #	deck.shuffle()
 	for i in deck:
-		Game.get_node("grid").add_child(i)
+		Game.get_node("Deck").add_child(i)
 
 func chooseCard(var c):
 	if card1 == null:
@@ -46,15 +61,17 @@ func chooseCard(var c):
 		card2.flip()
 		card2.set_disabled(true)
 		checkCards()
+		moves += 1
+		movesLabel.text = str(moves)
 
 func checkCards():
-	
+
 	flipDelay.set_wait_time(0.5)
 	flipDelay.set_one_shot(true)
 	self.add_child(flipDelay)
 	flipDelay.start()
 	yield(flipDelay, "timeout")
-	
+
 	if card1.value == card2.value:
 		card1.set_modulate(Color(0.5,1,0.5,0.5))
 		card2.set_modulate(Color(0.5,1,0.5,0.5))
@@ -68,13 +85,13 @@ func checkCards():
 	else:
 		card1.set_modulate(Color(1,0.5,0.5,0.5))
 		card2.set_modulate(Color(1,0.5,0.5,0.5))
-		
+
 		flipDelay.set_wait_time(1.5)
 		flipDelay.set_one_shot(true)
 		self.add_child(flipDelay)
 		flipDelay.start()
 		yield(flipDelay, "timeout")
-		
+
 		card1.set_modulate(Color(1,1,1,1))
 		card2.set_modulate(Color(1,1,1,1))
 		card1.flip()
@@ -83,4 +100,4 @@ func checkCards():
 		card2.set_disabled(false)
 		card1 = null
 		card2 = null
-			
+

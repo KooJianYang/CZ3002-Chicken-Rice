@@ -15,7 +15,7 @@ func _ready():
 func _init(var v):
 	value = v
 	face = load("res://Assets/MemoryGame/"+value+".png")
-	back = MemoryGameManager.cardBack
+	back = load("res://Assets/MemoryGame/Back.png")
 	set_normal_texture(back)
 	
 func _pressed():

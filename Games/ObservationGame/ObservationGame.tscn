@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Games/ObservationGame/CirclesManager.gd" type="Script" id=1]
 [ext_resource path="res://Games/ObservationGame/ObservationGame.gd" type="Script" id=2]
-[ext_resource path="res://Games/ObservationGame/Circle/Circle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Games/ObservationGame/CountdownLabel.gd" type="Script" id=5]
-[ext_resource path="res://Games/ObservationGame/LineToConnectCircles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Games/ObservationGame/TimeTakenLabel.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -35,19 +32,6 @@ color = Color( 0.7776, 0.88704, 0.96, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CirclesManager" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-circle = ExtResource( 3 )
-line_to_connect_circles = ExtResource( 6 )
-
-[node name="Lines" type="Node2D" parent="CirclesManager"]
 
 [node name="CountdownLabel" type="Label" parent="."]
 anchor_left = 0.5

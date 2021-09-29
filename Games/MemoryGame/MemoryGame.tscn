@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Games/MemoryGame/MemoryGame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.729412, 0.729412, 0.729412, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 2 )
 
 [node name="MemoryGame" type="Control"]
 anchor_right = 1.0
@@ -18,14 +35,90 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="grid" type="GridContainer" parent="."]
+[node name="Deck" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
 margin_top = 30.0
 margin_right = -30.0
-margin_bottom = -250.0
+margin_bottom = -400.0
 columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 900.0
+margin_right = -30.0
+margin_bottom = -230.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sections" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerSection" type="VBoxContainer" parent="Panel/Sections"]
+margin_right = 328.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TimerHeader" type="Label" parent="Panel/Sections/TimerSection"]
+margin_right = 328.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "TIME TAKEN:"
+align = 1
+valign = 2
+
+[node name="Timer" type="Label" parent="Panel/Sections/TimerSection"]
+margin_top = 60.0
+margin_right = 328.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "####"
+align = 1
+
+[node name="MovesSection" type="VBoxContainer" parent="Panel/Sections"]
+margin_left = 332.0
+margin_right = 660.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MovesHeader" type="Label" parent="Panel/Sections/MovesSection"]
+margin_right = 328.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MOVES"
+align = 1
+valign = 2
+
+[node name="Moves" type="Label" parent="Panel/Sections/MovesSection"]
+margin_top = 60.0
+margin_right = 328.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "####"
+align = 1
