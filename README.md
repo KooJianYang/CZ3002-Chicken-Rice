@@ -1,7 +1,7 @@
 # CZ3002-Chicken-Rice
 For the game application - BrainJoos
 
-#API 
+# API 
 
 API KEY = AIzaSyDHIaREu81XCNVxR2cjMuGBWqpF9Regawc
 
