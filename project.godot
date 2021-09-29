@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "TextureButton",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Games/MemoryGame/Card.gd"
+}, {
+"base": "TextureButton",
 "class": "ObservationGameCircle",
 "language": "GDScript",
 "path": "res://Games/ObservationGame/Circle/Circle.gd"
 } ]
 _global_script_class_icons={
+"Card": "",
 "ObservationGameCircle": ""
 }
 
@@ -23,6 +29,10 @@ _global_script_class_icons={
 config/name="BigBrainGames"
 run/main_scene="res://UI Pages/LoginPage/LoginPage.tscn"
 config/icon="res://Assets/Art/Brain Joos Logo.PNG"
+
+[autoload]
+
+MemoryGameManager="*res://Games/MemoryGame/MemoryGameManager.gd"
 
 [display]
 
