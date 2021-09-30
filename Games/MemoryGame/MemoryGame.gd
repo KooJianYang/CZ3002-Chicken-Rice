@@ -4,6 +4,7 @@ extends Control
 var availableDeck = ["T", "S", "C", "CS", "ST", "TC", "CST", "CTS", "STC", "TCS"] #additional: "SCT", "TSC"
 var deck = Array()
 var difficulty_levels = [3, 6, 10]
+var difficulty = GlobalScript.MemoryGameDifficulty
 var card1
 var card2
 var score = 0
@@ -11,13 +12,13 @@ var flipDelay = Timer.new()
 var Clock = Timer.new()
 var seconds = 0
 var moves = 0
+var start_epoch
+var current_epoch
 
 onready var movesLabel = $Panel/Sections/MovesSection/Moves
 onready var timerLabel = $Panel/Sections/TimerSection/Timer
 onready var deckGrid = $Deck
 
-#placeholder
-var difficulty = 2
 
 func _ready():
 	fillDeck(difficulty_levels[difficulty])
@@ -25,10 +26,14 @@ func _ready():
 	setUpHUD()
 
 func _process(_delta):
-	var current_epoch = OS.get_ticks_msec()
-	timerLabel.text = str(floor(current_epoch/1000))
+	current_epoch = OS.get_ticks_msec()
+	timerLabel.text = str(floor((current_epoch-start_epoch)/1000))
+	
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://UI Pages/InstructionPages/MemoryGame/MemoryGameInstructionPage.tscn")
 
 func setUpHUD():
+	start_epoch = OS.get_ticks_msec()
 	timerLabel.text = str(seconds)
 	movesLabel.text = str(moves)
 
@@ -44,8 +49,9 @@ func dealDeck(var difficulty):
 		deckGrid.set_columns(4) 
 	elif difficulty == 2:
 		deckGrid.set_columns(5)
-
-#	deck.shuffle()
+	
+	randomize()
+	deck.shuffle()
 	for i in deck:
 		deckGrid.add_child(i)
 
