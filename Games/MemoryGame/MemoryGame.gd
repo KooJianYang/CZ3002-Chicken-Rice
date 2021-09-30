@@ -14,10 +14,15 @@ var seconds = 0
 var moves = 0
 var start_epoch
 var current_epoch
+var time_elapsed
 
-onready var movesLabel = $Panel/Sections/MovesSection/Moves
-onready var timerLabel = $Panel/Sections/TimerSection/Timer
+onready var stats = $Statistics
+onready var movesLabel = $Statistics/Sections/MovesSection/Moves
+onready var timerLabel = $Statistics/Sections/TimerSection/Timer
 onready var deckGrid = $Deck
+onready var end = $GameEnd
+onready var timeTaken = $GameEnd/GameEndContainer/TimeTaken
+onready var movesTaken = $GameEnd/GameEndContainer/MovesTaken
 
 
 func _ready():
@@ -27,7 +32,8 @@ func _ready():
 
 func _process(_delta):
 	current_epoch = OS.get_ticks_msec()
-	timerLabel.text = str(floor((current_epoch-start_epoch)/1000))
+	time_elapsed = floor((current_epoch-start_epoch)/1000)
+	timerLabel.text = str(time_elapsed)
 	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI Pages/InstructionPages/MemoryGame/MemoryGameInstructionPage.tscn")
@@ -83,7 +89,7 @@ func checkCards():
 		card2 = null
 		score += 1
 		if score == difficulty_levels[difficulty]:
-#			endGame()
+			endGame()
 			print("Game Ends")
 			pass
 	else:
@@ -104,5 +110,13 @@ func checkCards():
 		card2.set_disabled(false)
 		card1 = null
 		card2 = null
+
+func endGame():
+	timeTaken.text = str(time_elapsed) + "seconds"
+	movesTaken.text = str(moves)
+	
+	deckGrid.visible = false
+	stats.visible = false
+	end.visible = true
 
 
