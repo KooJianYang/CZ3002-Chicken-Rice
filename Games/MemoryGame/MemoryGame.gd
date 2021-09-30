@@ -1,16 +1,102 @@
 extends Control
 
+#onready var deckNode = $Deck
+var availableDeck = ["T", "S", "C", "CS", "ST", "TC", "CST", "CTS", "STC", "TCS"] #additional: "SCT", "TSC"
+var deck = Array()
+var difficulty_levels = [3, 6, 10]
+var card1
+var card2
+var score = 0
+var flipDelay = Timer.new()
+var Clock = Timer.new()
+var seconds = 0
+var moves = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var movesLabel = $Panel/Sections/MovesSection/Moves
+onready var timerLabel = $Panel/Sections/TimerSection/Timer
+onready var deckGrid = $Deck
 
+#placeholder
+var difficulty = 2
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	fillDeck(difficulty_levels[difficulty])
+	dealDeck(difficulty)
+	setUpHUD()
+
+func _process(_delta):
+	var current_epoch = OS.get_ticks_msec()
+	timerLabel.text = str(floor(current_epoch/1000))
+
+func setUpHUD():
+	timerLabel.text = str(seconds)
+	movesLabel.text = str(moves)
+
+func fillDeck(var difficulty):
+	for i in range(difficulty):
+		deck.append(Card.new(availableDeck[i]))
+		deck.append(Card.new(availableDeck[i]))
+
+func dealDeck(var difficulty):
+	if difficulty == 0:
+		deckGrid.set_columns(3)
+	elif difficulty == 1:
+		deckGrid.set_columns(4) 
+	elif difficulty == 2:
+		deckGrid.set_columns(5)
+
+#	deck.shuffle()
+	for i in deck:
+		deckGrid.add_child(i)
+
+func chooseCard(var c):
+	if card1 == null:
+		card1 = c
+		card1.flip()
+		card1.set_disabled(true)
+	elif card2 == null:
+		card2 = c
+		card2.flip()
+		card2.set_disabled(true)
+		checkCards()
+		moves += 1
+		movesLabel.text = str(moves)
+
+func checkCards():
+
+	flipDelay.set_wait_time(0.5)
+	flipDelay.set_one_shot(true)
+	self.add_child(flipDelay)
+	flipDelay.start()
+	yield(flipDelay, "timeout")
+
+	if card1.value == card2.value:
+		card1.set_modulate(Color(0.5,1,0.5,0.5))
+		card2.set_modulate(Color(0.5,1,0.5,0.5))
+		card1 = null
+		card2 = null
+		score += 1
+		if score == difficulty_levels[difficulty]:
+#			endGame()
+			print("Game Ends")
+			pass
+	else:
+		card1.set_modulate(Color(1,0.5,0.5,0.5))
+		card2.set_modulate(Color(1,0.5,0.5,0.5))
+
+		flipDelay.set_wait_time(1.5)
+		flipDelay.set_one_shot(true)
+		self.add_child(flipDelay)
+		flipDelay.start()
+		yield(flipDelay, "timeout")
+
+		card1.set_modulate(Color(1,1,1,1))
+		card2.set_modulate(Color(1,1,1,1))
+		card1.flip()
+		card2.flip()
+		card1.set_disabled(false)
+		card2.set_disabled(false)
+		card1 = null
+		card2 = null
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

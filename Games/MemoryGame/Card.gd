@@ -5,6 +5,7 @@ class_name Card
 var value
 var face
 var back
+onready var MemoryGame = get_node("/root/MemoryGame")
 
 func _ready():
 	set_h_size_flags(3)
@@ -19,7 +20,7 @@ func _init(var v):
 	set_normal_texture(back)
 	
 func _pressed():
-	MemoryGameManager.chooseCard(self)
+	MemoryGame.chooseCard(self)
 	
 func flip():
 	if get_normal_texture() == back:
