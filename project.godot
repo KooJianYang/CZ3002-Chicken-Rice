@@ -32,7 +32,7 @@ config/icon="res://Assets/Art/Brain Joos Logo.PNG"
 
 [autoload]
 
-MemoryGameManager="*res://Games/MemoryGame/MemoryGameManager.gd"
+GlobalScript="*res://Global Script/GlobalScript.gd"
 
 [display]
 
