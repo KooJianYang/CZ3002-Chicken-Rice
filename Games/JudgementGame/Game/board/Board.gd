@@ -1,6 +1,6 @@
 extends Control
 
-export var size = 4
+export var size = 3
 export var tile_size = 80
 export var tile_scene: PackedScene
 export var slide_duration = 0.15
@@ -41,7 +41,7 @@ func gen_board():
 				board[r].append(value)
 
 				# generate a new tile
-				var tile = preload("res://UI Pages/InstructionPages/JudgementGame/Game/tile/tile.tscn").instance()
+				var tile = preload("res://Games/JudgementGame/Game/tile/tile.tscn").instance()
 				tile.set_position(Vector2(c * tile_size, r * tile_size))
 				tile.set_text(value)
 				if background_texture:

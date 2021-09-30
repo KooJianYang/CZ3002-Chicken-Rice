@@ -17,3 +17,11 @@ func _ready():
 func _on_Button_pressed():
 	var _error = get_tree().change_scene("res://UI Pages/InstructionPages/JudgementGame/Game/game/game_scene.tscn")
 
+
+
+func _on_PlayButton_pressed():
+	var _error = get_tree().change_scene("res:///Games/JudgementGame/Game/game/game_scene.tscn")
+
+
+func _on_BackButton_pressed():
+	var _error = get_tree().change_scene("res://UI Pages/HomePage/HomePage.tscn")
