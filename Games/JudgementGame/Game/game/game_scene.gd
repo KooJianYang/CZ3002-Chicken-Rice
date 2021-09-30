@@ -76,3 +76,7 @@ func _on_SettingsScreen_hide_settings():
 func _on_SettingsScreen_background_update(texture: ImageTexture):
 	print('updating background texture now')
 	board.update_background_texture(texture)
+
+
+func _on_Button_pressed():
+	var _error = get_tree().change_scene("res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.tscn")
