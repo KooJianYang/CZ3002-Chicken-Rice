@@ -1,6 +1,6 @@
 extends Node
 
-onready var Game = get_node("/root/MemoryGame/")
+#onready var deckNode = $Deck
 var availableDeck = ["T", "S", "C", "CS", "ST", "TC", "CST", "CTS", "STC", "TCS"] #additional: "SCT", "TSC"
 var deck = Array()
 var difficulty_levels = [3, 6, 10]
@@ -16,7 +16,7 @@ var movesLabel
 var timerLabel
 
 #placeholder
-var difficulty = 2 
+var difficulty = 2
 
 func _ready():
 	fillDeck(difficulty_levels[difficulty])
@@ -28,9 +28,9 @@ func _process(_delta):
 	timerLabel.text = str(floor(current_epoch/1000))
 
 func setUpHUD():
-	timerLabel = Game.get_node("Panel/Sections/TimerSection/Timer")
-	movesLabel = Game.get_node("Panel/Sections/MovesSection/Moves")
-	
+	timerLabel = $Panel/Sections/TimerSection/Timer
+	movesLabel = $Panel/Sections/MovesSection/Moves
+
 	timerLabel.text = str(seconds)
 	movesLabel.text = str(moves)
 
@@ -41,15 +41,15 @@ func fillDeck(var difficulty):
 
 func dealDeck(var difficulty):
 	if difficulty == 0:
-		Game.get_node("Deck").set_columns(3)
+		$Deck.set_columns(3)
 	elif difficulty == 1:
-		Game.get_node("Deck").set_columns(4) 
+		$Deck.set_columns(4) 
 	elif difficulty == 2:
-		Game.get_node("Deck").set_columns(5)
+		$Deck.set_columns(5)
 
 #	deck.shuffle()
 	for i in deck:
-		Game.get_node("Deck").add_child(i)
+		$Deck.add_child(i)
 
 func chooseCard(var c):
 	if card1 == null:
