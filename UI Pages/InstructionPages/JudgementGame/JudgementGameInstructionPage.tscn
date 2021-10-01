@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI Pages/InstructionPages/MemoryGame/MemoryGameInstructionPage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.gd" type="Script" id=2]
 
 [node name="JudgementGameInstructionPage" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="GameName" parent="." index="1"]
 text = "Judgement Game"
 
 [node name="Instructions" parent="." index="2"]
 text = "Instructions: for Judgement Game"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
