@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Art/Brain Joos Logo.PNG" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://UI Pages/LoginPage2/LoginPage2.gd" type="Script" id=4]
-[ext_resource path="res://UI Pages/HomePage/HomePage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI Pages/InputAgePage/InputAgePage.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -18,14 +17,13 @@ font_data = ExtResource( 3 )
 size = 30
 font_data = ExtResource( 3 )
 
-[node name="LoginPage2" type="Control"]
+[node name="InputAge" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-home_page = ExtResource( 5 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -36,9 +34,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 0.529785
 margin_top = 59.0
-margin_right = 719.53
+margin_right = 719.0
 margin_bottom = 775.0
 texture = ExtResource( 2 )
 expand = true
@@ -65,36 +62,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EmailInput" type="LineEdit" parent="."]
+[node name="AgeInput" type="LineEdit" parent="."]
 margin_left = 150.0
-margin_top = 803.0
+margin_top = 983.0
 margin_right = 571.0
-margin_bottom = 909.0
+margin_bottom = 1089.0
 custom_fonts/font = SubResource( 2 )
 align = 1
-placeholder_text = "Email"
+placeholder_text = "Age"
 placeholder_alpha = 1.0
 caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PasswordInput" type="LineEdit" parent="."]
-margin_left = 148.318
-margin_top = 980.682
-margin_right = 569.318
-margin_bottom = 1086.68
-custom_fonts/font = SubResource( 2 )
-align = 1
-secret = true
-placeholder_text = "Password"
-placeholder_alpha = 1.0
-caret_blink = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LoginButton" type="Button" parent="."]
+[node name="ConfirmAgeButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -104,34 +86,9 @@ margin_top = 506.391
 margin_right = 210.5
 margin_bottom = 612.391
 custom_fonts/font = SubResource( 3 )
-text = "Login"
+text = "Confirm Age"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ForgetPassword" type="Button" parent="."]
-modulate = Color( 0.0823529, 0.364706, 0.776471, 1 )
-margin_left = 295.53
-margin_top = 1094.78
-margin_right = 569.53
-margin_bottom = 1139.78
-custom_fonts/font = SubResource( 3 )
-text = "Forget Password?"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Back button" type="Button" parent="."]
-margin_left = 37.7977
-margin_top = 55.4365
-margin_right = 108.798
-margin_bottom = 101.437
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="LoginButton" to="." method="_on_LoginButton_pressed"]
-[connection signal="pressed" from="ForgetPassword" to="." method="_on_ForgetPassword_pressed"]
-[connection signal="pressed" from="Back button" to="." method="_on_Back_button_pressed"]
+[connection signal="pressed" from="ConfirmAgeButton" to="." method="_on_ConfirmAgeButton_pressed"]
