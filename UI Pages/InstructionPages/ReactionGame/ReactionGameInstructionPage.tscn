@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://UI Pages/InstructionPages/MemoryGame/MemoryGameInstructionPage.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -26,7 +25,6 @@ font_data = ExtResource( 3 )
 [node name="ReactionGameInstructionPage" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,9 +172,3 @@ text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="pressed" from="Difficulty/ButtonSection/Easy" to="." method="_on_Easy_pressed"]
-[connection signal="pressed" from="Difficulty/ButtonSection/Normal" to="." method="_on_Normal_pressed"]
-[connection signal="pressed" from="Difficulty/ButtonSection/Hard" to="." method="_on_Hard_pressed"]
