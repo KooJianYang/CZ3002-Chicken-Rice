@@ -17,14 +17,14 @@ onready var Storage : FirebaseStorage = $Storage
 # These values can be found in your Firebase Project
 # See the README on Github for how to access
 var config : Dictionary = {
-	"apiKey": "AIzaSyAhesqIdYsHtHYCsUkYWqc56tTwWUXQBj0",
-	"authDomain": "cz3002-34e58.firebaseapp.com",
-	"databaseURL": "",
-	"projectId": "cz3002-34e58",
-	"storageBucket": "cz3002-34e58.appspot.com",
-	"messagingSenderId": "311751884896",
-	"appId": "1:311751884896:web:d1903f8439d13e7edcc305",
-	"measurementId": "G-E74VPF3HK3",
+	"apiKey": "AIzaSyDHIaREu81XCNVxR2cjMuGBWqpF9Regawc",
+	"authDomain": "brainjoos-2c374.firebaseapp.com",
+	"databaseURL": "https://brainjoos-2c374-default-rtdb.asia-southeast1.firebasedatabase.app",
+	"projectId": "brainjoos-2c374",
+	"storageBucket": "brainjoos-2c374.appspot.com",
+	"messagingSenderId": "335952231664",
+	"appId": "1:335952231664:web:68f1b013e57a35761a5635",
+	"measurementId": "G-NEWEGF0G1F",
 	"clientId": "",
 	"clientSecret": "",
 	}

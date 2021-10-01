@@ -1,7 +1,7 @@
 extends Control
 
 export(PackedScene) var home_page
-export(PackedScene) var login_page
+
 
 var userinfo = null
 
@@ -25,9 +25,8 @@ func _on_LoginButton_pressed():
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 func _on_ForgetPassword_pressed():
-	var email = $EmailInput.text
-	Firebase.Auth.send_password_reset_email(email)
+	get_tree().change_scene("res://UI Pages/ResetPasswordPage/ResetPassword.tscn")
 
 
 func _on_Back_button_pressed():
-	get_tree().change_scene_to(login_page)
+	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")

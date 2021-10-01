@@ -14,3 +14,6 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	print("Success" + str(auth_info))
 	Firebase.Auth.send_account_verification_email()
 	# get_tree().change_scene_to(home_page)
+
+func _on_Back_button_pressed():
+	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")

@@ -10,4 +10,3 @@ func _on_LoginWithEmailButton_pressed():
 
 func _on_CreateNewAccountButton_pressed():
 	get_tree().change_scene_to(account_creation_page)
-	
