@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "TextureButton",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Games/MemoryGame/Card.gd"
+}, {
 "base": "HTTPRequest",
 "class": "FirebaseAuth",
 "language": "GDScript",
@@ -60,11 +65,6 @@ _global_script_classes=[ {
 "path": "res://addons/godot-firebase/firestore/firestore_document.gd"
 }, {
 "base": "TextureButton",
-"class": "Card",
-"language": "GDScript",
-"path": "res://Games/MemoryGame/Card.gd"
-}, {
-"base": "TextureButton",
 "class": "ObservationGameCircle",
 "language": "GDScript",
 "path": "res://Games/ObservationGame/Circle/Circle.gd"
@@ -80,6 +80,7 @@ _global_script_classes=[ {
 "path": "res://addons/godot-firebase/storage/storage_task.gd"
 } ]
 _global_script_class_icons={
+"Card": "",
 "FirebaseAuth": "",
 "FirebaseDatabase": "",
 "FirebaseDatabaseReference": "",
@@ -93,8 +94,6 @@ _global_script_class_icons={
 "ObservationGameCircle": "",
 "StorageReference": "",
 "StorageTask": ""
-"Card": "",
-"ObservationGameCircle": ""
 }
 
 [application]
@@ -122,14 +121,14 @@ enabled=PoolStringArray( "res://addons/godot-firebase/plugin.cfg", "res://addons
 
 [firebase]
 
-environment_variables/apiKey="AIzaSyAhesqIdYsHtHYCsUkYWqc56tTwWUXQBj0"
-environment_variables/authDomain="cz3002-34e58.firebaseapp.com"
-environment_variables/databaseURL=""
-environment_variables/projectId="cz3002-34e58"
-environment_variables/storageBucket="cz3002-34e58.appspot.com"
-environment_variables/messagingSenderId="311751884896"
-environment_variables/appId="1:311751884896:web:d1903f8439d13e7edcc305"
-environment_variables/measurementId="G-E74VPF3HK3"
+environment_variables/apiKey="AIzaSyDHIaREu81XCNVxR2cjMuGBWqpF9Regawc"
+environment_variables/authDomain="brainjoos-2c374.firebaseapp.com"
+environment_variables/databaseURL="https://brainjoos-2c374-default-rtdb.asia-southeast1.firebasedatabase.app"
+environment_variables/projectId="brainjoos-2c374"
+environment_variables/storageBucket="brainjoos-2c374.appspot.com"
+environment_variables/messagingSenderId="335952231664"
+environment_variables/appId="1:335952231664:web:68f1b013e57a35761a5635"
+environment_variables/measurementId="G-NEWEGF0G1F"
 environment_variables/clientId=""
 environment_variables/clientSecret=""
 
