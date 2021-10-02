@@ -52,10 +52,10 @@ __meta__ = {
 [node name="Timer_for_reaction" type="Timer" parent="Button1"]
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 198.639
-margin_top = 1129.2
-margin_right = 520.639
-margin_bottom = 1237.2
+margin_left = 217.98
+margin_top = 1138.01
+margin_right = 483.98
+margin_bottom = 1243.01
 custom_fonts/font = SubResource( 2 )
 text = "Back"
 __meta__ = {

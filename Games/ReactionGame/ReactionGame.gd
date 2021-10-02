@@ -11,8 +11,9 @@ var start_epoch
 var current_epoch
 var elapsed_time
 var avg_time
-var difficulty = GlobalScript.ReactionGameDifficulty
 var count = 0
+var difficulty = GlobalScript.ReactionGameDifficulty
+
 
 
 
@@ -38,12 +39,13 @@ func random_timing_color():
 	rng.randomize()
 	timer_btn1.set_wait_time(rng.randi_range(2,5))
 	timer_btn1.start()  
-	start_epoch = OS.get_ticks_msec()
+
 	
 func _on_Timer_timeout():  # for btn 1: whem timer runs out, button changes colour
 	count+= 1
 	button.set_modulate(Color(0,1,0,0.5)) # set color to green
 	timer_for_reaction.start() # start timing for reaction
+	start_epoch = OS.get_ticks_msec()
 	if count>3:
 		timer_btn1.stop()
 		button.set_modulate(Color(1,0,0,0.5))
