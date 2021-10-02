@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Games/ObservationGame/CirclesManager.gd" type="Script" id=1]
 [ext_resource path="res://Games/ObservationGame/ObservationGame.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Games/ObservationGame/CountdownLabel.gd" type="Script" id=5]
 [ext_resource path="res://Games/ObservationGame/LineToConnectCircles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Games/ObservationGame/TimeTakenLabel.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 192
@@ -19,6 +20,10 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 8 )
 
 [node name="ObservationGame" type="Control"]
 anchor_right = 1.0
@@ -132,7 +137,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BackButton" type="Button" parent="GameEnd"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -180.0
+margin_right = 200.0
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="CountdownLabel/IntervalTimer" to="CountdownLabel" method="_on_StartTimer_timeout"]
+[connection signal="pressed" from="GameEnd/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
