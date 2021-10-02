@@ -16,6 +16,17 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	get_tree().change_scene_to(home_page)
 
 func _on_FirebaseAuth_login_failed(error_code, message):
+	#var Msg=$Message.text
+	if str(message)=="INVALID_EMAIL":
+			$Message.text= "Invalid Email"
+	elif str(message)=="MISSING_PASSWORD":
+			$Message.text= "Invalid Password"
+	elif str(message)=="EMAIL_NOT_FOUND":
+			$Message.text= "Email not found! Please create account first"
+	elif str(message)=="INVALID_PASSWORD":
+			$Message.text= "Username or password is incorrect"
+	else:
+		$Message.text="Unknown Error"
 	print("Error code: " + str(error_code))
 	print("Message: " + str(message))
 
