@@ -17,7 +17,7 @@ font_data = ExtResource( 3 )
 size = 30
 font_data = ExtResource( 3 )
 
-[node name="InputAge" type="Control"]
+[node name="InputAgePage" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -87,6 +87,19 @@ margin_right = 210.5
 margin_bottom = 612.391
 custom_fonts/font = SubResource( 3 )
 text = "Confirm Age"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+modulate = Color( 1, 0.0117647, 0.0117647, 1 )
+margin_left = 280.525
+margin_top = 921.99
+margin_right = 426.525
+margin_bottom = 966.99
+text = "Message"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
