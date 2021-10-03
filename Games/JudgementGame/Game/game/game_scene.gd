@@ -27,6 +27,8 @@ func _process(_delta):
 			timer_value.text = '0s'
 
 func _on_Board_game_started():
+	if game_won:
+		return
 	start_epoch = OS.get_ticks_msec()
 	overlay.visible = false
 	is_started = true
@@ -34,23 +36,32 @@ func _on_Board_game_started():
 
 
 func _on_Board_game_won():
-	overlay_text.text = 'Nice Work!\n Click to play again'
+	overlay_text.text = 'Nice Work!\n Click Restart to play again'
 	overlay.visible = true
 	is_started = false
 	game_won = true
+	var time_since_game_start = current_epoch - start_epoch
+	print("time taken = ", floor(time_since_game_start/1000), "s")
+	print("moves = ", board.move_count)
 
 
 func _on_RestartButton_pressed():
-	if not is_started:
+	if not is_started and not game_won:
+		print("restart aint working")
 		return
+	is_started = true
+	overlay.visible = false
+	game_won = false
 	board.reset_move_count()
 	board.scramble_board()
 	board.game_state = board.GAME_STATES.STARTED
 	start_epoch = OS.get_ticks_msec()
-	is_started = true
+	
 
 
 func _on_Board_moves_updated(move_count):
+	if not is_started:
+		return
 	move_value.text = str(move_count)
 
 
@@ -78,5 +89,5 @@ func _on_SettingsScreen_background_update(texture: ImageTexture):
 	board.update_background_texture(texture)
 
 
-func _on_Button_pressed():
+func _on_BackButton_pressed():
 	var _error = get_tree().change_scene("res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.tscn")

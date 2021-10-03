@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Games/ReactionGame/ReactionGame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 70
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="."]
+margin_left = 10.075
+margin_top = 50.6728
+margin_right = 710.075
+margin_bottom = 250.673
+custom_fonts/font = SubResource( 1 )
+text = "Press when green!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer_for_color" type="Timer" parent="Button1"]
+
+[node name="Timer_for_reaction" type="Timer" parent="Button1"]
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 217.98
+margin_top = 1138.01
+margin_right = 483.98
+margin_bottom = 1243.01
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Statistics" type="Panel" parent="."]
+modulate = Color( 0.615686, 0.588235, 0.588235, 0.552941 )
+margin_left = 40.0
+margin_top = 925.159
+margin_right = 677.0
+margin_bottom = 1104.16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerHeader" type="Label" parent="Statistics"]
+margin_left = 141.068
+margin_top = 11.0201
+margin_right = 469.068
+margin_bottom = 67.0201
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "TIME TAKEN:"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="Statistics"]
+margin_left = 141.068
+margin_top = 71.0201
+margin_right = 469.068
+margin_bottom = 161.02
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button1" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Button1/Timer_for_color" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
