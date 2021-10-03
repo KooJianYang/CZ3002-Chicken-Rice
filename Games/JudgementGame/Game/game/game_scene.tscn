@@ -144,15 +144,19 @@ margin_bottom = 278.0
 size_flags_horizontal = 3
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
+visible = false
 margin_right = 8.0
 margin_bottom = 278.0
 custom_styles/separator = SubResource( 6 )
 custom_constants/separation = 8
 
 [node name="Time" type="VBoxContainer" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 12.0
-margin_right = 102.0
-margin_bottom = 278.0
+margin_left = 128.0
+margin_top = 89.0
+margin_right = 218.0
+margin_bottom = 189.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="TimeTitle" type="Label" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer/Time"]
 margin_right = 90.0
@@ -172,6 +176,7 @@ align = 1
 valign = 1
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
+visible = false
 margin_left = 106.0
 margin_right = 114.0
 margin_bottom = 278.0
@@ -179,12 +184,15 @@ custom_styles/separator = SubResource( 6 )
 custom_constants/separation = 8
 
 [node name="Moves" type="VBoxContainer" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 118.0
-margin_right = 237.0
-margin_bottom = 278.0
+margin_left = 350.0
+margin_top = 89.0
+margin_right = 696.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="MoveTitle" type="Label" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer/Moves"]
-margin_right = 119.0
+margin_right = 346.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 3 )
 text = "Moves"
@@ -193,7 +201,7 @@ valign = 1
 
 [node name="MoveValue" type="Label" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer/Moves"]
 margin_top = 52.0
-margin_right = 119.0
+margin_right = 346.0
 margin_bottom = 100.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
@@ -201,21 +209,15 @@ align = 1
 valign = 1
 
 [node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 241.0
-margin_right = 257.0
+visible = false
+margin_left = 217.0
+margin_right = 233.0
 margin_bottom = 278.0
 custom_styles/separator = SubResource( 7 )
 custom_constants/separation = 16
 
-[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 261.0
-margin_right = 402.0
-margin_bottom = 54.0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 3 )
-text = "Restart"
-
 [node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
+visible = false
 margin_left = 406.0
 margin_right = 422.0
 margin_bottom = 278.0
@@ -223,6 +225,7 @@ custom_styles/separator = SubResource( 7 )
 custom_constants/separation = 16
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
+visible = false
 margin_left = 426.0
 margin_right = 553.0
 margin_bottom = 278.0
@@ -233,20 +236,12 @@ expand = true
 stretch_mode = 5
 
 [node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 557.0
-margin_right = 565.0
+visible = false
+margin_left = 406.0
+margin_right = 414.0
 margin_bottom = 278.0
 custom_styles/separator = SubResource( 8 )
 custom_constants/separation = 8
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/StatsView/HBoxContainer"]
-margin_left = 569.0
-margin_right = 696.0
-margin_bottom = 54.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 3 )
-text = "Back"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 margin_top = 994.0
@@ -256,6 +251,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/separator = SubResource( 9 )
 custom_constants/separation = 16
+
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/HSeparator2"]
+margin_left = 160.0
+margin_right = 560.0
+margin_bottom = 100.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 3 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HSeparator2"]
+margin_left = 160.0
+margin_top = 150.0
+margin_right = 560.0
+margin_bottom = 250.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show_settings = SubResource( 10 )
@@ -267,9 +286,10 @@ margin_bottom = 1300.0
 [connection signal="game_started" from="MarginContainer/VBoxContainer/GameView/Board" to="." method="_on_Board_game_started"]
 [connection signal="game_won" from="MarginContainer/VBoxContainer/GameView/Board" to="." method="_on_Board_game_won"]
 [connection signal="moves_updated" from="MarginContainer/VBoxContainer/GameView/Board" to="." method="_on_Board_moves_updated"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StatsView/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StatsView/HBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StatsView/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSeparator2/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSeparator2/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSeparator2/BackButton" to="." method="_on_Button_pressed"]
 [connection signal="background_update" from="SettingsScreen" to="." method="_on_SettingsScreen_background_update"]
 [connection signal="board_size_update" from="SettingsScreen" to="." method="_on_SettingsScreen_board_size_update"]
 [connection signal="hide_settings" from="SettingsScreen" to="." method="_on_SettingsScreen_hide_settings"]
