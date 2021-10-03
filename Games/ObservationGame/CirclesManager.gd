@@ -6,6 +6,7 @@ onready var lines : Node2D = $Lines
 var circle_dimensions : Vector2
 var pressed_circles : Array 
 var circles_to_connect : Array = [1, 2]
+var last_circle_to_connect : int 
 signal connected_all_circles
 
 
@@ -69,7 +70,7 @@ func check_if_circles_are_to_be_connected(circle_1 : ObservationGameCircle, circ
 func update_circles_to_connect() -> void:
 	for i in range(circles_to_connect.size()):
 		circles_to_connect[i] += 1
-	var all_circles_connected : bool = circles_to_connect[0] == 25
+	var all_circles_connected : bool = circles_to_connect[0] == last_circle_to_connect
 	if all_circles_connected:
 		emit_signal("connected_all_circles")
 		
