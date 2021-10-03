@@ -177,3 +177,6 @@ __meta__ = {
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Difficulty/ButtonSection/Easy" to="." method="_on_Easy_pressed"]
+[connection signal="pressed" from="Difficulty/ButtonSection/Normal" to="." method="_on_Normal_pressed"]
+[connection signal="pressed" from="Difficulty/ButtonSection/Hard" to="." method="_on_Hard_pressed"]

@@ -132,6 +132,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Message" type="Label" parent="."]
+modulate = Color( 1, 0.0117647, 0.0117647, 1 )
+margin_left = 280.525
+margin_top = 921.99
+margin_right = 426.525
+margin_bottom = 966.99
+text = "Message"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="ForgetPassword" to="." method="_on_ForgetPassword_pressed"]
 [connection signal="pressed" from="Backbutton" to="." method="_on_Back_button_pressed"]

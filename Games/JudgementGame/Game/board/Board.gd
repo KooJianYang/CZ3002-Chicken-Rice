@@ -1,6 +1,7 @@
 extends Control
 
-export var size = 3
+var temp = GlobalScript.JudgementGameDifficulty
+export(int) var size = temp;
 export var tile_size = 80
 export var tile_scene: PackedScene
 export var slide_duration = 0.15
@@ -343,4 +344,3 @@ func update_background_texture(texture):
 	for tile in tiles:
 		tile.set_sprite_texture(texture)
 		tile.update_size(size, tile_size)
-
