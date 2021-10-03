@@ -7,9 +7,8 @@ extends Node
 
 #Changed in MemoryGameInstructionPage and used in MemoryGame
 var MemoryGameDifficulty = 0
-
+var ObservationGameDifficulty = 0
 var ReactionGameDifficulty = 0
-
 
 func _ready():
 	pass 
