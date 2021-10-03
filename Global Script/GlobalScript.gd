@@ -10,6 +10,8 @@ var MemoryGameDifficulty = 0
 
 var ReactionGameDifficulty = 0
 
+# JudgementGameInstructionPage passes this constant to Board to set board size
+var JudgementGameDifficulty = 3
 
 func _ready():
 	pass 
