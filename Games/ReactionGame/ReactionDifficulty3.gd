@@ -16,6 +16,13 @@ var start_epoch2
 var current_epoch2
 var elapsed_time2 = 0
 
+#button 3
+onready var btn3 :=$Button3
+onready var btn3_time_color :=$Button3/Timer3_for_color
+onready var btn3_time_reaction :=$Button3/Timer3_for_reaction
+var start_epoch3
+var current_epoch3
+var elapsed_time3 = 0
 
 #stats 
 onready var time_total :=$Statistics/Timer
@@ -24,7 +31,7 @@ var rng= RandomNumberGenerator.new()
 var avg_time = 0
 var count = 0
 var count2 = 0
-
+var count3 = 0
 
 
 
@@ -33,7 +40,7 @@ var count2 = 0
 func _ready():
 	btn1.set_modulate(Color(1,0,0,0.5)) 
 	btn2.set_modulate(Color(1,0,0,0.5))
-
+	btn3.set_modulate(Color(1,0,0,0.5))
 
 	
 	random_time_color()
@@ -49,8 +56,10 @@ func random_time_color():
 	btn1_time_color.start()
 
 	btn2_time_color.set_wait_time(rng.randi_range(2,10))
-	btn2_time_color.start()	
-
+	btn2_time_color.start()
+	
+	btn3_time_color.set_wait_time(rng.randi_range(2,10))
+	btn3_time_color.start()
 
 
 func _on_Timer_for_color_timeout():
@@ -69,6 +78,13 @@ func _on_Timer2_for_color_timeout():
 		btn2_time_color.stop()
 		btn2.set_modulate(Color(1,0,0,0.5))
 
+func _on_Timer3_for_color_timeout():
+	btn3.set_modulate(Color(0,1,0,0.5))
+	btn3_time_reaction.start()
+	start_epoch3 = OS.get_ticks_msec() 
+	if count3>2:
+		btn3_time_color.stop()
+		btn3.set_modulate(Color(1,0,0,0.5))
 
 
 func _on_Button1_pressed():
@@ -91,6 +107,15 @@ func _on_Button2_pressed():
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = elapsed_time2 + avg_time
 
+func _on_Button3_pressed():
+	if btn3.get_modulate() == Color(1,0,0,0.5): #if user press when red
+		btn2.text = str("Press only when green")
+	else:
+		count3 += 1
+		current_epoch3 = OS.get_ticks_msec()
+		elapsed_time3 = current_epoch3 - start_epoch3
+		btn3.set_modulate(Color(1,0,0,0.5)) #set back to red
+		avg_time = elapsed_time3 + avg_time
 
 
 func _on_BackButton_pressed():
@@ -99,8 +124,8 @@ func _on_BackButton_pressed():
 
 func endGame():
 	print(count, count2)
-	if count == 3 and count2 == 3 :
-		time_total.text = str(avg_time/6) + "msec"
+	if count == 3 and count2 == 3 and count3 == 3:
+		time_total.text = str(avg_time/9)
 
 
 
