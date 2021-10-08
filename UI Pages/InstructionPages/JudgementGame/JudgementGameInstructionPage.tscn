@@ -140,6 +140,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 toggle_mode = true
+pressed = true
 group = SubResource( 5 )
 text = "Easy"
 __meta__ = {
