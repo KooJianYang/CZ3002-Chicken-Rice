@@ -21,10 +21,10 @@ func _process(_delta):
 	if is_started:
 		current_epoch = OS.get_ticks_msec()
 		var time_since_game_start = current_epoch - start_epoch
-		timer_value.text = str(floor(time_since_game_start/1000)) + 's'
+		timer_value.text = str(floor(time_since_game_start/1000)) + '.' + str(floor(fmod(time_since_game_start, 1000)/10)) + 's'
 	else:
 		if not game_won:
-			timer_value.text = '0s'
+			timer_value.text = '0.00s'
 
 func _on_Board_game_started():
 	if game_won:
