@@ -54,7 +54,7 @@ func dealDeck(var difficulty):
 	elif difficulty == 1:
 		deckGrid.set_columns(4) 
 	elif difficulty == 2:
-		deckGrid.set_columns(2)
+		deckGrid.set_columns(5)
 	
 	randomize()
 	deck.shuffle()
