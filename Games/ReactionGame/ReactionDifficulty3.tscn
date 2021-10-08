@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Games/ReactionGame/ReactionDifficulty2.gd" type="Script" id=2]
+[ext_resource path="res://Games/ReactionGame/ReactionDifficulty3.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -21,6 +21,10 @@ size = 48
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 48
 font_data = ExtResource( 3 )
 
@@ -121,8 +125,25 @@ __meta__ = {
 
 [node name="Timer2_for_color" type="Timer" parent="Button2"]
 
+[node name="Button3" type="Button" parent="."]
+margin_left = 9.0
+margin_top = 629.67
+margin_right = 709.0
+margin_bottom = 849.67
+custom_fonts/font = SubResource( 6 )
+text = "Press when green!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer3_for_reaction" type="Timer" parent="Button3"]
+
+[node name="Timer3_for_color" type="Timer" parent="Button3"]
+
 [connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
 [connection signal="timeout" from="Button1/Timer_for_color" to="." method="_on_Timer_for_color_timeout"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
 [connection signal="timeout" from="Button2/Timer2_for_color" to="." method="_on_Timer2_for_color_timeout"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="timeout" from="Button3/Timer3_for_color" to="." method="_on_Timer3_for_color_timeout"]

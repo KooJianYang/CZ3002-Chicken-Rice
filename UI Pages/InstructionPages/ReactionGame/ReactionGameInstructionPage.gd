@@ -14,8 +14,10 @@ func _ready():
 func _on_PlayButton_pressed():
 	if GlobalScript.ReactionGameDifficulty == 0:
 		get_tree().change_scene("res://Games/ReactionGame/ReactionGame.tscn")
-	if GlobalScript.ReactionGameDifficulty == 1:
+	elif GlobalScript.ReactionGameDifficulty == 1 :
 		get_tree().change_scene("res://Games/ReactionGame/ReactionDifficulty2.tscn")
+	elif GlobalScript.ReactionGameDifficulty == 2:
+		get_tree().change_scene("res://Games/ReactionGame/ReactionDifficulty3.tscn")
 		
 
 func _on_BackButton_pressed():
