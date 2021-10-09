@@ -28,6 +28,9 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	get_tree().change_scene("res://UI Pages/InputAgePage/InputAgePage.tscn")
 
 func _on_FirebaseAuth_signup_failed(error_code, message):
+	$Message.visible=true
+	if (message=="EMAIL_EXISTS"):
+		$Message.text= "Email already registered."
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
 
