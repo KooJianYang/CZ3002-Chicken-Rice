@@ -190,7 +190,7 @@ config/icon="res://Assets/Art/Brain Joos Logo.PNG"
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 GlobalScript="*res://Global Script/GlobalScript.gd"
-AccountCreationPage="*res://UI Pages/AccountCreationPage/AccountCreationPage.gd"
+GetEmail="*res://Global Script/GetEmail.gd"
 
 [display]
 

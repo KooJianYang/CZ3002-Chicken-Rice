@@ -1,6 +1,6 @@
 extends Control
 
-var curemail
+var curEmail
 # export(PackedScene) var home_page
 
 func _ready():
@@ -9,6 +9,7 @@ func _ready():
 
 func _on_CreateAccountButton_pressed():
 	var email = $EmailInput.text
+	GetEmail.StoreEmail(email)
 	var password = $PasswordInput.text
 	if email.empty():
 		$Message.visible=true
@@ -22,17 +23,18 @@ func _on_CreateAccountButton_pressed():
 	Firebase.Auth.signup_with_email_and_password(email, password)	
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
-	curemail= auth_info.email
-	print("Success "+ curemail)
+	curEmail= auth_info.email
+	print("Success "+ curEmail)
 	Firebase.Auth.send_account_verification_email()
 	get_tree().change_scene("res://UI Pages/InputAgePage/InputAgePage.tscn")
 
-func _on_FirebaseAuth_signup_failed(error_code, message):
-	$Message.visible=true
-	if (message=="EMAIL_EXISTS"):
+func _on_FirebaseAuth_signup_failed(error_code, messages):
+	#$Message.visible=true
+	get_node("Message").visible=true
+	if (messages=="EMAIL_EXISTS"):
 		$Message.text= "Email already registered."
 	print("error code: " + str(error_code))
-	print("message: " + str(message))
+	print("message: " + str(messages))
 
 func _on_Back_button_pressed():
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
