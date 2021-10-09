@@ -9,7 +9,6 @@ func _on_ConfirmAgeButton_pressed():
 	#print("xd")
 	var Age = $AgeInput.text
 	$Message.text= "Successfully saved!"
-	firestore_collection.add(player_email.curemail,{'Name':player_email.curemail,'Age': Age})
+	firestore_collection.add(player_email.curemail,{'Name':player_email.curemail,'Age': Age, 'MScore': '', 'RScore': '', 'JScore': '', 'OScore': '', })
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
-
 #player_email.userinfo.email,{'Name':player_email.userinfo.email,'Age': 30}

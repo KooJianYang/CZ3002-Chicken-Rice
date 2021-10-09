@@ -4,6 +4,7 @@ export(PackedScene) var home_page
 
 
 var userinfo = null
+var email
 
 func _ready():
 	Firebase.Auth.connect("login_succeeded", self, "_on_FirebaseAuth_login_succeeded")
@@ -33,6 +34,7 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 func _on_LoginButton_pressed():
 	var email = $EmailInput.text
 	var password = $PasswordInput.text
+	GlobalScript.set("email", email)
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 func _on_ForgetPassword_pressed():
