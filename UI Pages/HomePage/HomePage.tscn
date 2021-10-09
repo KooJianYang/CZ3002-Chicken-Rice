@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://UI Pages/InstructionPages/ObservationGame/ObservationGameInstructionPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-green.tres" type="Theme" id=8]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-red.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=10]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-yellow.tres" type="Theme" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -78,6 +82,7 @@ margin_right = 599.0
 margin_bottom = 212.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 2 )
 text = "Memory"
 __meta__ = {
@@ -90,6 +95,7 @@ margin_right = 599.0
 margin_bottom = 455.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 8 )
 custom_fonts/font = SubResource( 2 )
 text = "Reaction"
 __meta__ = {
@@ -102,6 +108,7 @@ margin_right = 599.0
 margin_bottom = 697.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 9 )
 custom_fonts/font = SubResource( 2 )
 text = "Judgement"
 __meta__ = {
@@ -114,6 +121,7 @@ margin_right = 599.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 2 )
 text = "Observation"
 __meta__ = {
