@@ -117,6 +117,7 @@ __meta__ = {
 }
 
 [node name="Message" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
 margin_left = 280.525
 margin_top = 921.99

@@ -17,6 +17,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 
 func _on_FirebaseAuth_login_failed(error_code, message):
 	#var Msg=$Message.text
+	$Message.visible=true
 	if str(message)=="INVALID_EMAIL":
 			$Message.text= "Invalid Email"
 	elif str(message)=="MISSING_PASSWORD":
