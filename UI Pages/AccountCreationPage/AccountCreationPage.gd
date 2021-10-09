@@ -8,9 +8,9 @@ func _ready():
 	Firebase.Auth.connect("signup_failed", self, "_on_FirebaseAuth_signup_failed")
 
 func _on_CreateAccountButton_pressed():
-	var email = $EmailInput.text
+	var email = $VBoxContainer/EmailInput.text
 	GetEmail.StoreEmail(email)
-	var password = $PasswordInput.text
+	var password = $VBoxContainer/PasswordInput.text
 	if email.empty():
 		$Message.visible=true
 		$Message.text= "Please enter Email"
@@ -36,5 +36,5 @@ func _on_FirebaseAuth_signup_failed(error_code, messages):
 	print("error code: " + str(error_code))
 	print("message: " + str(messages))
 
-func _on_Back_button_pressed():
+func _on_Backbutton_pressed():
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
