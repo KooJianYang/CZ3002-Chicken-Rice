@@ -64,9 +64,9 @@ __meta__ = {
 
 [node name="EmailInput" type="LineEdit" parent="."]
 margin_left = 150.0
-margin_top = 803.0
+margin_top = 801.74
 margin_right = 571.0
-margin_bottom = 909.0
+margin_bottom = 907.74
 custom_fonts/font = SubResource( 2 )
 align = 1
 placeholder_text = "Email"
@@ -108,9 +108,9 @@ __meta__ = {
 
 [node name="Back button" type="Button" parent="."]
 margin_left = 58.7855
-margin_top = 88.0565
+margin_top = 87.8581
 margin_right = 129.785
-margin_bottom = 134.056
+margin_bottom = 133.858
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,10 +118,14 @@ __meta__ = {
 
 [node name="Message" type="Label" parent="."]
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
-margin_left = 280.525
-margin_top = 921.99
-margin_right = 426.525
-margin_bottom = 966.99
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.5
+margin_top = 238.055
+margin_right = 225.5
+margin_bottom = 377.055
 text = "Message"
 align = 1
 valign = 1

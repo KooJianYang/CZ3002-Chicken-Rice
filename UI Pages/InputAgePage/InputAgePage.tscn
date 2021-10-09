@@ -63,10 +63,10 @@ __meta__ = {
 }
 
 [node name="AgeInput" type="LineEdit" parent="."]
-margin_left = 150.0
-margin_top = 983.0
-margin_right = 571.0
-margin_bottom = 1089.0
+margin_left = 152.0
+margin_top = 809.0
+margin_right = 573.0
+margin_bottom = 915.0
 custom_fonts/font = SubResource( 2 )
 align = 1
 placeholder_text = "Age"
@@ -81,10 +81,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -210.5
-margin_top = 506.391
-margin_right = 210.5
-margin_bottom = 612.391
+margin_left = -208.5
+margin_top = 332.391
+margin_right = 212.5
+margin_bottom = 438.391
 custom_fonts/font = SubResource( 3 )
 text = "Confirm Age"
 __meta__ = {
@@ -92,6 +92,7 @@ __meta__ = {
 }
 
 [node name="Message" type="Label" parent="."]
+visible = false
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
 margin_left = 280.525
 margin_top = 921.99
