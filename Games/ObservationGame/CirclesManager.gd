@@ -95,6 +95,8 @@ func spawn_circle_at_random_position(current_circle : ObservationGameCircle) -> 
 func get_random_position_on_screen() -> Vector2:
 	var screen_dimensions : Vector2 = get_viewport_rect().size # (width, height)
 	var max_x_position : float = screen_dimensions.x - circle_dimensions.x
-	var max_y_position : float = screen_dimensions.y - circle_dimensions.y
+	
+	# 70 here is to prevent circle from spawning on top of the back button
+	var max_y_position : float = screen_dimensions.y - circle_dimensions.y - 70 
 	randomize()
 	return Vector2(rand_range(0, max_x_position), rand_range(0, max_y_position))
