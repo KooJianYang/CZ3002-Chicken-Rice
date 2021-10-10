@@ -33,6 +33,8 @@ func _on_FirebaseAuth_signup_failed(error_code, messages):
 	get_node("Message").visible=true
 	if (messages=="EMAIL_EXISTS"):
 		$Message.text= "Email already registered."
+	elif (messages=="INVALID_EMAIL"):
+		$Message.text= "Please enter a valid Email."
 	print("error code: " + str(error_code))
 	print("message: " + str(messages))
 
