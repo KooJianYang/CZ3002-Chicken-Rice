@@ -6,7 +6,7 @@
 [ext_resource path="res://UI Pages/InstructionPages/ObservationGame/ObservationGameInstructionPage.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 85
+size = 70
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -39,13 +39,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameName" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -349.0
-margin_top = 27.0
-margin_right = 349.0
-margin_bottom = 136.0
+margin_left = -351.378
+margin_top = 22.2432
+margin_right = 346.622
+margin_bottom = 131.243
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Observation Game"
