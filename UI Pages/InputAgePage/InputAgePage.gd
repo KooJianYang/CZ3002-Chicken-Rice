@@ -7,7 +7,7 @@ func _on_ConfirmAgeButton_pressed():
 	#var document : FirestoreDocument = yield(firestore_collection,"get_document")
 	#print(document)
 	#print("xd")
-	var Age = $AgeInput.text
+	var Age = $VBoxContainer/AgeInput.text
 	$Message.text= "Successfully saved!"
 	firestore_collection.add(player_email,{'Name':player_email,'Age': Age})
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
