@@ -4,15 +4,15 @@
 [ext_resource path="res://Games/ReactionGame/ReactionDifficulty2.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 70
 font_data = ExtResource( 1 )
 
@@ -45,7 +45,7 @@ margin_left = 6.30212
 margin_top = 82.834
 margin_right = 706.302
 margin_bottom = 282.834
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Press when Green!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,7 +72,7 @@ margin_right = 469.068
 margin_bottom = 67.0201
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TIME TAKEN:"
 align = 1
@@ -88,7 +88,7 @@ margin_right = 469.068
 margin_bottom = 161.02
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {

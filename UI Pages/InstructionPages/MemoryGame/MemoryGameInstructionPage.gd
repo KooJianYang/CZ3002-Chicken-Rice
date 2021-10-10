@@ -37,6 +37,7 @@ func _on_Right_pressed():
 	if current > 0:
 		LeftButton.set_disabled(false)
 
+
 func _on_Easy_pressed():
 	GlobalScript.MemoryGameDifficulty = 0
 	print(GlobalScript.MemoryGameDifficulty)

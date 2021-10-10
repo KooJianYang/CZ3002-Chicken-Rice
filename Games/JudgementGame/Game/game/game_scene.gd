@@ -4,16 +4,17 @@ var is_started = false
 var game_won = false
 var start_epoch
 var current_epoch
+var time_taken
+var total_moves
 
 onready var board = $MarginContainer/VBoxContainer/GameView/Board
-
 onready var overlay = $MarginContainer/VBoxContainer/GameView/StartOverlay
 onready var overlay_text = $MarginContainer/VBoxContainer/GameView/StartOverlay/TextOverlay
-
 onready var move_value = $MarginContainer/VBoxContainer/StatsView/HBoxContainer/Moves/MoveValue
 onready var timer_value = $MarginContainer/VBoxContainer/StatsView/HBoxContainer/Time/TimeValue
-
 onready var anim_player = $AnimationPlayer
+onready var restartBtn = $MarginContainer/VBoxContainer/HSeparator2/RestartButton
+
 func _ready():
 	overlay.visible = true
 
@@ -21,10 +22,10 @@ func _process(_delta):
 	if is_started:
 		current_epoch = OS.get_ticks_msec()
 		var time_since_game_start = current_epoch - start_epoch
-		timer_value.text = str(floor(time_since_game_start/1000)) + 's'
+		timer_value.text = str(floor(time_since_game_start/1000)) + '.' + str(floor(fmod(time_since_game_start, 1000)/10)) + 's'
 	else:
 		if not game_won:
-			timer_value.text = '0s'
+			timer_value.text = '0.00s'
 
 func _on_Board_game_started():
 	if game_won:
@@ -36,13 +37,17 @@ func _on_Board_game_started():
 
 
 func _on_Board_game_won():
-	overlay_text.text = 'Nice Work!\n Click Restart to play again'
+	overlay_text.text = 'Nice Work!\nGo Back to Select a Difficulty Again'
 	overlay.visible = true
 	is_started = false
 	game_won = true
+	restartBtn.disabled = true
 	var time_since_game_start = current_epoch - start_epoch
-	print("time taken = ", floor(time_since_game_start/1000), "s")
-	print("moves = ", board.move_count)
+	time_taken = floor(time_since_game_start/1000) + floor(fmod(time_since_game_start, 1000)/10)/100
+	total_moves = board.move_count
+	print(str(floor(fmod(time_since_game_start, 1000)/10)), "s")
+	print("time taken = ", time_taken, "s")
+	print("moves = ", total_moves)
 
 
 func _on_RestartButton_pressed():

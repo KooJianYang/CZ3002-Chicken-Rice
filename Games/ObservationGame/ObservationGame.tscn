@@ -137,15 +137,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="GameEnd"]
+[node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -180.0
-margin_right = 200.0
-margin_bottom = -50.0
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 556.601
+margin_right = 100.0
+margin_bottom = 625.601
 custom_fonts/font = SubResource( 4 )
 text = "Back"
 __meta__ = {
@@ -155,5 +155,5 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="CountdownLabel/IntervalTimer" to="CountdownLabel" method="_on_StartTimer_timeout"]
-[connection signal="pressed" from="GameEnd/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
