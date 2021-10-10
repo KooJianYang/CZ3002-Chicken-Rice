@@ -113,7 +113,7 @@ func checkCards():
 
 func endGame():
 	var player_email = GlobalScript.email
-	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata")
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection("userdata/MScore")
 	timeTaken.text = str(time_elapsed) + "seconds"
 	movesTaken.text = str(moves)
 	firestore_collection.update(player_email,{'MScore': str(time_elapsed)})
