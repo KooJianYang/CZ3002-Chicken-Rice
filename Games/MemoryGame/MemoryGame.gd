@@ -38,7 +38,12 @@ func _ready():
 	dealDeck(difficulty)
 	setUpHUD()
 	#document_task = firestore_collection.get(player_email)
-	document_task = firestore_collection.get("Easy")
+	if difficulty == 0:
+		document_task = firestore_collection.get("Easy")
+	elif difficulty == 1:
+		document_task = firestore_collection.get("Normal")
+	elif difficulty == 2:
+		document_task = firestore_collection.get("Hard")
 	document= yield(document_task, "get_document")
 	
 
@@ -124,7 +129,6 @@ func checkCards():
 		card2 = null
 
 func endGame():
-	
 	timeTaken.text = str(time_elapsed) + "seconds"
 	movesTaken.text = str(moves)
 	#var MScore = str(document.doc_fields.get('MScore0'))
@@ -146,11 +150,15 @@ func endGame():
 			#firestore_collection.update(player_email,{'MScore0': MScore})
 			firestore_collection.update("Easy",{'Score': MScore})
 	elif difficulty == 1:
-		var user: FirestoreTask = firestore_collection.get("Normal")
-		firestore_collection.update(player_email,{'MScore1': str(time_elapsed)})
+		if int(currentScore) < int(MScore): 
+			firestore_collection.update("Normal",{'Score': currentScore})
+		elif int(currentScore) > int(MScore): 
+			firestore_collection.update("Normal",{'Score': MScore})
 	elif difficulty == 2:
-		var user: FirestoreTask = firestore_collection.get("Hard")
-		firestore_collection.update(player_email,{'MScore2': str(time_elapsed)})
+		if int(currentScore) < int(MScore): 
+			firestore_collection.update("Hard",{'Score': currentScore})
+		elif int(currentScore) > int(MScore): 
+			firestore_collection.update("Hard",{'Score': MScore})
 	
 	MScore = ""
 	currentScore = ""
