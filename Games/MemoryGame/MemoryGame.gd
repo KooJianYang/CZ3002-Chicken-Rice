@@ -15,7 +15,12 @@ var moves = 0
 var start_epoch
 var current_epoch
 var time_elapsed
+var document_task : FirestoreTask 
+var document: FirestoreDocument 
+var firestore_collection : FirestoreCollection
+var player_email
 
+onready var http : HTTPRequest = $HTTPRequest
 onready var stats = $Statistics
 onready var movesLabel = $Statistics/Sections/MovesSection/Moves
 onready var timerLabel = $Statistics/Sections/TimerSection/Timer
@@ -26,9 +31,16 @@ onready var movesTaken = $GameEnd/GameEndContainer/MovesTaken
 
 
 func _ready():
+	player_email = GlobalScript.email
+	#firestore_collection  = Firebase.Firestore.collection("userdata")
+	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
 	fillDeck(difficulty_levels[difficulty])
 	dealDeck(difficulty)
 	setUpHUD()
+	#document_task = firestore_collection.get(player_email)
+	document_task = firestore_collection.get("Easy")
+	document= yield(document_task, "get_document")
+	
 
 func _process(_delta):
 	current_epoch = OS.get_ticks_msec()
@@ -112,9 +124,36 @@ func checkCards():
 		card2 = null
 
 func endGame():
+	
 	timeTaken.text = str(time_elapsed) + "seconds"
 	movesTaken.text = str(moves)
+	#var MScore = str(document.doc_fields.get('MScore0'))
+	var MScore = str(document.doc_fields.get('Score'))
+	var currentScore = str(time_elapsed)
+	if difficulty == 0:
+		if int(currentScore) < int(MScore): 
+			print("1")
+			print(currentScore)
+			print(MScore)
+			print(document)
+			#firestore_collection.update(player_email,{'MScore0': currentScore})
+			firestore_collection.update("Easy",{'Score': currentScore})
+		elif int(currentScore) > int(MScore): 
+			print("2")
+			print(currentScore)
+			print(MScore)
+			print(document)
+			#firestore_collection.update(player_email,{'MScore0': MScore})
+			firestore_collection.update("Easy",{'Score': MScore})
+	elif difficulty == 1:
+		var user: FirestoreTask = firestore_collection.get("Normal")
+		firestore_collection.update(player_email,{'MScore1': str(time_elapsed)})
+	elif difficulty == 2:
+		var user: FirestoreTask = firestore_collection.get("Hard")
+		firestore_collection.update(player_email,{'MScore2': str(time_elapsed)})
 	
+	MScore = ""
+	currentScore = ""
 	deckGrid.visible = false
 	stats.visible = false
 	end.visible = true

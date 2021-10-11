@@ -2,7 +2,7 @@ extends Control
 
 export(PackedScene) var home_page
 
-
+var email #pass to GlobalScript
 var userinfo = null
 
 func _ready():
@@ -34,6 +34,7 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 func _on_LoginButton_pressed():
 	var email = $VBoxContainer/EmailInput.text
 	var password = $VBoxContainer/PasswordInput.text
+	GlobalScript.set("email", email)
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 func _on_ForgetPassword_pressed():
