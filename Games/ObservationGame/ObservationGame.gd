@@ -26,7 +26,7 @@ func end_game() -> void:
 	
 	hide_circles()
 	timer.stop()
-	game_end.get_node("TimeTakenLabel").update_time_taken_label(seconds_elapsed_in_game)
+	game_end.get_node("GameEndContainer").get_node("TimeTakenLabel").update_time_taken_label(seconds_elapsed_in_game)
 
 func start_game() -> void:
 	show_circles()
