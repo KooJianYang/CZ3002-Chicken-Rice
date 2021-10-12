@@ -13,6 +13,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	userinfo = auth_info
 	Firebase.Auth.save_auth(auth_info)
 	print("Success")
+	GlobalScript.email=$VBoxContainer/EmailInput.text
 	get_tree().change_scene_to(home_page)
 
 func _on_FirebaseAuth_login_failed(error_code, message):

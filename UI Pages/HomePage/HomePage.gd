@@ -11,6 +11,7 @@ var document: FirestoreDocument
 var firestore_collection : FirestoreCollection
 
 func _ready():
+	print("test")
 	firestore_collection  = Firebase.Firestore.collection("userdata")
 	var player_email = GlobalScript.email
 	document_task = firestore_collection.get(player_email)
@@ -18,7 +19,7 @@ func _ready():
 	GlobalScript.age = str(document.doc_fields.get('Age'))
 	GlobalScript.name_of_user = str(document.doc_fields.get('Name'))
 	GlobalScript.email = str(document.doc_fields.get('Email'))
-	
+
 	print(GlobalScript.age)
 	print(GlobalScript.name_of_user)
 	print(GlobalScript.email)
