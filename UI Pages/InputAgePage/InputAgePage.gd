@@ -10,6 +10,7 @@ func _on_ConfirmAgeButton_pressed():
 	var Age = $VBoxContainer/AgeInput.text
 	$Message.text= "Successfully saved!"
 	firestore_collection.add(player_email,{'Name':player_email,'Age': Age, 'MScore': '', 'RScore': '', 'JScore': '', 'OScore': ''})
+	#{'Name': player_name, 'Email':player_email, 'Age': Age, 'MScore': '', 'RScore': '', 'JScore': '', 'OScore': ''}
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
 
 #player_email.userinfo.email,{'Name':player_email.userinfo.email,'Age': 30}

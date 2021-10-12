@@ -2,6 +2,7 @@ extends Control
 
 export(PackedScene) var home_page
 
+var age #pass to GlobalScript
 var email #pass to GlobalScript
 var userinfo = null
 

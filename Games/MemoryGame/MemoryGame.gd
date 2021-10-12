@@ -18,7 +18,6 @@ var time_elapsed
 var document_task : FirestoreTask 
 var document: FirestoreDocument 
 var firestore_collection : FirestoreCollection
-var firestore_collect : FirestoreCollection
 var currentTime
 var player_email
 
@@ -33,7 +32,7 @@ onready var movesTaken = $GameEnd/GameEndContainer/MovesTaken
 
 
 func _ready():
-	
+	player_email = GlobalScript.email
 	var systime = OS.get_datetime()
 	var day = systime["day"]
 	var month = systime["month"]
