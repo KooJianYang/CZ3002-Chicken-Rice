@@ -8,22 +8,19 @@
 [ext_resource path="res://Games/ObservationGame/LineToConnectCircles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Games/ObservationGame/TimeTakenLabel.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 192
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 64
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 9 )
 
 [node name="ObservationGame" type="Control"]
 anchor_right = 1.0
@@ -77,66 +74,6 @@ seconds_left_to_start = 4
 one_shot = true
 autostart = true
 
-[node name="GameEnd" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CongratsLabel" type="Label" parent="GameEnd"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -259.0
-margin_top = -316.46
-margin_right = 259.0
-margin_bottom = -234.46
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Congratulations!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="YouTookLabel" type="Label" parent="GameEnd"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -263.0
-margin_top = -221.005
-margin_right = 263.0
-margin_bottom = -158.005
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "You took"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TimeTakenLabel" type="Label" parent="GameEnd"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -263.0
-margin_top = -122.01
-margin_right = 263.0
-margin_bottom = -59.0096
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -153,6 +90,63 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="GameEnd" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameEndContainer" type="VBoxContainer" parent="GameEnd"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 152.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndMessage" type="Label" parent="GameEnd/GameEndContainer"]
+margin_right = 720.0
+margin_bottom = 306.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "You've Won!"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTakenMessage" type="Label" parent="GameEnd/GameEndContainer"]
+margin_top = 310.0
+margin_right = 720.0
+margin_bottom = 617.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Time Taken"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTakenLabel" type="Label" parent="GameEnd/GameEndContainer"]
+margin_top = 621.0
+margin_right = 720.0
+margin_bottom = 928.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "##"
+align = 1
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="CountdownLabel/IntervalTimer" to="CountdownLabel" method="_on_StartTimer_timeout"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Art/Button - PS Blank 2.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/ThaleahFat/ThaleahFat.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Games/ObservationGame/Circle/Circle.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="CircleShape2D" id=2]

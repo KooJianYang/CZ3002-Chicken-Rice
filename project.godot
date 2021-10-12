@@ -94,12 +94,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-firebase/auth/user_data.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "FirestoreCollection",
 "language": "GDScript",
 "path": "res://addons/godot-firebase/firestore/firestore_collection.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "FirestoreDocument",
 "language": "GDScript",
 "path": "res://addons/godot-firebase/firestore/firestore_document.gd"
@@ -247,3 +247,8 @@ move_right={
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
