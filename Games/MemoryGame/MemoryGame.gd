@@ -142,8 +142,8 @@ func checkCards():
 
 func endGame():
 	var noOfTimesPlayed = (document.doc_fields.get('NoOfTimesPlayed'))
-	timeTaken.text = str(time_elapsed) + "seconds"
-	movesTaken.text = str(moves)
+	timeTaken.text = str(time_elapsed) + " Seconds"
+	movesTaken.text = str(moves) + " Moves"
 	#var MScore = str(document.doc_fields.get('MScore0'))
 	var index = 1
 	var MScore = str(document.doc_fields.get('HighScore'))
