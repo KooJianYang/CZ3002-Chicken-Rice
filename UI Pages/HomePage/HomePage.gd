@@ -42,3 +42,8 @@ func _on_ObservationGameButton_pressed():
 
 func _on_ProfileButton_pressed():
 	get_tree().change_scene_to(profile_page)
+
+
+func _on_StatisticPageButton_pressed():
+	get_tree().change_scene("res://UI Pages/StatsPage/Stats.tscn")
+
