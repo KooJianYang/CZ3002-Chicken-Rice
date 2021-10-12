@@ -99,5 +99,6 @@ text = "Create New Account"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="VBoxContainer2/LoginWithEmailButton" to="." method="_on_LoginWithEmailButton_pressed"]
 [connection signal="pressed" from="VBoxContainer2/CreateNewAccountButton" to="." method="_on_CreateNewAccountButton_pressed"]

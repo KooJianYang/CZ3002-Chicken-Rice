@@ -72,7 +72,6 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Instructions:"
 autowrap = true
-percent_visible = -0.0769231
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,6 +111,7 @@ margin_top = -300.0
 margin_right = 300.0
 margin_bottom = 300.0
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
