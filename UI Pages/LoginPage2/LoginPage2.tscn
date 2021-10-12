@@ -171,6 +171,7 @@ text = "Login"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="ForgetPassword" to="." method="_on_ForgetPassword_pressed"]
 [connection signal="pressed" from="Backbutton" to="." method="_on_Back_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
