@@ -61,6 +61,9 @@ text = "Judgement Game"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Instructions" type="Label" parent="."]
 anchor_left = 0.5

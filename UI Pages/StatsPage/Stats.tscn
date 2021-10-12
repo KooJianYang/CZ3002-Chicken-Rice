@@ -59,22 +59,26 @@ text = "Statistics"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Header1" type="Label" parent="."]
 margin_left = 60.0
 margin_top = 157.0
 margin_right = 660.0
 margin_bottom = 222.0
+rect_pivot_offset = Vector2( 483.073, 601.917 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Header1"
+text = "GameName"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1" type="ReferenceRect" parent="."]
+[node name="TimeLineChart" type="ReferenceRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -83,6 +87,7 @@ margin_left = -305.0
 margin_top = -418.0
 margin_right = 305.0
 margin_bottom = -165.0
+rect_pivot_offset = Vector2( 488.073, 536.917 )
 border_color = Color( 0, 0, 0, 1 )
 border_width = 4.0
 editor_only = false
@@ -90,7 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1" type="Container" parent="Chart1"]
+[node name="Chart1" type="Container" parent="TimeLineChart"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -103,7 +108,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1Image" type="TextureRect" parent="Chart1/Chart1"]
+[node name="Chart1Image" type="TextureRect" parent="TimeLineChart/Chart1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -123,9 +128,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -300.0
-margin_top = -789.719
+margin_top = -782.228
 margin_right = 300.0
-margin_bottom = -688.719
+margin_bottom = -681.228
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,6 +179,50 @@ margin_bottom = 591.027
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 3 )
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarChart" type="ReferenceRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = 34.4887
+margin_right = 305.0
+margin_bottom = 287.489
+rect_pivot_offset = Vector2( 488.073, 536.917 )
+border_color = Color( 0, 0, 0, 1 )
+border_width = 4.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chart2" type="Container" parent="StarChart"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -123.5
+margin_right = 300.0
+margin_bottom = 124.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chart1Image" type="TextureRect" parent="StarChart/Chart2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
