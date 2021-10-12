@@ -23,15 +23,12 @@ the horizontal axis and the value of the other variable determining the position
 }
 Chart_Properties/are_values_columns = false
 Chart_Properties/labels_index = 0
-Chart_Properties/show_x_values_as_labels = false
-Chart_Display/autoscale_x = true
-Chart_Display/x_decim = 1.0
-Chart_Display/autoscale_y = true
-Chart_Display/y_decim = 1.0
-Chart_Style/points_shape = [  ]
-Chart_Style/function_colors = PoolColorArray(  )
+Chart_Properties/show_x_values_as_labels = true
+Chart_Display/x_decim = 5.0
+Chart_Display/y_decim = 5.0
+Chart_Style/points_shape = [ 0 ]
+Chart_Style/function_colors = PoolColorArray( 0.117647, 0.117647, 0.117647, 1, 0.117647, 0.117647, 0.117647, 1, 0.117647, 0.117647, 0.117647, 1, 0.117647, 0.117647, 0.117647, 1 )
 Chart_Style/box_color = Color( 0.117647, 0.117647, 0.117647, 1 )
-Chart_Style/grid_lines_width = 1
 Chart_Style/v_lines_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 Chart_Style/h_lines_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 Chart_Style/font = null
@@ -81,10 +78,10 @@ __meta__ = {
 [node name="PointData" parent="." instance=ExtResource( 1 )]
 
 [node name="PointData" parent="PointData" index="0"]
-margin_left = -510.384
-margin_top = -148.79
-margin_right = -510.52
-margin_bottom = -147.99
+margin_left = -2714.86
+margin_top = 1799.74
+margin_right = -2715.0
+margin_bottom = 1800.54
 theme = SubResource( 1 )
 
 [editable path="PointData"]

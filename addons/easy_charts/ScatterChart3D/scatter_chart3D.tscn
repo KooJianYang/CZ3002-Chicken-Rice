@@ -3,8 +3,6 @@
 [ext_resource path="res://addons/easy_charts/ScatterChart3D/scatter_chart3D.gd" type="Script" id=1]
 [ext_resource path="res://addons/easy_charts/Utilities/Point/point_data.tscn" type="PackedScene" id=2]
 
-
-
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
 
@@ -45,10 +43,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0 )
 [node name="PointData" parent="." instance=ExtResource( 2 )]
 
 [node name="PointData" parent="PointData" index="0"]
-visible = false
-margin_left = 47.2074
-margin_top = -150.915
-margin_right = 47.0714
-margin_bottom = -150.115
+margin_left = -2640.02
+margin_top = 1935.16
+margin_right = -2640.16
+margin_bottom = 1935.96
 
 [editable path="PointData"]

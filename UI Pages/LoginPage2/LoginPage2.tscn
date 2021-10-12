@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Art/Brain Joos Logo.PNG" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=7]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=8]
+[ext_resource path="res://Assets/Art/Back.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -44,6 +45,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameName" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,6 +68,19 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "BrainJoos"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backbutton" type="TextureButton" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 101.0
+margin_bottom = 87.0
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,17 +105,6 @@ margin_bottom = 1107.65
 custom_fonts/font = SubResource( 2 )
 text = "Forget Password?"
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Backbutton" type="Button" parent="."]
-margin_left = 37.7977
-margin_top = 70.6069
-margin_right = 111.122
-margin_bottom = 116.607
-theme = ExtResource( 7 )
-text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,6 +186,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="ForgetPassword" to="." method="_on_ForgetPassword_pressed"]
-[connection signal="pressed" from="Backbutton" to="." method="_on_Back_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]

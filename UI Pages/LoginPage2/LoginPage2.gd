@@ -39,6 +39,5 @@ func _on_LoginButton_pressed():
 func _on_ForgetPassword_pressed():
 	get_tree().change_scene("res://UI Pages/ResetPasswordPage/ResetPassword.tscn")
 
-
-func _on_Back_button_pressed():
+func _on_Backbutton_pressed():
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")

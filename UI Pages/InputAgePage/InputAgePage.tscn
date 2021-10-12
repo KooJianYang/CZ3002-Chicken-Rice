@@ -37,6 +37,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_top = 59.0
 margin_right = 719.0
@@ -94,9 +103,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AgeInput" type="LineEdit" parent="VBoxContainer"]
+[node name="NameInput" type="LineEdit" parent="VBoxContainer"]
 margin_right = 544.0
-margin_bottom = 172.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "Name"
+placeholder_alpha = 1.0
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AgeInput" type="LineEdit" parent="VBoxContainer"]
+margin_top = 135.0
+margin_right = 544.0
+margin_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 6 )
@@ -110,14 +135,14 @@ __meta__ = {
 }
 
 [node name="ConfirmAgeButton" type="Button" parent="VBoxContainer"]
-margin_top = 202.0
+margin_top = 270.0
 margin_right = 544.0
 margin_bottom = 375.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 3 )
-text = "Confirm Age"
+text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
