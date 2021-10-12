@@ -18,6 +18,8 @@ var time_elapsed
 var document_task : FirestoreTask 
 var document: FirestoreDocument 
 var firestore_collection : FirestoreCollection
+var firestore_collect : FirestoreCollection
+var currentTime
 var player_email
 
 onready var http : HTTPRequest = $HTTPRequest
@@ -31,6 +33,17 @@ onready var movesTaken = $GameEnd/GameEndContainer/MovesTaken
 
 
 func _ready():
+	
+	var systime = OS.get_datetime()
+	var day = systime["day"]
+	var month = systime["month"]
+	var year = systime["year"]
+	var hour = systime["hour"]
+	var minute = systime["minute"]
+	var sec = systime["second"]
+	currentTime = (str(day)+"/"+str(month)+"/"+str(year)+","+str(hour)+":"+str(minute)+":"+str(sec))
+	#e.g. 12/10/21 14:13:45
+	
 	player_email = GlobalScript.email
 	#firestore_collection  = Firebase.Firestore.collection("userdata")
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
@@ -129,10 +142,12 @@ func checkCards():
 		card2 = null
 
 func endGame():
+	var noOfTimesPlayed = (document.doc_fields.get('NoOfTimesPlayed'))
 	timeTaken.text = str(time_elapsed) + "seconds"
 	movesTaken.text = str(moves)
 	#var MScore = str(document.doc_fields.get('MScore0'))
-	var MScore = str(document.doc_fields.get('Score'))
+	var index = 1
+	var MScore = str(document.doc_fields.get('HighScore'))
 	var currentScore = str(time_elapsed)
 	if difficulty == 0:
 		if int(currentScore) < int(MScore): 
@@ -141,25 +156,29 @@ func endGame():
 			print(MScore)
 			print(document)
 			#firestore_collection.update(player_email,{'MScore0': currentScore})
-			firestore_collection.update("Easy",{'Score': currentScore})
+			firestore_collection.update("Easy",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
 			print("2")
 			print(currentScore)
 			print(MScore)
 			print(document)
 			#firestore_collection.update(player_email,{'MScore0': MScore})
-			firestore_collection.update("Easy",{'Score': MScore})
+			firestore_collection.update("Easy",{'HighScore': MScore})
+		noOfTimesPlayed += 1
+		if noOfTimesPlayed == 1:
+			firestore_collection.update("Easy",{'HighScore': currentScore})
+		firestore_collection.update("Easy",{'NoOfTimesPlayed': noOfTimesPlayed})
+		firestore_collection.update("Easy",{'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
 	elif difficulty == 1:
 		if int(currentScore) < int(MScore): 
-			firestore_collection.update("Normal",{'Score': currentScore})
+			firestore_collection.update("Normal",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
-			firestore_collection.update("Normal",{'Score': MScore})
+			firestore_collection.update("Normal",{'HighScore': MScore})
 	elif difficulty == 2:
 		if int(currentScore) < int(MScore): 
-			firestore_collection.update("Hard",{'Score': currentScore})
+			firestore_collection.update("Hard",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
-			firestore_collection.update("Hard",{'Score': MScore})
-	
+			firestore_collection.update("Hard",{'HighScore': MScore})
 	MScore = ""
 	currentScore = ""
 	deckGrid.visible = false
