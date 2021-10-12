@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI Pages/StatsPage/Stats.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 31
+font_data = ExtResource( 3 )
+
+[node name="StatsPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.776471, 0.886275, 0.960784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -349.0
+margin_top = 27.0
+margin_right = 349.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Statistics"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Header1" type="Label" parent="."]
+margin_left = 60.0
+margin_top = 157.0
+margin_right = 660.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Header1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chart1" type="ReferenceRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = -418.0
+margin_right = 305.0
+margin_bottom = -165.0
+border_color = Color( 0, 0, 0, 1 )
+border_width = 4.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chart1" type="Container" parent="Chart1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -123.5
+margin_right = 300.0
+margin_bottom = 124.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chart1Image" type="TextureRect" parent="Chart1/Chart1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pages" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -789.719
+margin_right = 300.0
+margin_bottom = -688.719
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Pages"]
+margin_right = 200.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+
+[node name="CurrentPage" type="Label" parent="Pages"]
+margin_left = 204.0
+margin_right = 396.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1/6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="Pages"]
+margin_left = 400.0
+margin_right = 600.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture_normal = ExtResource( 6 )
+texture_disabled = ExtResource( 8 )
+
+[node name="Backbutton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -279.5
+margin_top = 491.027
+margin_right = 279.5
+margin_bottom = 591.027
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]

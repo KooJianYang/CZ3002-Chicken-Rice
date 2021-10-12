@@ -10,6 +10,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 78
+
+
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -45,6 +47,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -1248, -40 )
 color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
