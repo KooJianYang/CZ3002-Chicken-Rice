@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Art/Observation.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Assets/Art/JudgementPressed.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art/ObservationPressed.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Art/ReactionPressed.png" type="Texture" id=14]
+[ext_resource path="res://UI Pages/HomePage/Options.gd" type="Script" id=15]
+[ext_resource path="res://UI Pages/ProfilePage/ProfilePage.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -30,11 +32,21 @@ memory_game_instruction_page = ExtResource( 4 )
 reaction_game_instruction_page = ExtResource( 7 )
 judgement_game_instruction_page = ExtResource( 6 )
 observation_game_instruction_page = ExtResource( 5 )
+profile_page = ExtResource( 16 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,20 +77,20 @@ margin_top = -504.0
 margin_right = 300.0
 margin_bottom = 569.0
 scroll_horizontal_enabled = false
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
-margin_right = 599.0
-margin_bottom = 1073.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_right = 600.0
+margin_bottom = 1345.0
 custom_constants/separation = 30
 
 [node name="MemoryGameButton" type="TextureButton" parent="Options/VBoxContainer"]
-margin_right = 599.0
+margin_right = 600.0
 margin_bottom = 245.0
+rect_min_size = Vector2( 600, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 10 )
@@ -88,8 +100,9 @@ stretch_mode = 5
 
 [node name="JudgementGameButton" type="TextureButton" parent="Options/VBoxContainer"]
 margin_top = 275.0
-margin_right = 599.0
-margin_bottom = 521.0
+margin_right = 600.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 600, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 9 )
@@ -98,9 +111,10 @@ expand = true
 stretch_mode = 5
 
 [node name="ReactionGameButton" type="TextureButton" parent="Options/VBoxContainer"]
-margin_top = 551.0
-margin_right = 599.0
-margin_bottom = 797.0
+margin_top = 550.0
+margin_right = 600.0
+margin_bottom = 795.0
+rect_min_size = Vector2( 600, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 8 )
@@ -109,9 +123,22 @@ expand = true
 stretch_mode = 5
 
 [node name="ObservationGameButton" type="TextureButton" parent="Options/VBoxContainer"]
-margin_top = 827.0
-margin_right = 599.0
-margin_bottom = 1073.0
+margin_top = 825.0
+margin_right = 600.0
+margin_bottom = 1070.0
+rect_min_size = Vector2( 600, 245 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="ProfileButton" type="TextureButton" parent="Options/VBoxContainer"]
+margin_top = 1100.0
+margin_right = 600.0
+margin_bottom = 1345.0
+rect_min_size = Vector2( 600, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 1 )
@@ -123,3 +150,4 @@ stretch_mode = 5
 [connection signal="pressed" from="Options/VBoxContainer/JudgementGameButton" to="." method="_on_JudgementGameButton_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/ReactionGameButton" to="." method="_on_ReactionGameButton_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/ObservationGameButton" to="." method="_on_ObservationGameButton_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/ProfileButton" to="." method="_on_ProfileButton_pressed"]

@@ -10,25 +10,26 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
+
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="ButtonGroup" id=6]
 
 [node name="ObservationGameInstructionPage" type="Control"]
 anchor_right = 1.0
@@ -46,13 +47,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameName" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
+
 margin_left = -349.0
 margin_top = 25.0
 margin_right = 349.0
 margin_bottom = 134.0
+
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Observation Game"
@@ -148,7 +160,7 @@ margin_right = 396.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1/5"
 align = 1
@@ -175,7 +187,7 @@ margin_left = -340.289
 margin_top = -126.0
 margin_right = -54.2892
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,7 +202,7 @@ margin_left = 44.5783
 margin_top = -126.0
 margin_right = 330.578
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -219,7 +231,7 @@ margin_right = 600.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
@@ -236,10 +248,10 @@ margin_right = 197.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -251,9 +263,9 @@ margin_right = 398.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Normal"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -265,9 +277,9 @@ margin_right = 600.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false

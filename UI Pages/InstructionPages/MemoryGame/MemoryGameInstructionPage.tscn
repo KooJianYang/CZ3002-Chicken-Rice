@@ -14,7 +14,9 @@ size = 85
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+
 size = 45
+
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -33,6 +35,15 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.776471, 0.886275, 0.960784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,6 +115,7 @@ margin_top = -300.0
 margin_right = 300.0
 margin_bottom = 300.0
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
