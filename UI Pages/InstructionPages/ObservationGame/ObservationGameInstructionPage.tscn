@@ -1,27 +1,35 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UI Pages/InstructionPages/ObservationGame/ObservationGameInstructionPage.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 70
+size = 75
+
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 48
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="ButtonGroup" id=6]
 
 [node name="ObservationGameInstructionPage" type="Control"]
 anchor_right = 1.0
@@ -51,31 +59,124 @@ __meta__ = {
 [node name="GameName" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -351.378
-margin_top = 22.2432
-margin_right = 346.622
-margin_bottom = 131.243
+
+margin_left = -349.0
+margin_top = 25.0
+margin_right = 349.0
+margin_bottom = 134.0
+
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Observation Game"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="Instructions" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -300.0
-margin_top = 300.0
-margin_right = 300.0
-margin_bottom = 700.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Instructions: for Observation Game"
-autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InstructionHeader" type="Label" parent="."]
+margin_left = 60.0
+margin_top = 150.0
+margin_right = 660.0
+margin_bottom = 215.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Instructions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="ReferenceRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = -429.0
+margin_right = 305.0
+margin_bottom = 182.0
+border_color = Color( 0, 0, 0, 1 )
+border_width = 4.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="Instructions"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionImages" type="TextureRect" parent="Instructions/Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pages" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -300.0
+margin_top = -463.0
+margin_right = 300.0
+margin_bottom = -362.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Pages"]
+margin_right = 200.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture_normal = ExtResource( 6 )
+texture_disabled = ExtResource( 5 )
+
+[node name="CurrentPage" type="Label" parent="Pages"]
+margin_left = 204.0
+margin_right = 396.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1/5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="Pages"]
+margin_left = 400.0
+margin_right = 600.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 5 )
 
 [node name="PlayButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -86,7 +187,7 @@ margin_left = -340.289
 margin_top = -126.0
 margin_right = -54.2892
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,7 +202,7 @@ margin_left = 44.5783
 margin_top = -126.0
 margin_right = 330.578
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,9 +214,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = 260.0
+margin_top = 283.0
 margin_right = 300.0
-margin_bottom = 430.0
+margin_bottom = 453.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -130,7 +231,7 @@ margin_right = 600.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
@@ -147,10 +248,10 @@ margin_right = 197.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -162,9 +263,9 @@ margin_right = 398.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Normal"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -176,14 +277,16 @@ margin_right = 600.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Difficulty/ButtonSection/Easy" to="." method="_on_Easy_pressed"]

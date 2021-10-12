@@ -17,6 +17,7 @@ func _ready():
 	InstructionPic.set_texture(stepone)
 	LeftButton.set_disabled(true)
 	CurrentPage.text = str(current+1)+"/6"
+	GlobalScript.MemoryGameDifficulty = 0
 
 
 func _on_Left_pressed():
@@ -36,6 +37,7 @@ func _on_Right_pressed():
 		RightButton.set_disabled(true)
 	if current > 0:
 		LeftButton.set_disabled(false)
+
 
 func _on_Easy_pressed():
 	GlobalScript.MemoryGameDifficulty = 0

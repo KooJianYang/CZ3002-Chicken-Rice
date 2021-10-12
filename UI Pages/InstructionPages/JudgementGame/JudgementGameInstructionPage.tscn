@@ -1,27 +1,38 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 80
+size = 78
+
+
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 48
+size = 50
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 44
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 45
 font_data = ExtResource( 3 )
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="ButtonGroup" id=6]
 
 [node name="JudgementGameInstructionPage" type="Control"]
 anchor_right = 1.0
@@ -34,6 +45,7 @@ __meta__ = {
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1248, -40 )
 color = Color( 0.7776, 0.88704, 0.96, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -54,7 +66,7 @@ anchor_right = 0.5
 margin_left = -349.0
 margin_top = 27.0
 margin_right = 349.0
-margin_bottom = 136.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Judgement Game"
@@ -65,20 +77,102 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Instructions" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -300.0
-margin_top = 300.0
-margin_right = 300.0
-margin_bottom = 700.0
+[node name="InstructionsHeader" type="Label" parent="."]
+margin_left = 56.0
+margin_top = 144.0
+margin_right = 656.0
+margin_bottom = 212.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Instructions: for Judgement Game"
+text = "Instructions:"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Instructions" type="ReferenceRect" parent="."]
+margin_left = 55.0
+margin_top = 222.0
+margin_right = 665.0
+margin_bottom = 833.0
+border_color = Color( 0, 0, 0, 1 )
+border_width = 4.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="Instructions"]
+anchor_left = 0.002
+anchor_top = -0.01
+anchor_right = 0.002
+anchor_bottom = -0.01
+margin_left = 3.78
+margin_top = 11.61
+margin_right = 603.78
+margin_bottom = 612.11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionImages" type="TextureRect" parent="Instructions/Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -300.0
+margin_right = 300.0
+margin_bottom = 300.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pages" type="HBoxContainer" parent="."]
+margin_left = 48.0
+margin_top = 840.0
+margin_right = 648.0
+margin_bottom = 940.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Pages"]
+margin_right = 200.0
+margin_bottom = 100.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 5 )
+
+[node name="CurrentPage" type="Label" parent="Pages"]
+margin_left = 204.0
+margin_top = 21.0
+margin_right = 396.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1/6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureButton" parent="Pages"]
+margin_left = 400.0
+margin_right = 600.0
+margin_bottom = 100.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 6 )
+texture_disabled = ExtResource( 5 )
 
 [node name="PlayButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -89,7 +183,7 @@ margin_left = -340.289
 margin_top = -126.0
 margin_right = -54.2892
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,21 +198,17 @@ margin_left = 44.5783
 margin_top = -126.0
 margin_right = 330.578
 margin_bottom = -28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Difficulty" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = 260.0
-margin_right = 300.0
-margin_bottom = 430.0
+margin_left = 60.0
+margin_top = 939.0
+margin_right = 660.0
+margin_bottom = 1109.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,7 +223,7 @@ margin_right = 600.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
@@ -150,10 +240,10 @@ margin_right = 197.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -165,9 +255,9 @@ margin_right = 398.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Normal"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,14 +269,16 @@ margin_right = 600.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Difficulty/ButtonSection/Easy" to="." method="_on_Easy_pressed"]

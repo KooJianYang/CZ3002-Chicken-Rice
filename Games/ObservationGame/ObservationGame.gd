@@ -22,9 +22,11 @@ func set_up_game_based_on_difficulty(difficulty : int) -> void:
 
 func end_game() -> void:
 	game_end.visible = true
+	
+	
 	hide_circles()
 	timer.stop()
-	game_end.get_node("TimeTakenLabel").update_time_taken_label(seconds_elapsed_in_game)
+	game_end.get_node("GameEndContainer").get_node("TimeTakenLabel").update_time_taken_label(seconds_elapsed_in_game)
 
 func start_game() -> void:
 	show_circles()
@@ -44,4 +46,4 @@ func _on_Timer_timeout():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://UI Pages/HomePage/HomePage.tscn")
+	get_tree().change_scene("res://UI Pages/InstructionPages/ObservationGame/ObservationGameInstructionPage.tscn")

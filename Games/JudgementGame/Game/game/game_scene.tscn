@@ -7,7 +7,7 @@
 [ext_resource path="res://Games/JudgementGame/Game/settings/SettingsScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+bg_color = Color( 0.776471, 0.886275, 0.960784, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0784314, 0.0901961, 0.133333, 1 )
@@ -61,6 +61,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -162,6 +165,7 @@ size_flags_vertical = 4
 margin_right = 90.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Time"
 align = 1
 valign = 1
@@ -171,6 +175,7 @@ margin_top = 52.0
 margin_right = 90.0
 margin_bottom = 100.0
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0s"
 align = 1
 valign = 1
@@ -195,6 +200,7 @@ size_flags_vertical = 4
 margin_right = 346.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Moves"
 align = 1
 valign = 1
@@ -204,6 +210,7 @@ margin_top = 52.0
 margin_right = 346.0
 margin_bottom = 100.0
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
 valign = 1
@@ -253,9 +260,10 @@ custom_styles/separator = SubResource( 9 )
 custom_constants/separation = 16
 
 [node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/HSeparator2"]
-margin_left = 160.0
-margin_right = 560.0
-margin_bottom = 100.0
+margin_left = 164.0
+margin_top = 2.0
+margin_right = 564.0
+margin_bottom = 102.0
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 3 )
 text = "Restart"

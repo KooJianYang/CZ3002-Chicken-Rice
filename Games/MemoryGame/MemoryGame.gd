@@ -15,7 +15,13 @@ var moves = 0
 var start_epoch
 var current_epoch
 var time_elapsed
+var document_task : FirestoreTask 
+var document: FirestoreDocument 
+var firestore_collection : FirestoreCollection
+var currentTime
+var player_email
 
+onready var http : HTTPRequest = $HTTPRequest
 onready var stats = $Statistics
 onready var movesLabel = $Statistics/Sections/MovesSection/Moves
 onready var timerLabel = $Statistics/Sections/TimerSection/Timer
@@ -26,9 +32,32 @@ onready var movesTaken = $GameEnd/GameEndContainer/MovesTaken
 
 
 func _ready():
+	player_email = GlobalScript.email
+	var systime = OS.get_datetime()
+	var day = systime["day"]
+	var month = systime["month"]
+	var year = systime["year"]
+	var hour = systime["hour"]
+	var minute = systime["minute"]
+	var sec = systime["second"]
+	currentTime = (str(day)+"/"+str(month)+"/"+str(year)+","+str(hour)+":"+str(minute)+":"+str(sec))
+	#e.g. 12/10/21 14:13:45
+	
+	player_email = GlobalScript.email
+	#firestore_collection  = Firebase.Firestore.collection("userdata")
+	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
 	fillDeck(difficulty_levels[difficulty])
 	dealDeck(difficulty)
 	setUpHUD()
+	#document_task = firestore_collection.get(player_email)
+	if difficulty == 0:
+		document_task = firestore_collection.get("Easy")
+	elif difficulty == 1:
+		document_task = firestore_collection.get("Normal")
+	elif difficulty == 2:
+		document_task = firestore_collection.get("Hard")
+	document= yield(document_task, "get_document")
+	
 
 func _process(_delta):
 	current_epoch = OS.get_ticks_msec()
@@ -54,7 +83,7 @@ func dealDeck(var difficulty):
 	elif difficulty == 1:
 		deckGrid.set_columns(4) 
 	elif difficulty == 2:
-		deckGrid.set_columns(2)
+		deckGrid.set_columns(5)
 	
 	randomize()
 	deck.shuffle()
@@ -112,9 +141,45 @@ func checkCards():
 		card2 = null
 
 func endGame():
+	var noOfTimesPlayed = (document.doc_fields.get('NoOfTimesPlayed'))
 	timeTaken.text = str(time_elapsed) + "seconds"
 	movesTaken.text = str(moves)
-	
+	#var MScore = str(document.doc_fields.get('MScore0'))
+	var index = 1
+	var MScore = str(document.doc_fields.get('HighScore'))
+	var currentScore = str(time_elapsed)
+	if difficulty == 0:
+		if int(currentScore) < int(MScore): 
+			print("1")
+			print(currentScore)
+			print(MScore)
+			print(document)
+			#firestore_collection.update(player_email,{'MScore0': currentScore})
+			firestore_collection.update("Easy",{'HighScore': currentScore})
+		elif int(currentScore) > int(MScore): 
+			print("2")
+			print(currentScore)
+			print(MScore)
+			print(document)
+			#firestore_collection.update(player_email,{'MScore0': MScore})
+			firestore_collection.update("Easy",{'HighScore': MScore})
+		noOfTimesPlayed += 1
+		if noOfTimesPlayed == 1:
+			firestore_collection.update("Easy",{'HighScore': currentScore})
+		firestore_collection.update("Easy",{'NoOfTimesPlayed': noOfTimesPlayed})
+		firestore_collection.update("Easy",{'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+	elif difficulty == 1:
+		if int(currentScore) < int(MScore): 
+			firestore_collection.update("Normal",{'HighScore': currentScore})
+		elif int(currentScore) > int(MScore): 
+			firestore_collection.update("Normal",{'HighScore': MScore})
+	elif difficulty == 2:
+		if int(currentScore) < int(MScore): 
+			firestore_collection.update("Hard",{'HighScore': currentScore})
+		elif int(currentScore) > int(MScore): 
+			firestore_collection.update("Hard",{'HighScore': MScore})
+	MScore = ""
+	currentScore = ""
 	deckGrid.visible = false
 	stats.visible = false
 	end.visible = true
