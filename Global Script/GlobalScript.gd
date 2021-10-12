@@ -13,5 +13,9 @@ var ReactionGameDifficulty = 0
 # JudgementGameInstructionPage passes this constant to Board to set board size
 var JudgementGameDifficulty = 3
 
+#Statistics variables
+var email #to pass user's email
+var age #to pass user's age
+
 func _ready():
 	pass 
