@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Art/Brain Joos Logo.PNG" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://UI Pages/AccountCreationPage/AccountCreationPage.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=5]
 [ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/Buttons/CreateAccountButton.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/CreateAccountButtonPressed.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -15,10 +17,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 30
 font_data = ExtResource( 3 )
 
 [node name="AccountCreationPage" type="Control"]
@@ -141,18 +139,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreateAccountButton" type="Button" parent="VBoxContainer"]
+[node name="CreateAccountButton" type="TextureButton" parent="VBoxContainer"]
 margin_top = 270.0
 margin_right = 544.0
 margin_bottom = 375.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 3 )
-text = "Create Account"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

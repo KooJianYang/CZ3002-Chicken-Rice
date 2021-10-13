@@ -39,6 +39,7 @@ func _on_LoginButton_pressed():
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 func _on_ForgetPassword_pressed():
+	print("pressed")
 	get_tree().change_scene("res://UI Pages/ResetPasswordPage/ResetPassword.tscn")
 
 
