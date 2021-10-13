@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ObservationIcon.png-966cdd43b4f96553f47adc9bd5cdab6a.stex"
+path="res://.import/step3.jpg-e4bf0456b9e09547ea0021f959895fb3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/ObservationIcon.png"
-dest_files=[ "res://.import/ObservationIcon.png-966cdd43b4f96553f47adc9bd5cdab6a.stex" ]
+source_file="res://Assets/ReactionGame/step3.jpg"
+dest_files=[ "res://.import/step3.jpg-e4bf0456b9e09547ea0021f959895fb3.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

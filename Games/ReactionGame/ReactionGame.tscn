@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Games/ReactionGame/ReactionGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -12,11 +12,13 @@ font_data = ExtResource( 2 )
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 70
 font_data = ExtResource( 3 )
 
@@ -37,10 +39,10 @@ __meta__ = {
 }
 
 [node name="Button1" type="Button" parent="."]
-margin_left = 10.075
-margin_top = 50.6728
-margin_right = 710.075
-margin_bottom = 250.673
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 710.0
+margin_bottom = 870.0
 custom_fonts/font = SubResource( 1 )
 text = "Press when green!"
 __meta__ = {
@@ -52,10 +54,14 @@ __meta__ = {
 [node name="Timer_for_reaction" type="Timer" parent="Button1"]
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 217.98
-margin_top = 1138.01
-margin_right = 483.98
-margin_bottom = 1243.01
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 556.0
+margin_right = 100.0
+margin_bottom = 625.0
 custom_fonts/font = SubResource( 2 )
 text = "Back"
 __meta__ = {
@@ -63,11 +69,11 @@ __meta__ = {
 }
 
 [node name="Statistics" type="Panel" parent="."]
-modulate = Color( 0.615686, 0.588235, 0.588235, 0.552941 )
 margin_left = 40.0
-margin_top = 925.159
+margin_top = 960.914
 margin_right = 677.0
-margin_bottom = 1104.16
+margin_bottom = 1139.92
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -79,7 +85,7 @@ margin_right = 469.068
 margin_bottom = 67.0201
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TIME TAKEN:"
 align = 1
@@ -90,12 +96,12 @@ __meta__ = {
 
 [node name="Timer" type="Label" parent="Statistics"]
 margin_left = 141.068
-margin_top = 71.0201
+margin_top = 68.3504
 margin_right = 469.068
-margin_bottom = 161.02
+margin_bottom = 158.35
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
