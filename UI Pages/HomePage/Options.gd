@@ -2,7 +2,7 @@ extends ScrollContainer
 
 
 func _ready():
-	get_v_scrollbar().rect_scale.x = 0
+	get_v_scrollbar().rect_scale.x = 1
 
 
 

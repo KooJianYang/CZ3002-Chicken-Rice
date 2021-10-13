@@ -14,7 +14,9 @@ size = 85
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+
 size = 45
+
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -178,12 +180,12 @@ __meta__ = {
 
 [node name="HeaderSection" type="HBoxContainer" parent="Difficulty"]
 margin_right = 600.0
-margin_bottom = 59.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 
 [node name="DifficultyHeader" type="Label" parent="Difficulty/HeaderSection"]
 margin_right = 600.0
-margin_bottom = 59.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 2 )
@@ -191,7 +193,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
 [node name="ButtonSection" type="HBoxContainer" parent="Difficulty"]
-margin_top = 63.0
+margin_top = 69.0
 margin_right = 600.0
 margin_bottom = 170.0
 size_flags_horizontal = 3
@@ -200,7 +202,7 @@ alignment = 1
 
 [node name="Easy" type="Button" parent="Difficulty/ButtonSection"]
 margin_right = 197.0
-margin_bottom = 107.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -215,7 +217,7 @@ __meta__ = {
 [node name="Normal" type="Button" parent="Difficulty/ButtonSection"]
 margin_left = 201.0
 margin_right = 398.0
-margin_bottom = 107.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -229,7 +231,7 @@ __meta__ = {
 [node name="Hard" type="Button" parent="Difficulty/ButtonSection"]
 margin_left = 402.0
 margin_right = 600.0
-margin_bottom = 107.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
