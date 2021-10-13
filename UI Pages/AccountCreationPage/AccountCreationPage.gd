@@ -26,7 +26,7 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	curEmail= auth_info.email
 	print("Success "+ curEmail)
 	Firebase.Auth.send_account_verification_email()
-	get_tree().change_scene("res://UI Pages/InputAgePage/InputAgePage.tscn")
+	get_tree().change_scene("res://UI Pages/AccountCreationPage/InputAgePage/InputAgePage.tscn")
 
 func _on_FirebaseAuth_signup_failed(error_code, messages):
 	#$Message.visible=true

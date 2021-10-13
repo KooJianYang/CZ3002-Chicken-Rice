@@ -1,22 +1,16 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Art/Title.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/Brain Joos Logo.PNG" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UI Pages/AccountCreationPage/AccountCreationPage.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=5]
-[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/Buttons/CreateAccountButton.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Back.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/CreateAccountButtonPressed.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
-size = 85
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 32
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 30
 font_data = ExtResource( 3 )
 
 [node name="AccountCreationPage" type="Control"]
@@ -35,7 +29,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BrainJoosLogo" type="TextureRect" parent="."]
 margin_top = 59.0
 margin_right = 719.0
 margin_bottom = 775.0
@@ -46,20 +49,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameName" type="Label" parent="."]
+[node name="BrainJoosText" type="TextureRect" parent="BrainJoosLogo"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -205.5
-margin_top = 41.5
-margin_right = 205.5
-margin_bottom = 150.5
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "BrainJoos"
-align = 1
-valign = 1
+margin_left = -272.0
+margin_top = 116.178
+margin_right = 272.0
+margin_bottom = 442.178
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,13 +83,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Backbutton" type="Button" parent="."]
-margin_left = 37.7977
-margin_top = 70.6069
-margin_right = 111.122
-margin_bottom = 116.607
-theme = ExtResource( 6 )
-text = "Back"
+[node name="Backbutton" type="TextureButton" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 101.0
+margin_bottom = 87.0
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,9 +102,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -272.0
-margin_top = 188.682
+margin_top = 189.0
 margin_right = 272.0
-margin_bottom = 563.682
+margin_bottom = 546.0
 custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
@@ -109,11 +112,11 @@ __meta__ = {
 
 [node name="EmailInput" type="LineEdit" parent="VBoxContainer"]
 margin_right = 544.0
-margin_bottom = 105.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 align = 1
 placeholder_text = "Email"
 placeholder_alpha = 1.0
@@ -123,13 +126,13 @@ __meta__ = {
 }
 
 [node name="PasswordInput" type="LineEdit" parent="VBoxContainer"]
-margin_top = 135.0
+margin_top = 129.0
 margin_right = 544.0
-margin_bottom = 240.0
+margin_bottom = 228.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 align = 1
 secret = true
 placeholder_text = "Password"
@@ -139,18 +142,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreateAccountButton" type="Button" parent="VBoxContainer"]
-margin_top = 270.0
+[node name="CreateAccountButton" type="TextureButton" parent="VBoxContainer"]
+margin_top = 258.0
 margin_right = 544.0
-margin_bottom = 375.0
+margin_bottom = 357.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 3 )
-text = "Create Account"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

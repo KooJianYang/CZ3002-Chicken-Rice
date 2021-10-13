@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI Pages/ProfilePage/ProfilePage.gd" type="Script" id=4]
+[ext_resource path="res://UI Pages/ProfilePage/ProfileParameters.gd" type="Script" id=5]
+[ext_resource path="res://UI Pages/ProfilePage/ProfileParametersManager.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="ProfilePage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene_to_go_back = "res://UI Pages/HomePage/HomePage.tscn"
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.7776, 0.88704, 0.96, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1137.0
+color = Color( 0.568627, 0.74902, 0.870588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -247.0
+margin_top = 21.0
+margin_right = 247.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Profile Page"
+
+[node name="ProfileParametersManager" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -289.5
+margin_top = -392.622
+margin_right = 289.5
+margin_bottom = 60.3782
+custom_constants/separation = 20
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameHbox" type="HBoxContainer" parent="ProfileParametersManager"]
+margin_right = 579.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+script = ExtResource( 5 )
+
+[node name="NameLabel" type="Label" parent="ProfileParametersManager/NameHbox"]
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Name: "
+
+[node name="NameToFill" type="Label" parent="ProfileParametersManager/NameHbox"]
+margin_left = 132.0
+margin_top = 24.0
+margin_right = 532.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="EmailHbox" type="HBoxContainer" parent="ProfileParametersManager"]
+margin_top = 120.0
+margin_right = 579.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 100 )
+script = ExtResource( 5 )
+
+[node name="EmailLabel" type="Label" parent="ProfileParametersManager/EmailHbox"]
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Email: "
+
+[node name="EmailToFill" type="Label" parent="ProfileParametersManager/EmailHbox"]
+margin_left = 124.0
+margin_top = 24.0
+margin_right = 524.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="AgeHbox" type="HBoxContainer" parent="ProfileParametersManager"]
+margin_top = 240.0
+margin_right = 579.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 0, 100 )
+script = ExtResource( 5 )
+
+[node name="AgeLabel" type="Label" parent="ProfileParametersManager/AgeHbox"]
+margin_top = 24.0
+margin_right = 95.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Age: "
+
+[node name="AgeToFill" type="Label" parent="ProfileParametersManager/AgeHbox"]
+margin_left = 99.0
+margin_top = 24.0
+margin_right = 499.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -180.0
+margin_right = 200.0
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

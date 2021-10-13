@@ -10,10 +10,13 @@ var total_moves
 onready var board = $MarginContainer/VBoxContainer/GameView/Board
 onready var overlay = $MarginContainer/VBoxContainer/GameView/StartOverlay
 onready var overlay_text = $MarginContainer/VBoxContainer/GameView/StartOverlay/TextOverlay
-onready var move_value = $MarginContainer/VBoxContainer/StatsView/HBoxContainer/Moves/MoveValue
-onready var timer_value = $MarginContainer/VBoxContainer/StatsView/HBoxContainer/Time/TimeValue
+onready var move_value = $MarginContainer/VBoxContainer/Statistics/Sections/MovesSection/Moves
+onready var timer_value = $MarginContainer/VBoxContainer/Statistics/Sections/TimerSection/Timer
 onready var anim_player = $AnimationPlayer
 onready var restartBtn = $MarginContainer/VBoxContainer/HSeparator2/RestartButton
+onready var final_time = $GameEnd/GameEndContainer/TimeTaken
+onready var final_moves = $GameEnd/GameEndContainer/MovesTaken
+onready var gameEnd_overlay = $GameEnd
 
 func _ready():
 	overlay.visible = true
@@ -31,6 +34,7 @@ func _on_Board_game_started():
 	if game_won:
 		return
 	start_epoch = OS.get_ticks_msec()
+	move_value.text = str(0)
 	overlay.visible = false
 	is_started = true
 	game_won = false
@@ -48,6 +52,9 @@ func _on_Board_game_won():
 	print(str(floor(fmod(time_since_game_start, 1000)/10)), "s")
 	print("time taken = ", time_taken, "s")
 	print("moves = ", total_moves)
+	gameEnd_overlay.visible = true
+	final_time.text = str(time_taken) + " Seconds"
+	final_moves.text = str(total_moves) + " Moves"
 
 
 func _on_RestartButton_pressed():
