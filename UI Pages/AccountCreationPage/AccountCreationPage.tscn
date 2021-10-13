@@ -5,15 +5,12 @@
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UI Pages/AccountCreationPage/AccountCreationPage.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=5]
-[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/Buttons/CreateAccountButton.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Back.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/CreateAccountButtonPressed.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
 font_data = ExtResource( 3 )
 
 [node name="AccountCreationPage" type="Control"]
@@ -105,9 +102,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -272.0
-margin_top = 188.682
+margin_top = 189.0
 margin_right = 272.0
-margin_bottom = 563.682
+margin_bottom = 546.0
 custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,7 +112,7 @@ __meta__ = {
 
 [node name="EmailInput" type="LineEdit" parent="VBoxContainer"]
 margin_right = 544.0
-margin_bottom = 105.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
@@ -129,9 +126,9 @@ __meta__ = {
 }
 
 [node name="PasswordInput" type="LineEdit" parent="VBoxContainer"]
-margin_top = 135.0
+margin_top = 129.0
 margin_right = 544.0
-margin_bottom = 240.0
+margin_bottom = 228.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
@@ -145,18 +142,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreateAccountButton" type="Button" parent="VBoxContainer"]
-margin_top = 270.0
+[node name="CreateAccountButton" type="TextureButton" parent="VBoxContainer"]
+margin_top = 258.0
 margin_right = 544.0
-margin_bottom = 375.0
+margin_bottom = 357.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 2 )
-text = "Create Account"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

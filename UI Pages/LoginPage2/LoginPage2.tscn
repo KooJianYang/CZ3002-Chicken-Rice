@@ -6,20 +6,17 @@
 [ext_resource path="res://UI Pages/LoginPage2/LoginPage2.gd" type="Script" id=4]
 [ext_resource path="res://UI Pages/HomePage/HomePage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=7]
+[ext_resource path="res://Assets/Buttons/LoginButtonPressed.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=8]
 [ext_resource path="res://Assets/Art/Back.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/LoginButton.png" type="Texture" id=10]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 15
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 32
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 30
 font_data = ExtResource( 3 )
 
 [node name="LoginPage2" type="Control"]
@@ -94,7 +91,7 @@ margin_left = 415.499
 margin_top = 1062.65
 margin_right = 689.499
 margin_bottom = 1107.65
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Forget Password?"
 flat = true
 __meta__ = {
@@ -139,7 +136,7 @@ margin_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 placeholder_text = "Email"
 placeholder_alpha = 1.0
@@ -155,7 +152,7 @@ margin_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 secret = true
 placeholder_text = "Password"
@@ -165,18 +162,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LoginButton" type="Button" parent="VBoxContainer"]
+[node name="LoginButton" type="TextureButton" parent="VBoxContainer"]
 margin_top = 270.0
 margin_right = 544.0
 margin_bottom = 375.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 7 )
-custom_fonts/font = SubResource( 4 )
-text = "Login"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 7 )
+expand = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Backbutton" to="." method="_on_Backbutton_pressed"]
 [connection signal="pressed" from="ForgetPassword" to="." method="_on_ForgetPassword_pressed"]
