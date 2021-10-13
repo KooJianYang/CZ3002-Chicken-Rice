@@ -96,6 +96,7 @@ func _on_Button1_pressed():
 		elapsed_time = current_epoch - start_epoch
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = avg_time + elapsed_time
+		random_time_color()
 
 func _on_Button2_pressed():
 	if btn2.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -106,6 +107,7 @@ func _on_Button2_pressed():
 		elapsed_time2 = current_epoch2 - start_epoch2
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = elapsed_time2 + avg_time
+		random_time_color()
 
 func _on_Button3_pressed():
 	if btn3.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -116,6 +118,7 @@ func _on_Button3_pressed():
 		elapsed_time3 = current_epoch3 - start_epoch3
 		btn3.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = elapsed_time3 + avg_time
+		random_time_color()
 
 
 func _on_BackButton_pressed():

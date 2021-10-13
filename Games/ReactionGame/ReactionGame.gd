@@ -32,6 +32,7 @@ func _on_Button_pressed():
 		current_epoch = OS.get_ticks_msec()
 		elapsed_time = current_epoch - start_epoch
 		button.set_modulate(Color(1,0,0,0.5)) #set back to red
+		random_timing_color()
 
 	
 

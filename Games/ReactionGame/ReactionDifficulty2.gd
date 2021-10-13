@@ -33,10 +33,10 @@ var count2 = 0
 func _ready():
 	btn1.set_modulate(Color(1,0,0,0.5)) 
 	btn2.set_modulate(Color(1,0,0,0.5))
+	random_time_color()
 
 
 	
-	random_time_color()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,6 +80,7 @@ func _on_Button1_pressed():
 		elapsed_time = current_epoch - start_epoch
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = avg_time + elapsed_time
+		random_time_color()
 
 func _on_Button2_pressed():
 	if btn2.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -90,6 +91,7 @@ func _on_Button2_pressed():
 		elapsed_time2 = current_epoch2 - start_epoch2
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		avg_time = elapsed_time2 + avg_time
+		random_time_color()
 
 
 
