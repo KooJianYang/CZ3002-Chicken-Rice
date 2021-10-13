@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Judgement.png-96dd1428f6cd50b0ab506567d18ea665.stex"
+path="res://.import/CreateNewAccountButtonPressed.png-721a4590cbd389ed08a71fcf6b8703b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Judgement.png"
-dest_files=[ "res://.import/Judgement.png-96dd1428f6cd50b0ab506567d18ea665.stex" ]
+source_file="res://Assets/Buttons/CreateNewAccountButtonPressed.png"
+dest_files=[ "res://.import/CreateNewAccountButtonPressed.png-721a4590cbd389ed08a71fcf6b8703b9.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Judgement.png-96dd1428f6cd50b0ab506567d18ea665.stex"
+path="res://.import/ResetPWButtonPressed.png-b6763099099515a856f000072ad4929d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Judgement.png"
-dest_files=[ "res://.import/Judgement.png-96dd1428f6cd50b0ab506567d18ea665.stex" ]
+source_file="res://Assets/Buttons/ResetPWButtonPressed.png"
+dest_files=[ "res://.import/ResetPWButtonPressed.png-b6763099099515a856f000072ad4929d.stex" ]
 
 [params]
 
