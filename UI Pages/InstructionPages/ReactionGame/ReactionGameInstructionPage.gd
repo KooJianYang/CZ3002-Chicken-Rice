@@ -36,7 +36,7 @@ func _on_Left_pressed():
 func _on_Right_pressed():
 	current += 1
 	InstructionPic.set_texture(stepList[current])
-	CurrentPage.text = str(current+1)+"/5"
+	CurrentPage.text = str(current+1)+"/4"
 	if current == 3:
 		RightButton.set_disabled(true)
 	if current > 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Games/ReactionGame/ReactionDifficulty2.gd" type="Script" id=2]
@@ -24,12 +24,6 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 48
-font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-
-[sub_resource type="DynamicFont" id=8]
-size = 30
 font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
@@ -134,27 +128,6 @@ __meta__ = {
 [node name="Timer2_for_reaction" type="Timer" parent="Button2"]
 
 [node name="Timer2_for_color" type="Timer" parent="Button2"]
-
-[node name="Panel" type="Panel" parent="."]
-margin_left = 123.817
-margin_top = 774.652
-margin_right = 588.817
-margin_bottom = 906.652
-custom_styles/panel = SubResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Panel"]
-margin_right = 460.0
-margin_bottom = 128.0
-custom_fonts/font = SubResource( 8 )
-text = "Every increase in difficulty will result in an increase of a button!"
-align = 3
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]
 [connection signal="timeout" from="Button1/Timer_for_color" to="." method="_on_Timer_for_color_timeout"]
