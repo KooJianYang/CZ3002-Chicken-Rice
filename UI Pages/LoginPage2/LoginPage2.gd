@@ -2,8 +2,7 @@ extends Control
 
 export(PackedScene) var home_page
 
-var age #pass to GlobalScript
-var email #pass to GlobalScript
+
 var userinfo = null
 
 func _ready():
@@ -14,6 +13,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	userinfo = auth_info
 	Firebase.Auth.save_auth(auth_info)
 	print("Success")
+	GlobalScript.email=$VBoxContainer/EmailInput.text
 	get_tree().change_scene_to(home_page)
 
 func _on_FirebaseAuth_login_failed(error_code, message):
@@ -35,12 +35,10 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 func _on_LoginButton_pressed():
 	var email = $VBoxContainer/EmailInput.text
 	var password = $VBoxContainer/PasswordInput.text
-	GlobalScript.set("email", email)
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 func _on_ForgetPassword_pressed():
 	get_tree().change_scene("res://UI Pages/ResetPasswordPage/ResetPassword.tscn")
 
-
-func _on_Back_button_pressed():
+func _on_Backbutton_pressed():
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
