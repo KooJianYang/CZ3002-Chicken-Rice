@@ -13,18 +13,22 @@ size = 70
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 48
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="ButtonGroup" id=6]
 
 [node name="ObservationGameInstructionPage" type="Control"]
 anchor_right = 1.0
@@ -224,6 +228,7 @@ margin_right = 600.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
@@ -243,7 +248,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Easy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -257,7 +262,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Normal"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -271,7 +276,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
+group = SubResource( 6 )
 text = "Hard"
 __meta__ = {
 "_edit_use_anchors_": false

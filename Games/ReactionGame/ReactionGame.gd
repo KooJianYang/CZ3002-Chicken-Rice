@@ -7,10 +7,10 @@ onready var timer_for_reaction :=$Button1/Timer_for_reaction
 onready var time_total := $Statistics/Timer
 
 var rng= RandomNumberGenerator.new()
-var start_epoch
-var current_epoch
-var elapsed_time
-var avg_time
+var start_epoch  
+var current_epoch 
+var elapsed_time = 0
+var avg_time = 0
 var count = 0
 var difficulty = GlobalScript.ReactionGameDifficulty
 
