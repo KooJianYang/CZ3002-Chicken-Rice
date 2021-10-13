@@ -8,7 +8,7 @@
 [ext_resource path="res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Art/Reaction.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Art/Judgement.PNG" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Judgement.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Memory.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Art/MemoryPressed.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Art/JudgementPressed.png" type="Texture" id=12]
