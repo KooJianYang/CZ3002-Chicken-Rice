@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=2]
@@ -7,10 +7,6 @@
 [ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Buttons/PlayButtonShort.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Buttons/PlayButtonShortPressed.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Buttons/BackButtonShortPressed.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Buttons/BackButtonShort.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -25,12 +21,12 @@ size = 45
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 45
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 45
+font_data = ExtResource( 2 )
 
 [sub_resource type="ButtonGroup" id=6]
 
@@ -179,6 +175,36 @@ size_flags_vertical = 7
 texture_normal = ExtResource( 7 )
 texture_disabled = ExtResource( 5 )
 
+[node name="PlayButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -340.289
+margin_top = -126.0
+margin_right = -54.2892
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 4 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 44.5783
+margin_top = -126.0
+margin_right = 330.578
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Difficulty" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -194,20 +220,20 @@ __meta__ = {
 
 [node name="HeaderSection" type="HBoxContainer" parent="Difficulty"]
 margin_right = 600.0
-margin_bottom = 59.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="DifficultyHeader" type="Label" parent="Difficulty/HeaderSection"]
 margin_right = 600.0
-margin_bottom = 59.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
 [node name="ButtonSection" type="HBoxContainer" parent="Difficulty"]
-margin_top = 63.0
+margin_top = 18.0
 margin_right = 600.0
 margin_bottom = 170.0
 size_flags_horizontal = 3
@@ -216,10 +242,10 @@ alignment = 1
 
 [node name="Easy" type="Button" parent="Difficulty/ButtonSection"]
 margin_right = 197.0
-margin_bottom = 107.0
+margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
 group = SubResource( 6 )
@@ -231,10 +257,10 @@ __meta__ = {
 [node name="Normal" type="Button" parent="Difficulty/ButtonSection"]
 margin_left = 201.0
 margin_right = 398.0
-margin_bottom = 107.0
+margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 group = SubResource( 6 )
 text = "Normal"
@@ -245,10 +271,10 @@ __meta__ = {
 [node name="Hard" type="Button" parent="Difficulty/ButtonSection"]
 margin_left = 402.0
 margin_right = 600.0
-margin_bottom = 107.0
+margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 group = SubResource( 6 )
 text = "Hard"
@@ -256,44 +282,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -300.0
-margin_top = -125.0
-margin_right = -50.0
-margin_bottom = -25.0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BackButton" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = -125.0
-margin_right = 300.0
-margin_bottom = -25.0
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Difficulty/ButtonSection/Easy" to="." method="_on_Easy_pressed"]
 [connection signal="pressed" from="Difficulty/ButtonSection/Normal" to="." method="_on_Normal_pressed"]
 [connection signal="pressed" from="Difficulty/ButtonSection/Hard" to="." method="_on_Hard_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

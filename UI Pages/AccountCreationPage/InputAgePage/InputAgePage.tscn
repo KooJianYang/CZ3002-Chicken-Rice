@@ -2,14 +2,17 @@
 
 [ext_resource path="res://UI Pages/AccountCreationPage/InputAgePage/InputAgePage.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=2]
-[ext_resource path="res://Assets/Buttons/ConfirmButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Art/Title.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Brain Joos Logo.PNG" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/Buttons/ConfirmButton.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
 font_data = ExtResource( 6 )
 
 [node name="InputAgePage" type="Control"]
@@ -84,9 +87,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -272.0
-margin_top = 189.0
+margin_top = 188.682
 margin_right = 272.0
-margin_bottom = 553.0
+margin_bottom = 563.682
 custom_constants/separation = 30
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,7 +97,7 @@ __meta__ = {
 
 [node name="NameInput" type="LineEdit" parent="VBoxContainer"]
 margin_right = 544.0
-margin_bottom = 101.0
+margin_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -108,9 +111,9 @@ __meta__ = {
 }
 
 [node name="AgeInput" type="LineEdit" parent="VBoxContainer"]
-margin_top = 131.0
+margin_top = 135.0
 margin_right = 544.0
-margin_bottom = 232.0
+margin_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -123,15 +126,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ConfirmAgeButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 262.0
+[node name="ConfirmAgeButton" type="Button" parent="VBoxContainer"]
+margin_top = 270.0
 margin_right = 544.0
-margin_bottom = 364.0
+margin_bottom = 375.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 3 )
-expand = true
-stretch_mode = 5
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="VBoxContainer/ConfirmAgeButton" to="." method="_on_ConfirmAgeButton_pressed"]

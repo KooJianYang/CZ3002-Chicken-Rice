@@ -2,9 +2,8 @@
 
 [ext_resource path="res://Games/MemoryGame/MemoryGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Buttons/BackButtonShortPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Art/MemoryIcon.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Buttons/BackButtonShort.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.729412, 0.729412, 0.729412, 1 )
@@ -22,36 +21,40 @@ font_data = ExtResource( 2 )
 size = 70
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.729412, 0.729412, 0.729412, 1 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=12]
 font_path = "res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 90
 outline_size = 1
-font_data = SubResource( 5 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 50
-font_data = SubResource( 5 )
+font_data = SubResource( 12 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 65
-font_data = SubResource( 5 )
+size = 50
+font_data = SubResource( 12 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 50
-font_data = SubResource( 5 )
+size = 65
+font_data = SubResource( 12 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 65
-font_data = SubResource( 5 )
+font_data = SubResource( 12 )
 
 [node name="MemoryGame" type="Control"]
 anchor_right = 1.0
@@ -157,19 +160,17 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "##"
 align = 1
 
-[node name="BackButton" type="TextureButton" parent="."]
+[node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = -155.0
+margin_top = -120.0
 margin_right = 100.0
-margin_bottom = -75.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 3 )
-expand = true
-stretch_mode = 5
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 4 )
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -200,7 +201,7 @@ anchor_bottom = 1.0
 margin_left = -300.0
 margin_top = -460.0
 margin_right = 300.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -230,7 +231,7 @@ margin_top = 404.0
 margin_right = 720.0
 margin_bottom = 526.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Memory"
 align = 1
 valign = 1
@@ -243,7 +244,7 @@ margin_top = 530.0
 margin_right = 720.0
 margin_bottom = 652.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "You took"
 align = 1
 valign = 2
@@ -256,7 +257,7 @@ margin_top = 656.0
 margin_right = 720.0
 margin_bottom = 778.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "## Seconds"
 align = 1
 valign = 1
@@ -269,7 +270,7 @@ margin_top = 782.0
 margin_right = 720.0
 margin_bottom = 904.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "and"
 align = 1
 valign = 1
@@ -282,7 +283,7 @@ margin_top = 908.0
 margin_right = 720.0
 margin_bottom = 1030.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "## Moves"
 align = 1
 valign = 1
