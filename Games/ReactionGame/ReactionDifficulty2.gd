@@ -20,6 +20,10 @@ var elapsed_time2 = 0
 #stats 
 onready var time_total :=$Statistics/Timer
 
+#end game
+onready var timeTaken = $GameEnd/GameEndContainer/TimeTaken
+onready var end = $GameEnd
+
 var rng= RandomNumberGenerator.new()
 var avg_time = 0
 var count = 0
@@ -33,9 +37,7 @@ var count2 = 0
 func _ready():
 	btn1.set_modulate(Color(1,0,0,0.5)) 
 	btn2.set_modulate(Color(1,0,0,0.5))
-
-
-	
+	end.visible = false
 	random_time_color()
 
 
@@ -101,7 +103,10 @@ func endGame():
 	print(count, count2)
 	if count == 3 and count2 == 3 :
 		time_total.text = str(avg_time/6) + "msec"
-
+		btn1.visible = false
+		btn2.visible = false
+		end.visible = true
+		timeTaken.text = str(avg_time) + "milliseconds"
 
 
 
