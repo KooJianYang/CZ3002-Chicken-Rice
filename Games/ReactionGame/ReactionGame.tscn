@@ -1,53 +1,51 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Games/ReactionGame/ReactionGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Buttons/BackButtonShort.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/BackButtonShortPressed.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 48
-font_data = ExtResource( 2 )
+[sub_resource type="StyleBoxFlat" id=2]
 
-[sub_resource type="StyleBoxFlat" id=3]
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 70
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.729412, 0.729412, 0.729412, 1 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=6]
 flags = 4
 load_path = "res://.import/ReactionIcon.png-0c3352a6d4e2f4550d7c6685e4bfea61.stex"
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=7]
 font_path = "res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf"
 
 [sub_resource type="DynamicFont" id=8]
 size = 90
 outline_size = 1
-font_data = SubResource( 12 )
+font_data = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 50
-font_data = SubResource( 12 )
+font_data = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 65
-font_data = SubResource( 12 )
+font_data = SubResource( 7 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -82,27 +80,12 @@ __meta__ = {
 
 [node name="Timer_for_reaction" type="Timer" parent="Button1"]
 
-[node name="BackButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = 556.0
-margin_right = 100.0
-margin_bottom = 625.0
-custom_fonts/font = SubResource( 2 )
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Statistics" type="Panel" parent="."]
 margin_left = 40.0
 margin_top = 940.914
 margin_right = 677.0
 margin_bottom = 1119.92
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,7 +97,7 @@ margin_right = 469.068
 margin_bottom = 67.0201
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TIME TAKEN:"
 align = 1
@@ -130,7 +113,7 @@ margin_right = 469.068
 margin_bottom = 158.35
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -163,7 +146,7 @@ anchor_bottom = 1.0
 margin_left = -300.0
 margin_top = -460.0
 margin_right = 300.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -184,7 +167,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 0, 400 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 11 )
+texture = SubResource( 6 )
 expand = true
 stretch_mode = 6
 
@@ -223,6 +206,23 @@ custom_fonts/font = SubResource( 10 )
 text = "## Seconds"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -120.0
+margin_right = 100.0
+margin_bottom = -40.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
