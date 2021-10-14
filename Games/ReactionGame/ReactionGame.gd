@@ -5,12 +5,14 @@ onready var button :=$Button1
 onready var timer_btn1 :=$Button1/Timer_for_color
 onready var timer_for_reaction :=$Button1/Timer_for_reaction
 onready var time_total := $Statistics/Timer
+onready var timeTaken = $GameEnd/GameEndContainer/TimeTaken
+onready var end = $GameEnd
 
 var rng= RandomNumberGenerator.new()
-var start_epoch
-var current_epoch
-var elapsed_time
-var avg_time
+var start_epoch  
+var current_epoch 
+var elapsed_time = 0
+var avg_time = 0
 var count = 0
 var difficulty = GlobalScript.ReactionGameDifficulty
 
@@ -21,6 +23,7 @@ var difficulty = GlobalScript.ReactionGameDifficulty
 func _ready():
 	button.set_modulate(Color(1,0,0,0.5))
 	random_timing_color() #calls to change button color randomly
+	end.visible = false
 	
 
 
@@ -50,9 +53,16 @@ func _on_Timer_timeout():  # for btn 1: whem timer runs out, button changes colo
 		timer_btn1.stop()
 		button.set_modulate(Color(1,0,0,0.5))
 		avg_time = elapsed_time/3
-		time_total.text = str(elapsed_time) + "msec"
+		time_total.text = str(avg_time) + "msec"
+		end_game()
+		
+		
 
 
-
+func end_game():
+	button.visible = false
+	end.visible = true
+	timeTaken.text = str(avg_time) + "milliseconds"
+	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn")
