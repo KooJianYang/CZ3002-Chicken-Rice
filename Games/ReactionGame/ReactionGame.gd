@@ -41,8 +41,7 @@ func _on_Button_pressed():
 		elapsed_time = current_epoch - start_epoch
 		button.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time) + "msec" #display every reaction time
-#		if count == 3:
-#			enter_end_game()
+
 
 
 

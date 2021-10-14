@@ -36,6 +36,7 @@ var avg_time = 0
 var count = 0
 var count2 = 0
 var count3 = 0
+var total_time_all = 0
 
 
 
@@ -107,7 +108,7 @@ func _on_Button1_pressed():
 		elapsed_time = current_epoch - start_epoch
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time) + "msec" #display every reaction time
-		avg_time = avg_time + elapsed_time
+		total_time_all = total_time_all + elapsed_time
 
 
 func _on_Button2_pressed():
@@ -119,7 +120,7 @@ func _on_Button2_pressed():
 		elapsed_time2 = current_epoch2 - start_epoch2
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time2) + "msec" #display every reaction time
-		avg_time = elapsed_time2 + avg_time
+		total_time_all = elapsed_time2 + total_time_all
 
 func _on_Button3_pressed():
 	if btn3.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -130,7 +131,7 @@ func _on_Button3_pressed():
 		elapsed_time3 = current_epoch3 - start_epoch3
 		btn3.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time3) + "msec" #display every reaction time
-		avg_time = elapsed_time3 + avg_time
+		total_time_all = elapsed_time3 + total_time_all
 
 
 
@@ -146,7 +147,8 @@ func endGame():
 	btn2.visible = false
 	btn3.visible = false
 	end.visible = true
-	timeTaken.text = str(avg_time/9) + "milliseconds"
+	avg_time = total_time_all/9
+	timeTaken.text = str(avg_time) + "milliseconds"
 
 
 

@@ -28,6 +28,7 @@ var rng= RandomNumberGenerator.new()
 var avg_time = 0
 var count = 0
 var count2 = 0
+var total_time_all = 0
 
 
 
@@ -85,7 +86,7 @@ func _on_Button1_pressed():
 		elapsed_time = current_epoch - start_epoch
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time) + "msec" #display every reaction time
-		avg_time = avg_time + elapsed_time
+		total_time_all = elapsed_time + total_time_all
 
 func _on_Button2_pressed():
 	if btn2.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -96,7 +97,7 @@ func _on_Button2_pressed():
 		elapsed_time2 = current_epoch2 - start_epoch2
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time2) + "msec" #display every reaction time
-		avg_time = elapsed_time2 + avg_time
+		total_time_all = elapsed_time2 + total_time_all
 
 
 
@@ -114,7 +115,8 @@ func endGame():
 	btn1.visible = false
 	btn2.visible = false
 	end.visible = true
-	timeTaken.text = str(avg_time/6) + "milliseconds"
+	avg_time = total_time_all/6
+	timeTaken.text = str(avg_time) + "milliseconds"
 
 
 
