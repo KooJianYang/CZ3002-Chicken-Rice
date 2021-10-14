@@ -72,20 +72,27 @@ func _on_Board_game_won():
 	overlay.visible = true
 	is_started = false
 	game_won = true
-	restartBtn.disabled = true
-	var time_since_game_start = current_epoch - start_epoch
-	time_taken = floor(time_since_game_start/1000) + floor(fmod(time_since_game_start, 1000)/10)/100
+	restartBtn.hide()
 	total_moves = board.move_count
-	print(str(floor(fmod(time_since_game_start, 1000)/10)), "s")
-	print("time taken = ", time_taken, "s")
-	print("moves = ", total_moves)
+	var time_since_game_start = current_epoch - start_epoch	
+	var seconds = floor(time_since_game_start/1000)
+	var minutes = floor(seconds/60)
+	var remainderSeconds = seconds - (minutes*60)
+#	print(str(floor(fmod(time_since_game_start, 1000)/10)), "s")
+#	print("time taken = ", time_taken, "s")
+#	print("moves = ", total_moves)
 	gameEnd_overlay.visible = true
-	final_time.text = str(time_taken) + " Seconds"
+	if minutes == 0:
+		final_time.text = str(seconds) + " Seconds"
+	else:
+		final_time.text = str(minutes) + " Minute(s)\n" + str(remainderSeconds) + " Seconds"
+		
+		
 	final_moves.text = str(total_moves) + " Moves"
 	#data start
 	var index = 1
 	var JScore = str(document.doc_fields.get('HighScore'))
-	var currentScore = str(round(time_taken))
+	var currentScore = str(round(seconds))
 	if difficulty == 3 or null:
 		if int(currentScore) < int(JScore): 
 			firestore_collection.update("Easy",{'HighScore': currentScore})
