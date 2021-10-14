@@ -18,7 +18,6 @@ func _ready():
 	InstructionPic.set_texture(stepone)
 	LeftButton.set_disabled(true)
 	CurrentPage.text = str(current+1)+"/4"
-	GlobalScript.MemoryGameDifficulty = 0
 
 
 
@@ -49,7 +48,7 @@ func _on_BackButton_pressed():
 
 
 func reset_game_difficulty() -> void:
-	GlobalScript.ObservationGameDifficulty = 0
+	GlobalScript.ReactionGameDifficulty = 0
 
 func _on_Easy_pressed():
 	GlobalScript.ReactionGameDifficulty = 0
