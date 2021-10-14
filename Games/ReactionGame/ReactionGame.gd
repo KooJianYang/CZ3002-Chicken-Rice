@@ -41,6 +41,8 @@ func _on_Button_pressed():
 		elapsed_time = current_epoch - start_epoch
 		button.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time) + "msec" #display every reaction time
+		if count == 3:
+			end_game()
 
 
 
@@ -59,7 +61,7 @@ func _on_Timer_timeout():  # for btn 1: whem timer runs out, button changes colo
 	if count>2:
 		timer_btn1.stop()
 		button.set_modulate(Color(1,0,0,0.5))
-		end_game()
+		
 
 
 
