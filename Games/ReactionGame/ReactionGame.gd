@@ -22,11 +22,12 @@ var difficulty = GlobalScript.ReactionGameDifficulty
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	button.set_modulate(Color(1,0,0,0.5))
-	random_timing_color() #calls to change button color randomly
+	#random_timing_color() #calls to change button color randomly
 	end.visible = false
-	
+	start_game()
 
-
+func start_game():
+	random_timing_color()
 
 func _on_Button_pressed():
 	if button.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -40,7 +41,7 @@ func _on_Button_pressed():
 
 func random_timing_color(): 
 	rng.randomize()
-	timer_btn1.set_wait_time(rng.randi_range(2,5))
+	timer_btn1.set_wait_time(rng.randi_range(3,10))
 	timer_btn1.start()  
 
 	
@@ -49,6 +50,7 @@ func _on_Timer_timeout():  # for btn 1: whem timer runs out, button changes colo
 	button.set_modulate(Color(0,1,0,0.5)) # set color to green
 	timer_for_reaction.start() # start timing for reaction
 	start_epoch = OS.get_ticks_msec()
+	random_timing_color()
 	if count>3:
 		timer_btn1.stop()
 		button.set_modulate(Color(1,0,0,0.5))

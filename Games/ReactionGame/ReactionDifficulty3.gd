@@ -51,7 +51,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	endGame()
+	if count == 3 and count2 == 3 and count3 == 3:
+		endGame()
 
 func random_time_color():
 	rng.randomize()
@@ -126,14 +127,12 @@ func _on_BackButton_pressed():
 
 
 func endGame():
-	print(count, count2)
-	if count == 3 and count2 == 3 and count3 == 3:
-		time_total.text = str(avg_time/9)
-		btn1.visible = false
-		btn2.visible = false
-		btn3.visible = false
-		end.visible = true
-		timeTaken.text = str(avg_time) + "milliseconds"
+	#time_total.text = str(avg_time/9)
+	btn1.visible = false
+	btn2.visible = false
+	btn3.visible = false
+	end.visible = true
+	timeTaken.text = str(avg_time/9) + "milliseconds"
 
 
 
