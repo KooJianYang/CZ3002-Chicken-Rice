@@ -46,30 +46,32 @@ func _ready():
 	btn2.set_modulate(Color(1,0,0,0.5))
 	btn3.set_modulate(Color(1,0,0,0.5))
 	end.visible = false
+	rng.randomize()
 	random_time_color()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if count == 3 and count2 == 3 and count3 == 3:
-		endGame()
+#func _process(delta):
+#	if count == 3 and count2 == 3 and count3 == 3:
+#		endGame()
 
 func random_time_color():
-	rng.randomize()
-	btn1_time_color.set_wait_time(rng.randi_range(2,10))
+	btn1_time_color.set_wait_time(rng.randi_range(1,8))
 	btn1_time_color.start()
 
-	btn2_time_color.set_wait_time(rng.randi_range(2,10))
+	btn2_time_color.set_wait_time(rng.randi_range(1,8))
 	btn2_time_color.start()
-	
-	btn3_time_color.set_wait_time(rng.randi_range(2,10))
+
+	btn3_time_color.set_wait_time(rng.randi_range(1,8))
 	btn3_time_color.start()
+
 
 
 func _on_Timer_for_color_timeout():
 	btn1.set_modulate(Color(0,1,0,0.5))
 	btn1_time_reaction.start()
 	start_epoch = OS.get_ticks_msec() 
+	random_time_color()
 	if count>2:
 		btn1_time_color.stop()
 		btn1.set_modulate(Color(1,0,0,0.5))
@@ -78,6 +80,7 @@ func _on_Timer2_for_color_timeout():
 	btn2.set_modulate(Color(0,1,0,0.5))
 	btn2_time_reaction.start()
 	start_epoch2 = OS.get_ticks_msec() 
+	random_time_color()
 	if count2>2:
 		btn2_time_color.stop()
 		btn2.set_modulate(Color(1,0,0,0.5))
@@ -86,9 +89,11 @@ func _on_Timer3_for_color_timeout():
 	btn3.set_modulate(Color(0,1,0,0.5))
 	btn3_time_reaction.start()
 	start_epoch3 = OS.get_ticks_msec() 
+	random_time_color()
 	if count3>2:
 		btn3_time_color.stop()
 		btn3.set_modulate(Color(1,0,0,0.5))
+
 
 
 func _on_Button1_pressed():
@@ -99,7 +104,10 @@ func _on_Button1_pressed():
 		current_epoch = OS.get_ticks_msec()
 		elapsed_time = current_epoch - start_epoch
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
+		time_total.text = str(elapsed_time) + "msec" #display every reaction time
 		avg_time = avg_time + elapsed_time
+		if count == 3 and count2 == 3 and count3 == 3:
+			endGame()
 
 func _on_Button2_pressed():
 	if btn2.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -109,7 +117,10 @@ func _on_Button2_pressed():
 		current_epoch2 = OS.get_ticks_msec()
 		elapsed_time2 = current_epoch2 - start_epoch2
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
+		time_total.text = str(elapsed_time2) + "msec" #display every reaction time
 		avg_time = elapsed_time2 + avg_time
+		if count == 3 and count2 == 3 and count3 == 3:
+			endGame()
 
 func _on_Button3_pressed():
 	if btn3.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -119,15 +130,19 @@ func _on_Button3_pressed():
 		current_epoch3 = OS.get_ticks_msec()
 		elapsed_time3 = current_epoch3 - start_epoch3
 		btn3.set_modulate(Color(1,0,0,0.5)) #set back to red
+		time_total.text = str(elapsed_time3) + "msec" #display every reaction time
 		avg_time = elapsed_time3 + avg_time
+		if count == 3 and count2 == 3 and count3 == 3:
+			endGame()
+
 
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn")
 
 
+
 func endGame():
-	#time_total.text = str(avg_time/9)
 	btn1.visible = false
 	btn2.visible = false
 	btn3.visible = false

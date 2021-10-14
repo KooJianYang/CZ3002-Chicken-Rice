@@ -22,49 +22,54 @@ var difficulty = GlobalScript.ReactionGameDifficulty
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	button.set_modulate(Color(1,0,0,0.5))
-	#random_timing_color() #calls to change button color randomly
+	rng.randomize()
+	random_timing_color() #calls to change first button color randomly
 	end.visible = false
-	start_game()
 
-func start_game():
-	random_timing_color()
+
+
+#func _process(delta):
+#	if count == 3:
+#		end_game()
 
 func _on_Button_pressed():
 	if button.get_modulate() == Color(1,0,0,0.5): #if user press when red
 		button.text = str("Press only when green")
 	else:
+		count+= 1
 		current_epoch = OS.get_ticks_msec()
 		elapsed_time = current_epoch - start_epoch
 		button.set_modulate(Color(1,0,0,0.5)) #set back to red
+		time_total.text = str(elapsed_time) + "msec" #display every reaction time
 
-	
+
 
 func random_timing_color(): 
-	rng.randomize()
-	timer_btn1.set_wait_time(rng.randi_range(3,10))
+	timer_btn1.set_wait_time(rng.randi_range(1,8))
 	timer_btn1.start()  
 
-	
+
+
 func _on_Timer_timeout():  # for btn 1: whem timer runs out, button changes colour
-	count+= 1
 	button.set_modulate(Color(0,1,0,0.5)) # set color to green
 	timer_for_reaction.start() # start timing for reaction
 	start_epoch = OS.get_ticks_msec()
 	random_timing_color()
-	if count>3:
+
+	if count>2:
 		timer_btn1.stop()
 		button.set_modulate(Color(1,0,0,0.5))
-		avg_time = elapsed_time/3
-		time_total.text = str(avg_time) + "msec"
 		end_game()
-		
-		
+
 
 
 func end_game():
 	button.visible = false
 	end.visible = true
+	avg_time = elapsed_time/3
 	timeTaken.text = str(avg_time) + "milliseconds"
+	
+	
 	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn")
