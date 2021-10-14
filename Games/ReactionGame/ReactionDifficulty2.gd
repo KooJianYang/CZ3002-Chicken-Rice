@@ -43,12 +43,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if count == 3 and count2 == 3 :
-#		endGame()
+func _process(delta):
+	if count == 3 and count2 == 3 :
+		enter_end_game()
 
 func random_time_color():
-
 	btn1_time_color.set_wait_time(rng.randi_range(1,8))
 	btn1_time_color.start()
 
@@ -87,8 +86,6 @@ func _on_Button1_pressed():
 		btn1.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time) + "msec" #display every reaction time
 		avg_time = avg_time + elapsed_time
-		if count == 3 and count2 == 3:
-			endGame()
 
 func _on_Button2_pressed():
 	if btn2.get_modulate() == Color(1,0,0,0.5): #if user press when red
@@ -100,13 +97,16 @@ func _on_Button2_pressed():
 		btn2.set_modulate(Color(1,0,0,0.5)) #set back to red
 		time_total.text = str(elapsed_time2) + "msec" #display every reaction time
 		avg_time = elapsed_time2 + avg_time
-		if count == 3 and count2 == 3:
-			endGame()
 
 
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://UI Pages/InstructionPages/ReactionGame/ReactionGameInstructionPage.tscn")
+
+
+
+func enter_end_game():
+	endGame()
 
 
 
