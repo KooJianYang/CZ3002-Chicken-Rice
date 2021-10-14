@@ -18,6 +18,7 @@ var time_elapsed
 var document_task : FirestoreTask 
 var document: FirestoreDocument 
 var firestore_collection : FirestoreCollection
+var firestore_collection2 : FirestoreCollection
 var currentTime
 var player_email
 
@@ -44,12 +45,10 @@ func _ready():
 	#e.g. 12/10/21 14:13:45
 	
 	player_email = GlobalScript.email
-	#firestore_collection  = Firebase.Firestore.collection("userdata")
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
 	fillDeck(difficulty_levels[difficulty])
 	dealDeck(difficulty)
 	setUpHUD()
-	#document_task = firestore_collection.get(player_email)
 	if difficulty == 0:
 		document_task = firestore_collection.get("Easy")
 	elif difficulty == 1:
@@ -57,7 +56,6 @@ func _ready():
 	elif difficulty == 2:
 		document_task = firestore_collection.get("Hard")
 	document= yield(document_task, "get_document")
-	
 
 func _process(_delta):
 	current_epoch = OS.get_ticks_msec()
@@ -148,40 +146,83 @@ func endGame():
 	var index = 1
 	var MScore = str(document.doc_fields.get('HighScore'))
 	var currentScore = str(time_elapsed)
-	if difficulty == 0:
+	if difficulty == 0 or null:
 		if int(currentScore) < int(MScore): 
-			print("1")
-			print(currentScore)
-			print(MScore)
-			print(document)
-			#firestore_collection.update(player_email,{'MScore0': currentScore})
 			firestore_collection.update("Easy",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
-			print("2")
-			print(currentScore)
-			print(MScore)
-			print(document)
-			#firestore_collection.update(player_email,{'MScore0': MScore})
 			firestore_collection.update("Easy",{'HighScore': MScore})
 		noOfTimesPlayed += 1
 		if noOfTimesPlayed == 1:
-			firestore_collection.update("Easy",{'HighScore': currentScore})
-		firestore_collection.update("Easy",{'NoOfTimesPlayed': noOfTimesPlayed})
-		firestore_collection.update("Easy",{'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+			firestore_collection.update("Easy",{'HighScore': currentScore, 'AvgScore': int(currentScore), 'SumScore': int(currentScore)})
+		firestore_collection.update("Easy",{'NoOfTimesPlayed': noOfTimesPlayed, 'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+		if noOfTimesPlayed > 1:
+			var sumScore = document.doc_fields.get('SumScore') + int(currentScore)
+			firestore_collection.update("Easy",{'SumScore': int(sumScore)})
+			var avgScore = floor(sumScore / noOfTimesPlayed)
+			firestore_collection.update("Easy",{'AvgScore': int(avgScore)})
 	elif difficulty == 1:
 		if int(currentScore) < int(MScore): 
 			firestore_collection.update("Normal",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
 			firestore_collection.update("Normal",{'HighScore': MScore})
+		noOfTimesPlayed += 1
+		if noOfTimesPlayed == 1:
+			firestore_collection.update("Normal",{'HighScore': currentScore, 'AvgScore': int(currentScore), 'SumScore': int(currentScore)})
+		firestore_collection.update("Normal",{'NoOfTimesPlayed': noOfTimesPlayed, 'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+		if noOfTimesPlayed > 1:
+			var sumScore = document.doc_fields.get('SumScore') + int(currentScore)
+			firestore_collection.update("Normal",{'SumScore': int(sumScore)})
+			var avgScore = floor(sumScore / noOfTimesPlayed)
+			firestore_collection.update("Normal",{'AvgScore': int(avgScore)})
 	elif difficulty == 2:
 		if int(currentScore) < int(MScore): 
 			firestore_collection.update("Hard",{'HighScore': currentScore})
 		elif int(currentScore) > int(MScore): 
 			firestore_collection.update("Hard",{'HighScore': MScore})
+		noOfTimesPlayed += 1
+		if noOfTimesPlayed == 1:
+			firestore_collection.update("Hard",{'HighScore': currentScore, 'AvgScore': int(currentScore), 'SumScore': int(currentScore)})
+		firestore_collection.update("Hard",{'NoOfTimesPlayed': noOfTimesPlayed, 'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+		if noOfTimesPlayed > 1:
+			var sumScore = document.doc_fields.get('SumScore') + int(currentScore)
+			firestore_collection.update("Hard",{'SumScore': int(sumScore)})
+			var avgScore = floor(sumScore / noOfTimesPlayed)
+			firestore_collection.update("Hard",{'AvgScore': int(avgScore)})
+
 	MScore = ""
 	currentScore = ""
+	
+	#Player's Total Average Score accross All Difficulty Levels		
+	firestore_collection2  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
+	yield(get_tree().create_timer(0.5),"timeout")
+	document_task = firestore_collection2.get("Easy")
+	document= yield(document_task, "get_document")
+	var getEasySumScore = (document.doc_fields.get('SumScore'))
+	var getEasyNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getEasySumScore)
+	print(getEasyNoOfPlays)
+	
+	document_task = firestore_collection2.get("Normal")
+	document= yield(document_task, "get_document")
+	var getNormalSumScore = (document.doc_fields.get('SumScore'))
+	var getNormalNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getNormalSumScore)
+	print(getNormalNoOfPlays)
+
+	document_task = firestore_collection2.get("Hard")
+	document= yield(document_task, "get_document")
+	var getHardSumScore = (document.doc_fields.get('SumScore'))
+	var getHardNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getHardSumScore)
+	print(getHardNoOfPlays)
+	
+	var totalScores = getEasySumScore + getNormalSumScore + getHardSumScore
+	var totalNoOfPlays = getEasyNoOfPlays + getNormalNoOfPlays + getHardNoOfPlays
+	var totalAvg = totalScores / totalNoOfPlays
+	firestore_collection2.update("AvgScore",{'AvgScore': totalAvg, 'NoOfTimesPlayed': totalNoOfPlays, 'SumScore': totalScores})
+	
 	deckGrid.visible = false
 	stats.visible = false
 	end.visible = true
-
+	
 
