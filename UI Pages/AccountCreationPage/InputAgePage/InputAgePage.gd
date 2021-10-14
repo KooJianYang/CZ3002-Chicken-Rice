@@ -24,11 +24,6 @@ func _on_ConfirmAgeButton_pressed():
 	document_task = firestore_collection2.add("Normal")
 	document_task = firestore_collection2.add("Hard")
 	document_task = firestore_collection2.add("AvgScore")
-	firestore_collection3.update("Easy",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
-	firestore_collection3.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
-	firestore_collection3.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
-	firestore_collection3.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
-	
 	
 	#Memory Game
 	document_task = firestore_collection3.add("Easy")
@@ -46,6 +41,10 @@ func _on_ConfirmAgeButton_pressed():
 	document_task = firestore_collection5.add("Hard")
 	document= yield(document_task, "add_document")
 	
+	firestore_collection3.update("Easy",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection3.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection3.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection3.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 
 	
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
