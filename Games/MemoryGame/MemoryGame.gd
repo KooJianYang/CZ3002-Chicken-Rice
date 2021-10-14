@@ -44,7 +44,6 @@ func _ready():
 	currentTime = (str(day)+"/"+str(month)+"/"+str(year)+","+str(hour)+":"+str(minute)+":"+str(sec))
 	#e.g. 12/10/21 14:13:45
 	
-	player_email = GlobalScript.email
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
 	fillDeck(difficulty_levels[difficulty])
 	dealDeck(difficulty)

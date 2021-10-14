@@ -23,8 +23,7 @@ func _on_ConfirmAgeButton_pressed():
 	document_task = firestore_collection2.add("Easy")
 	document_task = firestore_collection2.add("Normal")
 	document_task = firestore_collection2.add("Hard")
-	document_task = firestore_collection2.add("AvgScore")
-	
+
 	#Memory Game
 	document_task = firestore_collection3.add("Easy")
 	document_task = firestore_collection3.add("Normal")
@@ -41,6 +40,13 @@ func _on_ConfirmAgeButton_pressed():
 	document_task = firestore_collection5.add("Hard")
 	document= yield(document_task, "add_document")
 	
+	#Judgement Data
+	firestore_collection2.update("Easy",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection2.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection2.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection2.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	
+	#Memory Data
 	firestore_collection3.update("Easy",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 	firestore_collection3.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 	firestore_collection3.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
