@@ -124,6 +124,5 @@ texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 3 )
 expand = true
 stretch_mode = 5
-
 [connection signal="pressed" from="VBoxContainer2/LoginWithEmailButton" to="." method="_on_LoginWithEmailButton_pressed"]
 [connection signal="pressed" from="VBoxContainer2/CreateNewAccountButton" to="." method="_on_CreateNewAccountButton_pressed"]
