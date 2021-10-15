@@ -17,7 +17,12 @@ var count = 0
 var difficulty = GlobalScript.ReactionGameDifficulty
 
 
-
+var document_task : FirestoreTask 
+var document: FirestoreDocument 
+var firestore_collection : FirestoreCollection
+var firestore_collection2 : FirestoreCollection
+var currentTime
+var player_email
 
 
 func _ready():
@@ -25,6 +30,19 @@ func _ready():
 	rng.randomize()
 	random_timing_color()  #calls to change button color randomly
 	end.visible = false
+	player_email = GlobalScript.email
+	var systime = OS.get_datetime()
+	var day = systime["day"]
+	var month = systime["month"]
+	var year = systime["year"]
+	var hour = systime["hour"]
+	var minute = systime["minute"]
+	var sec = systime["second"]
+	currentTime = (str(day)+"/"+str(month)+"/"+str(year)+","+str(hour)+":"+str(minute)+":"+str(sec))
+	#e.g. 12/10/21 14:13:45
+	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/RScore")
+	document_task = firestore_collection.get("Easy")
+	document= yield(document_task, "get_document")
 
 
 
@@ -75,6 +93,57 @@ func end_game():
 	button.visible = false
 	end.visible = true
 	timeTaken.text = str(avg_time) + "milliseconds"
+	#Data start
+	var noOfTimesPlayed = (document.doc_fields.get('NoOfTimesPlayed'))
+	var index = 1
+	var RScore = str(document.doc_fields.get('HighScore'))
+	var currentScore = str(round(avg_time))
+	if int(currentScore) < int(RScore): 
+		firestore_collection.update("Easy",{'HighScore': currentScore})
+	elif int(currentScore) > int(RScore): 
+		firestore_collection.update("Easy",{'HighScore': RScore})
+	noOfTimesPlayed += 1
+	if noOfTimesPlayed == 1:
+		firestore_collection.update("Easy",{'HighScore': currentScore, 'AvgScore': int(currentScore), 'SumScore': int(currentScore)})
+	firestore_collection.update("Easy",{'NoOfTimesPlayed': noOfTimesPlayed, 'Score'+str(noOfTimesPlayed) : currentScore+", "+currentTime})
+	if noOfTimesPlayed > 1:
+		var sumScore = document.doc_fields.get('SumScore') + int(currentScore)
+		firestore_collection.update("Easy",{'SumScore': int(sumScore)})
+		var avgScore = floor(sumScore / noOfTimesPlayed)
+		firestore_collection.update("Easy",{'AvgScore': int(avgScore)})
+
+	RScore = ""
+	currentScore = ""
+
+	#Player's Total Average Score accross All Difficulty Levels		
+	firestore_collection2  = Firebase.Firestore.collection("userdata/"+player_email+"/RScore")
+	yield(get_tree().create_timer(0.5),"timeout")
+	document_task = firestore_collection2.get("Easy")
+	document= yield(document_task, "get_document")
+	var getEasySumScore = (document.doc_fields.get('SumScore'))
+	var getEasyNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getEasySumScore)
+	print(getEasyNoOfPlays)
+
+	document_task = firestore_collection2.get("Normal")
+	document= yield(document_task, "get_document")
+	var getNormalSumScore = (document.doc_fields.get('SumScore'))
+	var getNormalNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getNormalSumScore)
+	print(getNormalNoOfPlays)
+
+	document_task = firestore_collection2.get("Hard")
+	document= yield(document_task, "get_document")
+	var getHardSumScore = (document.doc_fields.get('SumScore'))
+	var getHardNoOfPlays = (document.doc_fields.get('NoOfTimesPlayed'))
+	print(getHardSumScore)
+	print(getHardNoOfPlays)
+
+	var totalScores = getEasySumScore + getNormalSumScore + getHardSumScore
+	var totalNoOfPlays = getEasyNoOfPlays + getNormalNoOfPlays + getHardNoOfPlays
+	var totalAvg = totalScores / totalNoOfPlays
+	firestore_collection2.update("AvgScore",{'AvgScore': totalAvg, 'NoOfTimesPlayed': totalNoOfPlays, 'SumScore': totalScores})
+	#Data end
 
 
 
