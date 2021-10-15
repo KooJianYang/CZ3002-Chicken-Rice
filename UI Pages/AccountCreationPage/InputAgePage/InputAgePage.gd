@@ -58,6 +58,12 @@ func _on_ConfirmAgeButton_pressed():
 	firestore_collection4.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 	firestore_collection4.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 	
+	#Reaction Data
+	firestore_collection5.update("Easy",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection5.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection5.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	firestore_collection5.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
+	
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
 
 
