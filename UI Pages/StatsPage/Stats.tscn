@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/StatsPage/Stats.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=8]
+[ext_resource path="res://example_ChartGraph/line_chart_static.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -74,15 +75,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -423.698
+margin_right = 300.0
+margin_bottom = -23.6982
+color = Color( 0.592157, 0.807843, 0.819608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineChartStatic" parent="." instance=ExtResource( 9 )]
+margin_left = -403.958
+margin_top = -416.752
+margin_right = 351.042
+margin_bottom = -29.7522
+
 [node name="TimeLineChart" type="ReferenceRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -305.0
-margin_top = -418.0
-margin_right = 305.0
-margin_bottom = -165.0
+margin_top = -423.0
+margin_right = 304.0
+margin_bottom = -31.0
 rect_pivot_offset = Vector2( 488.073, 536.917 )
 border_color = Color( 0, 0, 0, 1 )
 border_width = 4.0
@@ -124,9 +146,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -300.0
-margin_top = -782.228
+margin_top = -674.163
 margin_right = 300.0
-margin_bottom = -681.228
+margin_bottom = -573.163
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,9 +186,9 @@ texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 8 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 235.9
+margin_left = 234.841
 margin_top = 1119.78
-margin_right = 495.9
+margin_right = 494.841
 margin_bottom = 1229.78
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -177,14 +199,15 @@ __meta__ = {
 }
 
 [node name="StarChart" type="ReferenceRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -305.0
-margin_top = 34.4887
+margin_top = 90.6402
 margin_right = 305.0
-margin_bottom = 287.489
+margin_bottom = 343.641
 rect_pivot_offset = Vector2( 488.073, 536.917 )
 border_color = Color( 0, 0, 0, 1 )
 border_width = 4.0
