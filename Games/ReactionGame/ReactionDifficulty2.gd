@@ -45,6 +45,7 @@ func _ready():
 func _process(delta):
 	if count == 3 and count2 == 3 :
 		enter_end_game()
+		count  += 1 #to stop looping
 
 
 

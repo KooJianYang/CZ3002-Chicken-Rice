@@ -31,6 +31,7 @@ func _ready():
 func _process(delta):
 	if count == 3:  #if button is pressed 3 times when its green
 		enter_end_game() 
+		count += 1 #to stop looping
 
 
 
