@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/StatsPage/Stats.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=8]
+[ext_resource path="res://addons/example_ChartGraph/line_chart_static.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/Art/Table.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -16,6 +19,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 10 )
 
 [node name="StatsPage" type="Control"]
 anchor_right = 1.0
@@ -59,7 +66,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Header1" type="Label" parent="."]
+[node name="BackButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -61.0
+margin_top = -83.4287
+margin_right = 61.0
+margin_bottom = -31.4287
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="Label" parent="."]
 margin_left = 60.0
 margin_top = 157.0
 margin_right = 660.0
@@ -69,71 +93,47 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "GameName"
+text = "Memory Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLineChart" type="ReferenceRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -305.0
-margin_top = -418.0
-margin_right = 305.0
-margin_bottom = -165.0
-rect_pivot_offset = Vector2( 488.073, 536.917 )
-border_color = Color( 0, 0, 0, 1 )
-border_width = 4.0
-editor_only = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Chart1" type="Container" parent="TimeLineChart"]
+[node name="Background2" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -123.5
+margin_top = -423.698
 margin_right = 300.0
-margin_bottom = 124.5
+margin_bottom = -23.6982
+color = Color( 0.592157, 0.807843, 0.819608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1Image" type="TextureRect" parent="TimeLineChart/Chart1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -300.0
-margin_right = 300.0
-margin_bottom = 300.0
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MemoryChart" parent="." instance=ExtResource( 9 )]
+margin_left = -403.958
+margin_top = -416.752
+margin_right = 351.042
+margin_bottom = -29.7522
 
 [node name="Pages" type="HBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -782.228
+margin_top = -1.00256
 margin_right = 300.0
-margin_bottom = -681.228
+margin_bottom = 99.9974
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Left" type="TextureButton" parent="Pages"]
 margin_right = 200.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 texture_normal = ExtResource( 7 )
@@ -142,12 +142,12 @@ texture_disabled = ExtResource( 8 )
 [node name="CurrentPage" type="Label" parent="Pages"]
 margin_left = 204.0
 margin_right = 396.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "1/6"
+text = "1/4"
 align = 1
 valign = 1
 __meta__ = {
@@ -157,68 +157,254 @@ __meta__ = {
 [node name="Right" type="TextureButton" parent="Pages"]
 margin_left = 400.0
 margin_right = 600.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 8 )
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 235.9
-margin_top = 1119.78
-margin_right = 495.9
-margin_bottom = 1229.78
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 3 )
+[node name="TableBackground" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -334.481
+margin_top = 186.227
+margin_right = 301.519
+margin_bottom = 351.227
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 11 )
 expand = true
-stretch_mode = 5
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StarChart" type="ReferenceRect" parent="."]
+[node name="Table" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -305.0
-margin_top = 34.4887
-margin_right = 305.0
-margin_bottom = 287.489
-rect_pivot_offset = Vector2( 488.073, 536.917 )
-border_color = Color( 0, 0, 0, 1 )
-border_width = 4.0
-editor_only = false
+margin_left = -308.5
+margin_top = 188.685
+margin_right = 308.5
+margin_bottom = 423.685
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart2" type="Container" parent="StarChart"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -123.5
-margin_right = 300.0
-margin_bottom = 124.5
+[node name="Empty" type="VBoxContainer" parent="Table"]
+margin_right = 156.0
+margin_bottom = 165.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1Image" type="TextureRect" parent="StarChart/Chart2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -300.0
-margin_right = 300.0
-margin_bottom = 300.0
-expand = true
+[node name="Empty" type="Label" parent="Table/Empty"]
+margin_right = 156.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="Memory" type="Label" parent="Table/Empty"]
+margin_top = 33.0
+margin_right = 156.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Memory"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Reaction" type="Label" parent="Table/Empty"]
+margin_top = 66.0
+margin_right = 156.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Reaction"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Observation" type="Label" parent="Table/Empty"]
+margin_top = 99.0
+margin_right = 156.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Observation"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Judegement" type="Label" parent="Table/Empty"]
+margin_top = 132.0
+margin_right = 156.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Judegement"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Average Score" type="VBoxContainer" parent="Table"]
+margin_left = 206.0
+margin_right = 380.0
+margin_bottom = 165.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Average Score" type="Label" parent="Table/Average Score"]
+margin_right = 174.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Average Score"
+align = 1
+valign = 1
+
+[node name="Memory Average" type="Label" parent="Table/Average Score"]
+margin_top = 33.0
+margin_right = 174.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="React Average" type="Label" parent="Table/Average Score"]
+margin_top = 66.0
+margin_right = 174.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Observation Average" type="Label" parent="Table/Average Score"]
+margin_top = 99.0
+margin_right = 174.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Judegement Average" type="Label" parent="Table/Average Score"]
+margin_top = 132.0
+margin_right = 174.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Global Average" type="VBoxContainer" parent="Table"]
+margin_left = 430.0
+margin_right = 608.0
+margin_bottom = 165.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Global Average" type="Label" parent="Table/Global Average"]
+margin_right = 178.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Global Average"
+align = 1
+valign = 1
+
+[node name="Memory Global" type="Label" parent="Table/Global Average"]
+margin_top = 33.0
+margin_right = 178.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="React Global" type="Label" parent="Table/Global Average"]
+margin_top = 66.0
+margin_right = 178.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Observation Global" type="Label" parent="Table/Global Average"]
+margin_top = 99.0
+margin_right = 178.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Judegement Global" type="Label" parent="Table/Global Average"]
+margin_top = 132.0
+margin_right = 178.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BackButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]
