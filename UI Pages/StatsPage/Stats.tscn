@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/StatsPage/Stats.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Art/Right Button.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=8]
+[ext_resource path="res://addons/example_ChartGraph/line_chart_static.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
@@ -59,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Header1" type="Label" parent="."]
+[node name="GameName" type="Label" parent="."]
 margin_left = 60.0
 margin_top = 157.0
 margin_right = 660.0
@@ -69,71 +70,47 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "GameName"
+text = "Memory Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLineChart" type="ReferenceRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -305.0
-margin_top = -418.0
-margin_right = 305.0
-margin_bottom = -165.0
-rect_pivot_offset = Vector2( 488.073, 536.917 )
-border_color = Color( 0, 0, 0, 1 )
-border_width = 4.0
-editor_only = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Chart1" type="Container" parent="TimeLineChart"]
+[node name="Background2" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -123.5
+margin_top = -423.698
 margin_right = 300.0
-margin_bottom = 124.5
+margin_bottom = -23.6982
+color = Color( 0.592157, 0.807843, 0.819608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Chart1Image" type="TextureRect" parent="TimeLineChart/Chart1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -300.0
-margin_right = 300.0
-margin_bottom = 300.0
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MemoryChart" parent="." instance=ExtResource( 9 )]
+margin_left = -403.958
+margin_top = -416.752
+margin_right = 351.042
+margin_bottom = -29.7522
 
 [node name="Pages" type="HBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -782.228
+margin_top = -1.00256
 margin_right = 300.0
-margin_bottom = -681.228
+margin_bottom = 99.9974
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Left" type="TextureButton" parent="Pages"]
 margin_right = 200.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 texture_normal = ExtResource( 7 )
@@ -142,12 +119,12 @@ texture_disabled = ExtResource( 8 )
 [node name="CurrentPage" type="Label" parent="Pages"]
 margin_left = 204.0
 margin_right = 396.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "1/6"
+text = "1/4"
 align = 1
 valign = 1
 __meta__ = {
@@ -157,16 +134,16 @@ __meta__ = {
 [node name="Right" type="TextureButton" parent="Pages"]
 margin_left = 400.0
 margin_right = 600.0
-margin_bottom = 101.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 8 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 235.9
+margin_left = 234.841
 margin_top = 1119.78
-margin_right = 495.9
+margin_right = 494.841
 margin_bottom = 1229.78
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -177,14 +154,15 @@ __meta__ = {
 }
 
 [node name="StarChart" type="ReferenceRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -305.0
-margin_top = 34.4887
+margin_top = 90.6402
 margin_right = 305.0
-margin_bottom = 287.489
+margin_bottom = 343.641
 rect_pivot_offset = Vector2( 488.073, 536.917 )
 border_color = Color( 0, 0, 0, 1 )
 border_width = 4.0
@@ -222,3 +200,4 @@ __meta__ = {
 
 [connection signal="pressed" from="Pages/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Pages/Right" to="." method="_on_Right_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
