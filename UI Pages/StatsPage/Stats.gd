@@ -4,6 +4,7 @@ onready var LeftButton = $Pages/Left
 onready var RightButton = $Pages/Right
 onready var CurrentPage = $Pages/CurrentPage
 onready var GameName = $GameName
+onready var Chart = $MemoryChart
 
 var current = 0
 
@@ -25,18 +26,22 @@ func _ready():
 
 func _on_Left_pressed():
 	current -= 1
-
+	
 	CurrentPage.text = str(current+1)+"/4"
 	if current == 0:
 		GameName.text= "Memory Game"
+		Chart.Memory()
 		LeftButton.set_disabled(true)
 	if current == 1:
+		Chart.Judgement()
 		GameName.text= "Judgement Game"
 	if current == 2:
+		Chart.Reaction()
 		GameName.text= "Reaction Game"
 	if current < 3:
 		RightButton.set_disabled(false)
 	if current ==3:
+		Chart.Observation()
 		GameName.text= "Observation Game"
 
 
@@ -48,12 +53,16 @@ func _on_Right_pressed():
 		LeftButton.set_disabled(false)
 	if current == 0:
 		GameName.text= "Memory Game"
+		Chart.Memory()
 	if current == 1:
 		GameName.text= "Judgement Game"
+		Chart.Judgement()
 	if current == 2:
 		GameName.text= "Reaction Game"
-	if current ==3:
+		Chart.Reaction()
+	if current == 3:
 		GameName.text= "Observation Game"
+		Chart.Observation()
 		RightButton.set_disabled(true)
 
 func _on_TextureButton_pressed():

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/ChartGraph/line_chart/line_chart.gd" type="Script" id=1]
 [ext_resource path="res://addons/ChartGraph/assets/fonts/Roboto/RobotoRegular.tres" type="DynamicFont" id=2]
-[ext_resource path="res://example_ChartGraph/line_chart_continous.gd" type="Script" id=3]
+[ext_resource path="res://addons/example_ChartGraph/line_chart_continous.gd" type="Script" id=3]
 
 [node name="line_chart_continous" type="Control"]
 anchor_right = 1.0

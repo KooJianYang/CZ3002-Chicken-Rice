@@ -20,24 +20,16 @@ onready var chart_node = get_node('chart')
 func _ready():
 	chart_node.initialize(chart_node.LABELS_TO_SHOW.NO_LABEL,
 	{
-		Easy = Color(1.0, 0.18, 0.18),
-		Normal = Color(0.58, 0.92, 0.07),
-		Hard = Color(0.5, 0.22, 0.6),
+		Easy = Color(0.0, 1.0, 0.0),
+		Normal = Color(1.0, 1.0, 0.0),
+		Hard = Color(1.0, 0.0, 0.0),
 	})
+	Memory()
 	chart_node.set_labels(7)
-	
-	if chartType ==0:
-		Memory()
-	elif chartType ==1:
-		Observation()
-	elif chartType ==2:
-		Reaction()
-	elif chartType ==3:
-		Judgement()
-		
 	set_process(true)
 
 func Memory():
+	chart_node.self_clear_chart()
 	#data start
 	player_email = GlobalScript.email
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
@@ -105,6 +97,7 @@ func Memory():
 	
 func Observation():
 	#data start
+	chart_node.self_clear_chart()
 	player_email = GlobalScript.email
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/OScore")
 	document_EasyTask = firestore_collection.get("Easy")
@@ -171,6 +164,7 @@ func Observation():
 	
 func Reaction():
 	#data start
+	chart_node.self_clear_chart()
 	player_email = GlobalScript.email
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/RScore")
 	document_EasyTask = firestore_collection.get("Easy")
@@ -236,6 +230,7 @@ func Reaction():
 	})	
 	
 func Judgement():
+	chart_node.self_clear_chart()
 	#data start
 	player_email = GlobalScript.email
 	firestore_collection  = Firebase.Firestore.collection("userdata/"+player_email+"/JScore")
