@@ -203,6 +203,7 @@ config/icon="res://Assets/Art/Brain Joos Logo.PNG"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 GlobalScript="*res://Global Script/GlobalScript.gd"
 GetEmail="*res://Global Script/GetEmail.gd"
+CGUtilities="*res://addons/ChartGraph/core/utilities.gd"
 
 [display]
 
@@ -214,7 +215,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/ChartGraph/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/silicon.util.custom_docs/plugin.cfg" )
 
 [firebase]
 
