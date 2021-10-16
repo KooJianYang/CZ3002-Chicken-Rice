@@ -14,6 +14,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/silicon.util.custom_docs/doc_item/argument_doc_item.gd"
 }, {
+"base": "ReferenceRect",
+"class": "CGChart",
+"language": "GDScript",
+"path": "res://addons/ChartGraph/core/chart.gd"
+}, {
+
+"base": "CGChart",
+"class": "CGLine",
+"language": "GDScript",
+"path": "res://addons/ChartGraph/line_chart/line_chart.gd"
+}, {
 "base": "TextureButton",
 "class": "Card",
 "language": "GDScript",
@@ -151,6 +162,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ArgumentDocItem": "",
+"CGChart": "",
+"CGLine": "",
 "Card": "",
 "ClassDocItem": "",
 "ConstantDocItem": "",
@@ -191,7 +204,7 @@ config/icon="res://Assets/Art/Brain Joos Logo.PNG"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 GlobalScript="*res://Global Script/GlobalScript.gd"
 GetEmail="*res://Global Script/GetEmail.gd"
-Utilities="*res://addons/easy_charts/Utilities/Scripts/utilities.gd"
+CGUtilities="*res://addons/ChartGraph/core/utilities.gd"
 
 [display]
 
@@ -203,7 +216,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/ChartGraph/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/silicon.util.custom_docs/plugin.cfg" )
 
 [firebase]
 
