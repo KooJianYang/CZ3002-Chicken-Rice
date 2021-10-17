@@ -215,7 +215,9 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
+
 enabled=PoolStringArray( "res://addons/ChartGraph/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg", "res://addons/silicon.util.custom_docs/plugin.cfg" )
+
 
 [firebase]
 
