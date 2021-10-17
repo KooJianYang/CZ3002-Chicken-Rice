@@ -168,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -334.481
-margin_top = 186.227
-margin_right = 301.519
-margin_bottom = 351.227
+margin_left = -334.0
+margin_top = 186.0
+margin_right = 299.0
+margin_bottom = 367.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 11 )
@@ -186,37 +186,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -308.5
-margin_top = 188.685
-margin_right = 308.5
-margin_bottom = 423.685
+margin_left = -333.0
+margin_top = 187.0
+margin_right = 300.0
+margin_bottom = 368.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Empty" type="VBoxContainer" parent="Table"]
-margin_right = 156.0
-margin_bottom = 165.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 0
+margin_right = 208.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Empty" type="Label" parent="Table/Empty"]
-margin_right = 156.0
+margin_right = 208.0
 margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="Memory" type="Label" parent="Table/Empty"]
-margin_top = 33.0
-margin_right = 156.0
-margin_bottom = 66.0
+margin_top = 37.0
+margin_right = 208.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Memory"
@@ -227,9 +229,11 @@ __meta__ = {
 }
 
 [node name="Reaction" type="Label" parent="Table/Empty"]
-margin_top = 66.0
-margin_right = 156.0
-margin_bottom = 99.0
+margin_top = 74.0
+margin_right = 208.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Reaction"
@@ -240,9 +244,11 @@ __meta__ = {
 }
 
 [node name="Observation" type="Label" parent="Table/Empty"]
-margin_top = 99.0
-margin_right = 156.0
-margin_bottom = 132.0
+margin_top = 111.0
+margin_right = 208.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Observation"
@@ -252,13 +258,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Judegement" type="Label" parent="Table/Empty"]
-margin_top = 132.0
-margin_right = 156.0
-margin_bottom = 165.0
+[node name="Judgement" type="Label" parent="Table/Empty"]
+margin_top = 148.0
+margin_right = 208.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Judegement"
+text = "Judgement"
 align = 1
 valign = 1
 __meta__ = {
@@ -266,19 +274,20 @@ __meta__ = {
 }
 
 [node name="Average Score" type="VBoxContainer" parent="Table"]
-margin_left = 206.0
-margin_right = 380.0
-margin_bottom = 165.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 0
+margin_left = 212.0
+margin_right = 420.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Average Score" type="Label" parent="Table/Average Score"]
-margin_right = 174.0
+margin_right = 208.0
 margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Average Score"
@@ -286,9 +295,11 @@ align = 1
 valign = 1
 
 [node name="Memory Average" type="Label" parent="Table/Average Score"]
-margin_top = 33.0
-margin_right = 174.0
-margin_bottom = 66.0
+margin_top = 37.0
+margin_right = 208.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1"
@@ -299,9 +310,11 @@ __meta__ = {
 }
 
 [node name="React Average" type="Label" parent="Table/Average Score"]
-margin_top = 66.0
-margin_right = 174.0
-margin_bottom = 99.0
+margin_top = 74.0
+margin_right = 208.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2"
@@ -312,9 +325,11 @@ __meta__ = {
 }
 
 [node name="Observation Average" type="Label" parent="Table/Average Score"]
-margin_top = 99.0
-margin_right = 174.0
-margin_bottom = 132.0
+margin_top = 111.0
+margin_right = 208.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3"
@@ -325,9 +340,11 @@ __meta__ = {
 }
 
 [node name="Judegement Average" type="Label" parent="Table/Average Score"]
-margin_top = 132.0
-margin_right = 174.0
-margin_bottom = 165.0
+margin_top = 148.0
+margin_right = 208.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "4"
@@ -338,19 +355,20 @@ __meta__ = {
 }
 
 [node name="Global Average" type="VBoxContainer" parent="Table"]
-margin_left = 430.0
-margin_right = 608.0
-margin_bottom = 165.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 0
+margin_left = 424.0
+margin_right = 633.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Global Average" type="Label" parent="Table/Global Average"]
-margin_right = 178.0
+margin_right = 209.0
 margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Global Average"
@@ -358,9 +376,11 @@ align = 1
 valign = 1
 
 [node name="Memory Global" type="Label" parent="Table/Global Average"]
-margin_top = 33.0
-margin_right = 178.0
-margin_bottom = 66.0
+margin_top = 37.0
+margin_right = 209.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1"
@@ -370,9 +390,11 @@ __meta__ = {
 }
 
 [node name="React Global" type="Label" parent="Table/Global Average"]
-margin_top = 66.0
-margin_right = 178.0
-margin_bottom = 99.0
+margin_top = 74.0
+margin_right = 209.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2"
@@ -382,9 +404,11 @@ __meta__ = {
 }
 
 [node name="Observation Global" type="Label" parent="Table/Global Average"]
-margin_top = 99.0
-margin_right = 178.0
-margin_bottom = 132.0
+margin_top = 111.0
+margin_right = 209.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3"
@@ -394,9 +418,11 @@ __meta__ = {
 }
 
 [node name="Judegement Global" type="Label" parent="Table/Global Average"]
-margin_top = 132.0
-margin_right = 178.0
-margin_bottom = 165.0
+margin_top = 148.0
+margin_right = 209.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "4"
