@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/InstructionPages/JudgementGame/JudgementGameInstructionPage.gd" type="Script" id=2]
@@ -11,6 +11,13 @@
 [ext_resource path="res://Assets/Buttons/PlayButtonShortPressed.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Buttons/BackButtonShortPressed.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Buttons/BackButtonShort.png" type="Texture" id=11]
+[ext_resource path="res://UI Pages/InstructionPages/MemoryGame/DifficultyButtonGroup.tres" type="ButtonGroup" id=12]
+[ext_resource path="res://Assets/Buttons/NormalButtonPressed.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/NormalButton.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/EasyButton.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/HardButtonPressed.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/EasyButtonPressed.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/HardButton.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -27,8 +34,6 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=4]
 size = 45
 font_data = ExtResource( 3 )
-
-[sub_resource type="ButtonGroup" id=5]
 
 [node name="JudgementGameInstructionPage" type="Control"]
 anchor_right = 1.0
@@ -172,76 +177,78 @@ texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 5 )
 
 [node name="Difficulty" type="VBoxContainer" parent="."]
-margin_left = 60.0
-margin_top = 939.0
-margin_right = 660.0
-margin_bottom = 1109.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = 297.0
+margin_right = 270.0
+margin_bottom = 467.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HeaderSection" type="HBoxContainer" parent="Difficulty"]
-margin_right = 600.0
-margin_bottom = 14.0
+margin_right = 540.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 
 [node name="DifficultyHeader" type="Label" parent="Difficulty/HeaderSection"]
-margin_right = 600.0
-margin_bottom = 14.0
+margin_right = 540.0
+margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Difficulty:"
 
 [node name="ButtonSection" type="HBoxContainer" parent="Difficulty"]
-margin_top = 18.0
-margin_right = 600.0
+margin_top = 63.0
+margin_right = 540.0
 margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Easy" type="Button" parent="Difficulty/ButtonSection"]
-margin_right = 197.0
-margin_bottom = 152.0
+[node name="Easy" type="TextureButton" parent="Difficulty/ButtonSection"]
+margin_right = 177.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
 toggle_mode = true
 pressed = true
-group = SubResource( 5 )
-text = "Easy"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+group = ExtResource( 12 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+stretch_mode = 5
 
-[node name="Normal" type="Button" parent="Difficulty/ButtonSection"]
-margin_left = 201.0
-margin_right = 398.0
-margin_bottom = 152.0
+[node name="Normal" type="TextureButton" parent="Difficulty/ButtonSection"]
+margin_left = 181.0
+margin_right = 358.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
-text = "Normal"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+group = ExtResource( 12 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
 
-[node name="Hard" type="Button" parent="Difficulty/ButtonSection"]
-margin_left = 402.0
-margin_right = 600.0
-margin_bottom = 152.0
+[node name="Hard" type="TextureButton" parent="Difficulty/ButtonSection"]
+margin_left = 362.0
+margin_right = 540.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
 toggle_mode = true
-group = SubResource( 5 )
-text = "Hard"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+group = ExtResource( 12 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 16 )
+expand = true
+stretch_mode = 5
 
 [node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
