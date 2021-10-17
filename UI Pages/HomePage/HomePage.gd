@@ -5,12 +5,23 @@ export(PackedScene) var reaction_game_instruction_page
 export(PackedScene) var judgement_game_instruction_page
 export(PackedScene) var observation_game_instruction_page
 export(PackedScene) var profile_page
+onready var memory_game_button = $Options/VBoxContainer/MemoryGameButton
+onready var judgement_game_button = $Options/VBoxContainer/JudgementGameButton
+onready var reaction_game_button = $Options/VBoxContainer/ReactionGameButton 
+onready var observation_game_button = $Options/VBoxContainer/ObservationGameButton 
+onready var statistics_button = $Options/VBoxContainer/StatisticPageButton 
 
 var document_task : FirestoreTask 
 var document: FirestoreDocument 
 var firestore_collection : FirestoreCollection
 
 func _ready():
+	memory_game_button.connect("scroll_button_pressed", self, "_on_MemoryGameButton_pressed")
+	judgement_game_button.connect("scroll_button_pressed", self, "_on_JudgementGameButton_pressed")
+	reaction_game_button.connect("scroll_button_pressed", self, "_on_ReactionGameButton_pressed")
+	observation_game_button.connect("scroll_button_pressed", self, "_on_ObservationGameButton_pressed")
+	statistics_button.connect("scroll_button_pressed", self, "_on_StatisticPageButton_pressed")
+	
 	print("test")
 	firestore_collection  = Firebase.Firestore.collection("userdata")
 	var player_email = GlobalScript.email

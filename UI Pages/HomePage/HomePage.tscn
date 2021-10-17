@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Art/Observation.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Art/StatisticPressed.png" type="Texture" id=18]
 [ext_resource path="res://Assets/UI/New folder/kenneyUI-blue.tres" type="Theme" id=19]
 [ext_resource path="res://Assets/Art/Profile.png" type="Texture" id=20]
+[ext_resource path="res://UI Pages/HomePage/ScrollButton.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -123,6 +124,7 @@ texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
 expand = true
 stretch_mode = 5
+script = ExtResource( 21 )
 
 [node name="JudgementGameButton" type="TextureButton" parent="Options/VBoxContainer"]
 margin_top = 344.0
@@ -134,6 +136,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 12 )
 expand = true
 stretch_mode = 5
+script = ExtResource( 21 )
 
 [node name="ReactionGameButton" type="TextureButton" parent="Options/VBoxContainer"]
 margin_top = 660.0
@@ -145,6 +148,7 @@ texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 14 )
 expand = true
 stretch_mode = 5
+script = ExtResource( 21 )
 
 [node name="ObservationGameButton" type="TextureButton" parent="Options/VBoxContainer"]
 margin_top = 977.0
@@ -156,6 +160,7 @@ texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 13 )
 expand = true
 stretch_mode = 5
+script = ExtResource( 21 )
 
 [node name="StatisticPageButton" type="TextureButton" parent="Options/VBoxContainer"]
 margin_top = 1293.0
@@ -167,10 +172,6 @@ texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 18 )
 expand = true
 stretch_mode = 5
+script = ExtResource( 21 )
 
 [connection signal="pressed" from="ProfileButton" to="." method="_on_ProfileButton_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/MemoryGameButton" to="." method="_on_MemoryGameButton_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/JudgementGameButton" to="." method="_on_JudgementGameButton_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/ReactionGameButton" to="." method="_on_ReactionGameButton_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/ObservationGameButton" to="." method="_on_ObservationGameButton_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/StatisticPageButton" to="." method="_on_StatisticPageButton_pressed"]
