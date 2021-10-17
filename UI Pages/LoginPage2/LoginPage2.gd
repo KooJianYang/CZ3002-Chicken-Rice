@@ -20,15 +20,16 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	#var Msg=$Message.text
 	$Message.visible=true
 	if str(message)=="INVALID_EMAIL":
-			$Message.text= "Invalid Email"
+		$Message.text= "Invalid Email"
 	elif str(message)=="MISSING_PASSWORD":
-			$Message.text= "Invalid Password"
+		$Message.text= "Invalid Password"
 	elif str(message)=="EMAIL_NOT_FOUND":
-			$Message.text= "Email not found! Please create account first"
+		$Message.text= "Email not found! Please create account first"
 	elif str(message)=="INVALID_PASSWORD":
-			$Message.text= "Username or password is incorrect"
+		$Message.text= "Username or password is incorrect"
 	else:
-		$Message.text="Unknown Error"
+		#$Message.text="Unknown Error"
+		$Message.text = str(message)
 	print("Error code: " + str(error_code))
 	print("Message: " + str(message))
 
