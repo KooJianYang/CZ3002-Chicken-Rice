@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI Pages/StatsPage/Stats.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Assets/Art/Left Button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Disabled Left or Right Button.png" type="Texture" id=8]
 [ext_resource path="res://addons/example_ChartGraph/line_chart_static.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/Fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Assets/Art/Table.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
@@ -22,7 +21,7 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 25
-font_data = ExtResource( 10 )
+font_data = ExtResource( 1 )
 
 [node name="StatsPage" type="Control"]
 anchor_right = 1.0
@@ -98,15 +97,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background3" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = -406.416
+margin_right = 305.0
+margin_bottom = 3.58411
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Background2" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -423.698
+margin_top = -400.684
 margin_right = 300.0
-margin_bottom = -23.6982
+margin_bottom = -0.684631
 color = Color( 0.592157, 0.807843, 0.819608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,9 +127,9 @@ __meta__ = {
 
 [node name="MemoryChart" parent="." instance=ExtResource( 9 )]
 margin_left = -403.958
-margin_top = -416.752
+margin_top = -393.738
 margin_right = 351.042
-margin_bottom = -29.7522
+margin_bottom = -6.73865
 
 [node name="Pages" type="HBoxContainer" parent="."]
 anchor_left = 0.5
@@ -124,9 +137,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -300.0
-margin_top = -1.00256
+margin_top = 8.29932
 margin_right = 300.0
-margin_bottom = 99.9974
+margin_bottom = 109.299
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -273,7 +286,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Average Score" type="VBoxContainer" parent="Table"]
+[node name="AverageScore" type="VBoxContainer" parent="Table"]
 margin_left = 212.0
 margin_right = 420.0
 margin_bottom = 181.0
@@ -283,7 +296,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Average Score" type="Label" parent="Table/Average Score"]
+[node name="Average Score" type="Label" parent="Table/AverageScore"]
 margin_right = 208.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
@@ -294,7 +307,7 @@ text = "Average Score"
 align = 1
 valign = 1
 
-[node name="Memory Average" type="Label" parent="Table/Average Score"]
+[node name="MemoryAverage" type="Label" parent="Table/AverageScore"]
 margin_top = 37.0
 margin_right = 208.0
 margin_bottom = 70.0
@@ -309,7 +322,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="React Average" type="Label" parent="Table/Average Score"]
+[node name="ReactAverage" type="Label" parent="Table/AverageScore"]
 margin_top = 74.0
 margin_right = 208.0
 margin_bottom = 107.0
@@ -324,7 +337,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Observation Average" type="Label" parent="Table/Average Score"]
+[node name="ObservationAverage" type="Label" parent="Table/AverageScore"]
 margin_top = 111.0
 margin_right = 208.0
 margin_bottom = 144.0
@@ -339,7 +352,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Judegement Average" type="Label" parent="Table/Average Score"]
+[node name="JudgementAverage" type="Label" parent="Table/AverageScore"]
 margin_top = 148.0
 margin_right = 208.0
 margin_bottom = 181.0
@@ -354,7 +367,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Global Average" type="VBoxContainer" parent="Table"]
+[node name="GlobalAverage" type="VBoxContainer" parent="Table"]
 margin_left = 424.0
 margin_right = 633.0
 margin_bottom = 181.0
@@ -364,7 +377,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Global Average" type="Label" parent="Table/Global Average"]
+[node name="Global Average" type="Label" parent="Table/GlobalAverage"]
 margin_right = 209.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
@@ -375,7 +388,7 @@ text = "Global Average"
 align = 1
 valign = 1
 
-[node name="Memory Global" type="Label" parent="Table/Global Average"]
+[node name="MemoryGlobal" type="Label" parent="Table/GlobalAverage"]
 margin_top = 37.0
 margin_right = 209.0
 margin_bottom = 70.0
@@ -389,7 +402,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="React Global" type="Label" parent="Table/Global Average"]
+[node name="ReactGlobal" type="Label" parent="Table/GlobalAverage"]
 margin_top = 74.0
 margin_right = 209.0
 margin_bottom = 107.0
@@ -403,7 +416,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Observation Global" type="Label" parent="Table/Global Average"]
+[node name="ObservationGlobal" type="Label" parent="Table/GlobalAverage"]
 margin_top = 111.0
 margin_right = 209.0
 margin_bottom = 144.0
@@ -417,7 +430,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Judegement Global" type="Label" parent="Table/Global Average"]
+[node name="JudgementGlobal" type="Label" parent="Table/GlobalAverage"]
 margin_top = 148.0
 margin_right = 209.0
 margin_bottom = 181.0
