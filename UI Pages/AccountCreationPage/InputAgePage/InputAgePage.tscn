@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://UI Pages/AccountCreationPage/InputAgePage/InputAgePage.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/DarkTheme/Dark.theme" type="Theme" id=2]
@@ -8,14 +8,22 @@
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Buttons/ConfirmButton.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Assets/Buttons/ResetPWButton.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Buttons/ResetPWButtonPressed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/OKButtonShort.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/OKButtonShortPressed.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 8 )
 
@@ -74,10 +82,15 @@ __meta__ = {
 [node name="Message" type="Label" parent="."]
 visible = false
 modulate = Color( 1, 0.0117647, 0.0117647, 1 )
-margin_left = 280.525
-margin_top = 923.943
-margin_right = 426.525
-margin_bottom = 968.94
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -262.5
+margin_top = 279.501
+margin_right = 262.5
+margin_bottom = 324.501
+custom_fonts/font = SubResource( 1 )
 text = "Message"
 align = 1
 valign = 1
@@ -94,18 +107,18 @@ margin_left = -272.0
 margin_top = 189.0
 margin_right = 272.0
 margin_bottom = 553.0
-custom_constants/separation = 30
+custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NameInput" type="LineEdit" parent="VBoxContainer"]
 margin_right = 544.0
-margin_bottom = 101.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 placeholder_text = "Name"
 placeholder_alpha = 1.0
@@ -115,13 +128,13 @@ __meta__ = {
 }
 
 [node name="AgeInput" type="LineEdit" parent="VBoxContainer"]
-margin_top = 131.0
+margin_top = 138.0
 margin_right = 544.0
-margin_bottom = 232.0
+margin_bottom = 226.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 align = 1
 placeholder_text = "Age"
 placeholder_alpha = 1.0
@@ -131,7 +144,7 @@ __meta__ = {
 }
 
 [node name="ConfirmAgeButton" type="TextureButton" parent="VBoxContainer"]
-margin_top = 262.0
+margin_top = 276.0
 margin_right = 544.0
 margin_bottom = 364.0
 size_flags_horizontal = 3
@@ -162,7 +175,7 @@ anchor_bottom = 1.0
 margin_left = -73.0
 margin_top = -534.0
 margin_right = 73.0
-margin_bottom = 454.0
+margin_bottom = 456.0
 color = Color( 0, 0, 0, 0.698039 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -186,6 +199,7 @@ margin_left = -285.0
 margin_top = -64.6786
 margin_right = 286.0
 margin_bottom = 55.3214
+custom_fonts/font = SubResource( 3 )
 text = "Message"
 align = 1
 valign = 1
@@ -212,7 +226,7 @@ margin_left = -77.6373
 margin_top = -131.262
 margin_right = 81.3627
 margin_bottom = -66.2623
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Notice"
 align = 1
 valign = 1
@@ -225,10 +239,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -129.0
-margin_top = 92.5
-margin_right = 129.0
-margin_bottom = 133.5
+margin_left = -181.0
+margin_top = 68.4706
+margin_right = 181.0
+margin_bottom = 126.471
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 9 )
