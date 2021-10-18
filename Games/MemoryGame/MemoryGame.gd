@@ -19,6 +19,7 @@ var document_task : FirestoreTask
 var document: FirestoreDocument 
 var firestore_collection : FirestoreCollection
 var firestore_collection2 : FirestoreCollection
+var firestore_collection3 : FirestoreCollection
 var currentTime
 var player_email
 
@@ -219,7 +220,10 @@ func endGame():
 	var totalNoOfPlays = getEasyNoOfPlays + getNormalNoOfPlays + getHardNoOfPlays
 	var totalAvg = totalScores / totalNoOfPlays
 	firestore_collection2.update("AvgScore",{'AvgScore': totalAvg, 'NoOfTimesPlayed': totalNoOfPlays, 'SumScore': totalScores})
-	
+	#if else age range group
+	var agegroup = "Age0"
+	firestore_collection3  = Firebase.Firestore.collection("global/"+agegroup)
+	firestore_collection3.update("")
 	deckGrid.visible = false
 	stats.visible = false
 	end.visible = true
