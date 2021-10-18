@@ -76,8 +76,11 @@ func _on_ConfirmAgeButton_pressed():
 		firestore_collection5.update("Normal",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 		firestore_collection5.update("Hard",{'HighScore': str(null), 'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
 		firestore_collection5.update("AvgScore",{'NoOfTimesPlayed': int(0), 'AvgScore': int(0), 'SumScore': int(0)})
-		
-		get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
+		var popup = $Popup
+		var message = $Popup/Message
+		popup.visible=true
+		message.text = "Account successfully created! Click OK to login"
 
-
+func _on_okButton_pressed():
+	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
 
