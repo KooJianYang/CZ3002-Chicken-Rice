@@ -15,6 +15,7 @@ var moves = 0
 var start_epoch
 var current_epoch
 var time_elapsed
+
 var document_task : FirestoreTask 
 var document: FirestoreDocument 
 var document_task2 : FirestoreTask 
