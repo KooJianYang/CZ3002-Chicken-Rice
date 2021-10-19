@@ -208,6 +208,7 @@ func endGame():
 	document4 = yield(document_task4, "get_document")
 	var getAvg = document4.doc_fields.get('AvgScore') 
 	#Global Data end
+	
 	firestore_collection2  = Firebase.Firestore.collection("userdata/"+player_email+"/MScore")
 	yield(get_tree().create_timer(0.5),"timeout")
 	document_task = firestore_collection2.get("Easy")
