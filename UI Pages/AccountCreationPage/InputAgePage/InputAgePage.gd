@@ -79,7 +79,7 @@ func _on_ConfirmAgeButton_pressed():
 		var popup = $Popup
 		var message = $Popup/Message
 		popup.visible=true
-		message.text = "Account successfully created! Click OK to login"
+		message.text = "Account successfully created \nClick OK to login"
 
 func _on_okButton_pressed():
 	get_tree().change_scene("res://UI Pages/LoginPage/LoginPage.tscn")
