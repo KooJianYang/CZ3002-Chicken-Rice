@@ -11,19 +11,19 @@
 [ext_resource path="res://Assets/Buttons/OKButtonShort.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Buttons/OKButtonShortPressed.png" type="Texture" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 6 )
-
 [sub_resource type="DynamicFont" id=3]
 size = 25
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 50
 font_data = ExtResource( 8 )
 
@@ -90,7 +90,7 @@ margin_left = -262.5
 margin_top = 279.501
 margin_right = 262.5
 margin_bottom = 324.501
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Message"
 align = 1
 valign = 1
@@ -118,7 +118,7 @@ margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 placeholder_text = "Name"
 placeholder_alpha = 1.0
@@ -134,7 +134,7 @@ margin_bottom = 226.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 placeholder_text = "Age"
 placeholder_alpha = 1.0
@@ -199,7 +199,7 @@ margin_left = -285.0
 margin_top = -64.6786
 margin_right = 286.0
 margin_bottom = 55.3214
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Message"
 align = 1
 valign = 1
@@ -226,7 +226,7 @@ margin_left = -77.6373
 margin_top = -131.262
 margin_right = 81.3627
 margin_bottom = -66.2623
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Notice"
 align = 1
 valign = 1
